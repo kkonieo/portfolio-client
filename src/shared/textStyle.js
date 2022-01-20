@@ -14,7 +14,6 @@ export const head_1 = css`
   font-weight: 500;
 `;
 
-
 // // 문항 제목
 // export const sub_1 = css`
 //   font-size: 1.4rem;
