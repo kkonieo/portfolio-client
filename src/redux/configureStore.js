@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
 
 // 사용할 미들웨어를 여기에 넣어줍니다.
 // thunk에는 history를 넣어줄거예요. (중간 다리 역할을 하는 미들웨어에서도 페이지 이동을 할 수 있게 하려고!)
-const middlewares = [thunk.withExtraArgument({ history: history })];
+const middlewares = [thunk.withExtraArgument({ history })];
 
 // 지금이 어느 환경인 지 알려줘요. (개발환경, 프로덕션(배포)환경 ...)
 const env = process.env.NODE_ENV;

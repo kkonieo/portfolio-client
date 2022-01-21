@@ -16,7 +16,6 @@ import PortfolioPage from '../pages/PortfolioPage';
 import PostListPage from '../pages/PostListPage';
 import PostPage from '../pages/PostPage';
 import EditorPage from '../pages/EditorPage';
-import MyPage from '../pages/MyPage';
 import TeamMemberPage from '../pages/TeamMemberPage';
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
           <Route exact path="/postlist" component={PostListPage} />
           <Route exact path="/post" component={PostPage} />
           <Route exact path="/editor" component={EditorPage} />
-          <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/team" component={TeamMemberPage} />
         </Switch>
       </ConnectedRouter>

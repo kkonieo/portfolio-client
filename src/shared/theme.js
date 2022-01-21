@@ -1,5 +1,5 @@
 const colors = {
-  main: 'f2273e',
+  main: 'blue',
 };
 
 const device = {
