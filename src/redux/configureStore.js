@@ -12,7 +12,6 @@ export const history = createBrowserHistory(); // connected-react-router에 필�
 
 // 가져온 리듀서를 루트 리듀서로 묶어줍니다.
 const rootReducer = combineReducers({
-  // 리듀서 묶음, 리듀서를 넣으세요.
   // user: User,
   // post: Post,
   router: connectRouter(history),
@@ -25,7 +24,6 @@ const middlewares = [thunk.withExtraArgument({ history })];
 // 지금이 어느 환경인 지 알려줘요. (개발환경, 프로덕션(배포)환경 ...)
 const env = process.env.NODE_ENV;
 
-// 개발환경에서는 로거라는 걸 하나만 더 써볼게요.
 if (env === 'development') {
   const { logger } = require('redux-logger'); // 배포환경에서는 import 안되도록 개발환경에서만 require로 불러옴.
   middlewares.push(logger);
@@ -41,7 +39,6 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-// 스토어 만들기
 let store = (initialStore) => createStore(rootReducer, enhancer);
 
 export default store();

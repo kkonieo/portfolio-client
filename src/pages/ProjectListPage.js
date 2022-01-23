@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
 
-const PortfolioListPage = () => {
+const ProjectListPage = () => {
   return (
     <PostTemplate>
       <Header page="headermenu" />
-      <h1>PortfolioListPage</h1>
+      <h1>ProjectListPage</h1>
     </PostTemplate>
   );
 };
 
-export default PortfolioListPage;
+export default ProjectListPage;

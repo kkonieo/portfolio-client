@@ -11,8 +11,8 @@ import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
 import UserListPage from '../pages/UserListPage';
 import HashTagPage from '../pages/HashTagPage';
-import PortfolioListPage from '../pages/PortfolioListPage';
-import PortfolioPage from '../pages/PortfolioPage';
+import ProjectListPage from '../pages/ProjectListPage';
+import ProjectPage from '../pages/ProjectPage';
 import PostListPage from '../pages/PostListPage';
 import PostPage from '../pages/PostPage';
 import EditorPage from '../pages/EditorPage';
@@ -28,8 +28,8 @@ function App() {
           <Route exact path="/main" component={MainPage} />
           <Route exact path="/userlist" component={UserListPage} />
           <Route exact path="/hashtag" component={HashTagPage} />
-          <Route exact path="/portfoliolist" component={PortfolioListPage} />
-          <Route exact path="/portfolio" component={PortfolioPage} />
+          <Route exact path="/projectlist" component={ProjectListPage} />
+          <Route exact path="/project" component={ProjectPage} />
           <Route exact path="/postlist" component={PostListPage} />
           <Route exact path="/post" component={PostPage} />
           <Route exact path="/editor" component={EditorPage} />

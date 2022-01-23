@@ -1,5 +1,3 @@
-// useFullscreen.js
-
 import React, { useRef } from 'react';
 
 const useFullscreen = (callback) => {
