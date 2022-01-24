@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const TeamMemberPage = () => {
   return (
     <MemberCard>
-      <p>Front-end, LEA</p>
+      <p>Front-end <br /> <b>LEA</b></p>
     </MemberCard>
   );
 };
@@ -18,7 +18,8 @@ const MemberCard = styled.div`
 
   text-align: center;
   font-size: 30px;
-  line-height: 200px;
+  // line-height: 200px;
+  padding: 130px 0;
 
   color: #ffffff;
 `;
