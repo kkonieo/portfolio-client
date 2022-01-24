@@ -17,8 +17,8 @@ const Header = (props) => {
           {props.page === 'headermenu' ? (
             <Nav>
               <List>
-                <Item onClick={() => history.push('/portfoliolist')}>
-                  Portfolio
+                <Item onClick={() => history.push('/projectlist')}>
+                  Project
                 </Item>
                 <Item onClick={() => history.push('/postlist')}>Blog</Item>
                 <Item onClick={() => history.push('/main')}>MyPage</Item>
