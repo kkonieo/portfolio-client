@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// redux
+import { history } from '../redux/configureStore';
+
 const Post = (props) => {
   return (
-    <PostBox>
+    <PostBox onClick={() => history.push(`/post/${props.id}`)}>
       <ImageWrapper>
         <Image src={props.thumbnail} alt="" />
       </ImageWrapper>

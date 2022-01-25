@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+
+// components
 import { logo, head_1 } from '../shared/textStyle';
 
 const Header = (props) => {
   const history = useHistory();
+
   return (
     <Container>
       <InsideBox>

@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { actionCreators as postActions } from '../redux/modules/post';
-
 // components & elements
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
@@ -11,7 +8,12 @@ import { head_2 } from '../shared/textStyle';
 import Post from '../components/Post';
 import { Button } from '../elements';
 
+// redux
+import { useSelector, useDispatch } from 'react-redux';
+import { actionCreators as postActions } from '../redux/modules/post';
+
 const PostListPage = (props) => {
+  const { history } = props;
   const dispatch = useDispatch();
   const post_list = useSelector((state) => state.post.list);
   // const isLogin = useSelector((state) => state.user.isLogin);
@@ -33,6 +35,10 @@ const PostListPage = (props) => {
           cursor="pointer"
           bg="transparent"
           color="var(--main)"
+          _onClick={() => history.push('/editor')}
+          // _onClick={() => {
+          //   history.push(`/editor/${p.id}`);
+          // }}
         >
           글쓰기
         </Button>

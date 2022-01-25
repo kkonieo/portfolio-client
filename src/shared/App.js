@@ -1,10 +1,7 @@
 import React from 'react';
 import GlobalStyle from '../shared/GlobalStyle';
-
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import { history } from '../redux/configureStore';
-// import { useDispatch, useSelector } from 'react-redux';
 
 // pages
 import IntroPage from '../pages/IntroPage';
@@ -18,6 +15,10 @@ import PostPage from '../pages/PostPage';
 import EditorPage from '../pages/EditorPage';
 import TeamMemberPage from '../pages/TeamMemberPage';
 
+// redux
+import { history } from '../redux/configureStore';
+// import { useDispatch, useSelector } from 'react-redux';
+
 function App() {
   return (
     <React.Fragment>
@@ -30,8 +31,9 @@ function App() {
           <Route exact path="/hashtag" component={HashTagPage} />
           <Route exact path="/projectlist" component={ProjectListPage} />
           <Route exact path="/project" component={ProjectPage} />
+          {/* <Route exact path="/project/:id" component={ProjectPage} /> */}
           <Route exact path="/postlist" component={PostListPage} />
-          <Route exact path="/post" component={PostPage} />
+          <Route exact path="/post/:id" component={PostPage} />
           <Route exact path="/editor" component={EditorPage} />
           <Route exact path="/team" component={TeamMemberPage} />
         </Switch>
