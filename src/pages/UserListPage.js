@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MembersData from '../data/MembersData';
+import UserData from '../data/UserData';
 import CurrentUser from '../components/CurrentUser';
+import PlusButton from '../components/PlusButton';
 
 
 
@@ -11,12 +12,12 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 const UserListPage = (props) => {
 
-  let [card, setCard] = useState(MembersData);
+  let [card, setCard] = useState(UserData);
 
   function UserCards(props) {
     return (
       <UserCard>
-        <img alt="" src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`} width="370px" />
+        <img alt="" src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`} width="500px" />
         <p>{props.card.position} <br /> <b>{props.card.name}</b></p>
       </UserCard>
     )
@@ -36,6 +37,8 @@ const UserListPage = (props) => {
         })
       }
 
+      <PlusButton />
+
   </UserWrapper>
 
   )};
@@ -52,24 +55,23 @@ background-color: var(--main);
 
 const UserCard = styled.div`
 
-  justify-content: center;
-  width: 200px;
-  height: 200px;
+  // justify-content: center;
+  width: 220px;
+  height: 220px;
   cursor: pointer;
   overflow: hidden;
 
   float: left;
 
-  background-color: var(--main);
+  background-color: #39bbd3;
   border-radius: 50%;
-  dispaly: flex;
-  // margin-left: 60px;
+  // dispaly: flex;
+  margin-right: 40px;
   margin-bottom: 30px;
 
   // text-align: center;
   font-size: 30px;
-  // line-height: 200px;
-  // padding: 130px 0;
+
 
   color: #ffffff;
   align-items: center;

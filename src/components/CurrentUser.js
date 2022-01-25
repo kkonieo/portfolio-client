@@ -11,9 +11,10 @@ const CurrentUser = () => {
 
 const CurrentUserCard = styled.div`
 
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   cursor: pointer;
+  float: left;
   overflow: hidden;
 
   background-color: #ffffff;
@@ -22,6 +23,8 @@ const CurrentUserCard = styled.div`
   color: var(--main);
   text-align: center;
   line-height: 120px;
+
+  margin-right: 30px;
 
   &:hover {
     color: #ffffff;

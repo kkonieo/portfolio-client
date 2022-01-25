@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const PlusButton = () => {
   return (
   <UserPlusButton>
-    <p>ME</p>
+    <p>+</p>
   </UserPlusButton>);
 };
 
 const UserPlusButton = styled.div`
 
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   cursor: pointer;
   overflow: hidden;
 
