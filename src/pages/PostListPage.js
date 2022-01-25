@@ -7,6 +7,8 @@ import { PostTemplate } from '../components/Template';
 import { head_2 } from '../shared/textStyle';
 
 const PostListPage = (props) => {
+
+
   return (
     <PostTemplate>
       <Header page="headermenu" />
@@ -40,10 +42,18 @@ const PostWrapper = styled.section`
   justify-content: space-between;
   border: 1px solid pink;
   margin: 0 auto;
+  ${({ theme }) => theme.device.mobile} {
+    flex-wrap: wrap;
+    min-width: 28rem;
+  }
 `;
 
 const ImageBox = styled.div`
   padding: 1rem;
+  ${({ theme }) => theme.device.mobile} {
+    min-width: 28rem;
+    padding: 0;
+  }
 `;
 
 const PostImage = styled.img`
@@ -52,6 +62,10 @@ const PostImage = styled.img`
   background-position: center;
   background-size: cover;
   border-radius: 8px;
+  ${({ theme }) => theme.device.mobile} {
+    min-width: 28rem;
+    padding: 0;
+  }
 `;
 
 const TextWrapper = styled.div`
