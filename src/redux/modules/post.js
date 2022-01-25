@@ -69,24 +69,25 @@ const getPostAX = () => {
     // const user = getState().user.user;
     // const user_info = {
     //   user_id: 1,
-    //   user_email: 'user_email',
     //   user_nickname: 'user_nickname',
+    //   user_profile: 'user_profile',
     // };
 
     axios
-      // .get('https://jsonplaceholder.typicode.com/photos')
       .get('https://jsonplaceholder.typicode.com/posts')
       .then((res) => {
-        // console.log(res.data);
-
         let post_list = [];
 
         res.data.forEach((_post) => {
           let post = {
             post_id: _post.id,
+            // ...user_info,
+            title: _post.title,
+            description: _post.body,
+            thumbnail: _post.thumbnailUrl,
+            insert_dt: _post.created_at,
             // contents: _post.title,
-            contents: _post.body,
-            images: _post.thumbnailUrl,
+            // images: _post.thumbnailUrl,
             // url: _post.url,
           };
           post_list.push(post);
@@ -120,6 +121,7 @@ const actionCreators = {
   setPost,
   addPost,
   getPostAX,
+  // getProjectAX,
 };
 
 export { actionCreators };
