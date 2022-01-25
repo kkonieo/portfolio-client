@@ -75,7 +75,7 @@ const UserListSection = styled.div`
   justify-content: center;
   position: absolute;
 
-  margin-top: 250px;
+  margin-top: 230px;
   left: 6%;
 `;
 
@@ -93,7 +93,7 @@ const UserCard = styled.div`
   border-radius: 50%;
   // dispaly: flex;
   margin-right: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   // text-align: center;
 
