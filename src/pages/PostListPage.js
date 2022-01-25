@@ -9,10 +9,12 @@ import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
 import { head_2 } from '../shared/textStyle';
 import Post from '../components/Post';
+import { Button } from '../elements';
 
 const PostListPage = (props) => {
   const dispatch = useDispatch();
   const post_list = useSelector((state) => state.post.list);
+  // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
     if (post_list.length === 0) {
@@ -23,8 +25,19 @@ const PostListPage = (props) => {
   return (
     <PostTemplate>
       <Header page="headermenu" />
-      <Title>Project</Title>
-      {/* <Post /> */}
+      <BtnWrapper>
+        <Title>Project</Title>
+        {/* {!isLogin ? ( */}
+        <Button
+          size="1.5rem"
+          cursor="pointer"
+          bg="transparent"
+          color="var(--main)"
+        >
+          글쓰기
+        </Button>
+        {/* ) : null} */}
+      </BtnWrapper>
       {post_list.map((p, idx) => (
         <Post key={p.post_id} {...p}>
           {p.description}
@@ -33,6 +46,15 @@ const PostListPage = (props) => {
     </PostTemplate>
   );
 };
+
+const BtnWrapper = styled.section`
+  display: flex;
+  justify-content: space-between;
+  ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+    min-width: 28rem;
+  }
+`;
 
 const Title = styled.h2`
   ${head_2};
