@@ -4,33 +4,34 @@ import styled from 'styled-components';
 const Post = (props) => {
   return (
     <div>
-      <PostWrapper>
-        <ImageBox>
+      <PostBox>
+        <ImageWrapper>
           <PostImage src={props.image_url} alt="" />
-        </ImageBox>
+        </ImageWrapper>
         <TextWrapper>
           <Text>{props.contents}</Text>
           <Text style={{ color: 'var(--gray)' }}>{props.insert_dt}</Text>
         </TextWrapper>
-      </PostWrapper>
+      </PostBox>
     </div>
   );
 };
 
-const PostWrapper = styled.section`
+const PostBox = styled.section`
   width: 100%;
   display: flex;
   cursor: pointer;
   justify-content: space-between;
   border: 1px solid pink;
   margin: 0 auto;
+  padding-bottom: 2rem;
   ${({ theme }) => theme.device.mobile} {
-    flex-wrap: wrap;
     min-width: 28rem;
+    flex-wrap: wrap;
   }
 `;
 
-const ImageBox = styled.div`
+const ImageWrapper = styled.div`
   padding: 1rem;
   ${({ theme }) => theme.device.mobile} {
     min-width: 28rem;
@@ -39,12 +40,13 @@ const ImageBox = styled.div`
 `;
 
 const PostImage = styled.img`
-  width: 100%;
-  min-width: 21rem;
+  width: 25rem;
+  /* min-width: 21rem; */
   background-position: center;
   background-size: cover;
   border-radius: 8px;
   ${({ theme }) => theme.device.mobile} {
+    width: 100%;
     min-width: 28rem;
     padding: 0;
   }
