@@ -23,6 +23,9 @@ const TeamMemberPage = (props) => {
 
   return (
     <TeamSection>
+
+      <p>안녕하세요. JS ON 입니다.</p>
+
       {
         card.map((membersdata, i)=> {
           return <MemberCards card={membersdata} />
@@ -37,6 +40,7 @@ const TeamSection = styled.div`
   margin-top: 80px;
   width: 100%;
   height: 100vh;
+  text-align: center;
 
   // background-color: var(--main);
 
@@ -45,8 +49,8 @@ const TeamSection = styled.div`
 const MemberCard = styled.div`
 
   justify-content: center;
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   cursor: pointer;
   overflow: hidden;
 
