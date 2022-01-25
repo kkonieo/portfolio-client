@@ -9,7 +9,7 @@ export const MembersData = [
   {
     id: 1,
     position: 'front-end',
-    name: 'Jingyeong'
+    name: 'JinZero'
   },
 
   {
@@ -27,13 +27,13 @@ export const MembersData = [
   {
     id: 4,
     position: 'back-end',
-    name: 'Glory'
+    name: 'Glory(2ykwang)'
   },
 
   {
     id: 5,
     position: 'back-end',
-    name: 'Bottlesoo'
+    name: 'BottleWater'
   },
 
 

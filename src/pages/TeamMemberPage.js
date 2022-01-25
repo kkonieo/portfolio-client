@@ -1,13 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const TeamMemberPage = () => {
+import MembersData from '../Data/MembersData';
+
+const TeamMemberPage = (props) => {
+
+  let [card, setCard] = useState(MembersData);
+
+  function MemberCards(props) {
+    return (
+      <MemberCard>
+        <p>{props.card.position} <br /> <b>{props.card.name}</b></p>
+      </MemberCard>
+    )
+  };
+
   return (
-    <MemberCard>
-      <p>Front-end <br /> <b>LEA</b></p>
-    </MemberCard>
-  );
+    <TeamSection>
+      {
+        card.map((membersdata, i)=> {
+          return <MemberCards card={membersdata} />
+        })
+      }
+    </TeamSection>
+  )
+
 };
+
+const TeamSection = styled.div`
+  margin-top: 80px;
+  // display: flex;
+  // flex-direction: row;
+`;
 
 const MemberCard = styled.div`
   width: 350px;
@@ -22,6 +46,7 @@ const MemberCard = styled.div`
   padding: 130px 0;
 
   color: #ffffff;
+  align-items: center;
 `;
 
 export default TeamMemberPage;
