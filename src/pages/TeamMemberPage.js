@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-import MembersData from '../Data/MembersData';
+import MembersData from '../data/MembersData';
 
 
 const env = process.env;
