@@ -26,10 +26,10 @@ const PostListPage = (props) => {
       <Title>Project</Title>
       {/* <Post /> */}
       {post_list.map((p, idx) => (
-          <Post  key={p.post_id} {...p}>
-            {p.contents}
-          </Post>
-        ))}
+        <Post key={p.post_id} {...p}>
+          {p.description}
+        </Post>
+      ))}
     </PostTemplate>
   );
 };
