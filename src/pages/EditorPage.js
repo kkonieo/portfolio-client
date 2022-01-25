@@ -31,17 +31,17 @@ const EditorPage = () => {
     console.log('--HTML--');
     console.log(getContent_html);
 
-    Viewer.setHtml(getContent_html);
+    alert(data);
+    // 저장시 제목, 태그(?), 내용(data) 서버전송 , 화면에서 조회(출력) 시 Viewer의 initialValue를 data 로 출력하도록 하자
   };
 
-  // 저장시 getContent_html 로 저장 , Viewer에 출력하도록 하자
-
   return (
-    <div style={{ width: '1000px', padding: '50px' }}>
+    <div style={{ width: '100%', height: '100%', padding: '50px' }}>
       <Editor
         height="600px"
         initialEditType="markdown"
         useCommandShortcut={true}
+        previewStyle="vertical"
         plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
         onChange={() => {
           const innerTxt = editorRef.current.getInstance().getHTML();
@@ -50,9 +50,8 @@ const EditorPage = () => {
         ref={editorRef}
       />
       <button onClick={submitButton}>전송</button>
-      <div>{data}</div>
 
-      <Viewer initialValue={data} />
+      {/* <Viewer initialValue={저장된 값} /> */}
     </div>
   );
 };
