@@ -1,18 +1,22 @@
 import { css } from 'styled-components';
 
-
 // 로고
 export const logo = css`
   font-size: 1.8rem;
   font-weight: 600;
-  `;
+`;
 
 // Header Menu
 export const head_1 = css`
   font-size: 1.2rem;
   font-weight: 600;
-  
-  `;
+`;
+
+// 페이지별 Title
+export const head_2 = css`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
 
 // 아래는 예시입니다.
 

@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root{
         --main: #279eea;
+        --gray: #808080;
+
     }
     
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
