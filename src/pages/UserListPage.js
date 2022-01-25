@@ -27,7 +27,7 @@ const UserListPage = (props) => {
   return (
     <UserWrapper>
 
-      {/* <p>안녕하세요. JS ON 입니다.</p> */}
+      <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
 
       <UserListSection>
 
@@ -59,12 +59,23 @@ const UserWrapper = styled.div`
 
 `;
 
+const UserListTitle = styled.div`
+
+  position: absolute;
+  color: #ffffff;
+  font-size: 35px;
+
+  margin-top: 80px;
+  left: 6%;
+
+`;
+
 const UserListSection = styled.div`
 
   justify-content: center;
   position: absolute;
 
-  margin-top: 50px;
+  margin-top: 250px;
   left: 6%;
 `;
 

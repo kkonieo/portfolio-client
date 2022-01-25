@@ -48,35 +48,35 @@ export const UserData = [
     name: 'BottleWater'
   },
 
-  {
-    id: 8,
-    position: 'back-end',
-    name: 'BottleWater'
-  },
+  // {
+  //   id: 8,
+  //   position: 'back-end',
+  //   name: 'BottleWater'
+  // },
 
-  {
-    id: 9,
-    position: 'back-end',
-    name: 'BottleWater'
-  },
+  // {
+  //   id: 9,
+  //   position: 'back-end',
+  //   name: 'BottleWater'
+  // },
 
-  {
-    id: 10,
-    position: 'back-end',
-    name: 'BottleWater'
-  },
+  // {
+  //   id: 10,
+  //   position: 'back-end',
+  //   name: 'BottleWater'
+  // },
 
-  {
-    id: 11,
-    position: 'back-end',
-    name: 'BottleWater'
-  },
+  // {
+  //   id: 11,
+  //   position: 'back-end',
+  //   name: 'BottleWater'
+  // },
 
-  {
-    id: 12,
-    position: 'back-end',
-    name: 'BottleWater'
-  },
+  // {
+  //   id: 12,
+  //   position: 'back-end',
+  //   name: 'BottleWater'
+  // },
 
 
 
