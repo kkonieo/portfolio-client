@@ -86,11 +86,12 @@ const List = styled.ul`
 
 const Item = styled.li`
   ${head_1}
-  list-style: none;
-  margin: 0;
-  padding: 0.3rem 2rem;
-  color: var(--main);
   cursor: pointer;
+  list-style: none;
+  color: var(--main);
+  margin: 0.3rem 2rem;
+  /* padding: 0.3rem 2rem; */
+  /* border:1px solid green; */
 `;
 
 export default Header;
