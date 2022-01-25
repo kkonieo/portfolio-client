@@ -27,30 +27,45 @@ const UserListPage = (props) => {
   return (
     <UserWrapper>
 
-      <p>안녕하세요. JS ON 입니다.</p>
+      {/* <p>안녕하세요. JS ON 입니다.</p> */}
 
-      <CurrentUser />
+      <UserListSection>
 
-      {
-        card.map((membersdata, i)=> {
-          return <UserCards card={membersdata} />
-        })
-      }
+        <CurrentUser />
 
-      <PlusButton />
+        {
+          card.map((membersdata, i)=> {
+            return <UserCards card={membersdata} />
+          })
+        }
+
+        <PlusButton />
+
+      </UserListSection>
 
   </UserWrapper>
 
   )};
 
 const UserWrapper = styled.div`
-margin-top: 80px;
-width: 100%;
-height: 100vh;
-text-align: center;
 
-background-color: var(--main);
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
 
+  background-color: var(--main);
+  position: relative;
+
+`;
+
+const UserListSection = styled.div`
+
+  justify-content: center;
+  position: absolute;
+
+  margin-top: 50px;
+  left: 6%;
 `;
 
 const UserCard = styled.div`
@@ -70,12 +85,15 @@ const UserCard = styled.div`
   margin-bottom: 30px;
 
   // text-align: center;
-  font-size: 30px;
-
 
   color: #ffffff;
   align-items: center;
   position: relative;
+
+  p {
+    font-size: 25px;
+    margin-top: 75px;
+  }
 
   img {
     object-fit: cover;

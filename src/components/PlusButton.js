@@ -20,7 +20,7 @@ const UserPlusButton = styled.div`
 
   color: var(--main);
   text-align: center;
-  line-height: 120px;
+  line-height: 140px;
 
   &:hover {
     color: #ffffff;
@@ -29,6 +29,7 @@ const UserPlusButton = styled.div`
 
   p {
     font-size: 40px;
+    font-weight: bold;
   }
 
 `;

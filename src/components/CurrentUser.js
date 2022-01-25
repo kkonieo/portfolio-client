@@ -22,7 +22,7 @@ const CurrentUserCard = styled.div`
 
   color: var(--main);
   text-align: center;
-  line-height: 120px;
+  line-height: 140px;
 
   margin-right: 30px;
 
@@ -33,6 +33,7 @@ const CurrentUserCard = styled.div`
 
   p {
     font-size: 40px;
+    font-weight: bold;
   }
 
 `;
