@@ -43,30 +43,30 @@ Button.defaultProps = {
   children: null,
   _onClick: () => {},
   margin: false,
-  width: '100%',
-  height: '100%',
-  size: '',
+  width: '',
+  // height: '',
+  size: false,
   padding: false,
   bg: false,
-  color: '',
-  radius: '',
-  cursor: '',
-  border: '',
+  color: false,
+  radius: false,
+  cursor: false,
+  border: false,
 };
 
 const ElButton = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  ${(props) => (props.size ? `font-size: ${props.size}` : '')}
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
-  ${(props) => (props.color ? `color: ${props.color};` : '')}
+  ${(props) => (props.size ? `font-size: ${props.size}` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   box-sizing: border-box;
   border: none;
-  ${(props) => (props.radius ? `border-radius: ${props.radius};` : '')}
-  ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
-  ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
+  ${(props) => (props.radius ? `border-radius: ${props.radius};` : '')};
+  ${(props) => (props.padding ? `padding: ${props.padding};` : '')};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
   ${(props) => (props.cursor ? `cursor: pointer;` : '')};
-  ${(props) => (props.border ? `border: ${props.border}` : '')}
+  ${(props) => (props.border ? `border: ${props.border}` : '')};
 `;
 
 export default Button;
