@@ -24,7 +24,7 @@ const PostBox = styled.section`
   justify-content: space-between;
   border: 1px solid pink;
   margin: 0 auto;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
   ${({ theme }) => theme.device.mobile} {
     min-width: 28rem;
     flex-wrap: wrap;
