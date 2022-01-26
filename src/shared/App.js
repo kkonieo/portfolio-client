@@ -30,8 +30,7 @@ function App() {
           <Route exact path="/userlist" component={UserListPage} />
           <Route exact path="/hashtag" component={HashTagPage} />
           <Route exact path="/projectlist" component={ProjectListPage} />
-          <Route exact path="/project" component={ProjectPage} />
-          {/* <Route exact path="/project/:id" component={ProjectPage} /> */}
+          <Route exact path="/project/:id" component={ProjectPage} />
           <Route exact path="/postlist" component={PostListPage} />
           <Route exact path="/post/:id" component={PostPage} />
           <Route exact path="/editor" component={EditorPage} />
