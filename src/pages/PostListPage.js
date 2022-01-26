@@ -28,7 +28,7 @@ const PostListPage = (props) => {
     <PostTemplate>
       <Header page="headermenu" />
       <BtnWrapper>
-        <Title>Project</Title>
+        <Title>Post</Title>
         {/* {!isLogin ? ( */}
         <Button
           size="1.5rem"
