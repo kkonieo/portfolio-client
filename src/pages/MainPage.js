@@ -8,6 +8,7 @@ const MainPage = () => {
   return (
     <MainTemplate>
       {/* <Header /> */}
+      {/* start */}
       <Header page="headermenu" />
     </MainTemplate>
   );

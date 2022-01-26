@@ -38,7 +38,7 @@ const Container = styled.header`
   z-index: 20;
   width: 100%;
   height: 80px;
-  background-color: white;
+  background-color:transparent;
   /* border: 1px solid black; */
 `;
 
