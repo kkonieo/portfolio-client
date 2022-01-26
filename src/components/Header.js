@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+
+// components
 import { logo, head_1 } from '../shared/textStyle';
 
 const Header = (props) => {
   const history = useHistory();
+
   return (
     <Container>
       <InsideBox>
@@ -17,8 +20,8 @@ const Header = (props) => {
           {props.page === 'headermenu' ? (
             <Nav>
               <List>
-                <Item onClick={() => history.push('/portfoliolist')}>
-                  Portfolio
+                <Item onClick={() => history.push('/projectlist')}>
+                  Project
                 </Item>
                 <Item onClick={() => history.push('/postlist')}>Blog</Item>
                 <Item onClick={() => history.push('/main')}>MyPage</Item>
@@ -86,11 +89,12 @@ const List = styled.ul`
 
 const Item = styled.li`
   ${head_1}
-  list-style: none;
-  margin: 0;
-  padding: 0.3rem 2rem;
-  color: var(--main);
   cursor: pointer;
+  list-style: none;
+  color: var(--main);
+  margin: 0.3rem 2rem;
+  /* padding: 0.3rem 2rem; */
+  /* border:1px solid green; */
 `;
 
 export default Header;

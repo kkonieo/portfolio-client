@@ -3,9 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root{
         --main: #279eea;
+        --gray: #808080;
     }
-
-    /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap'); */
+    
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
   * {
         font-family: 'Jua', sans-serif;
         box-sizing: border-box;
