@@ -52,6 +52,7 @@ const UserWrapper = styled.div`
   margin: auto;
   width: 100%;
   height: 100vh;
+  display: flex;
   text-align: center;
 
   background-color: var(--main);
