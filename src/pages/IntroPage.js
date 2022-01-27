@@ -8,13 +8,12 @@ import UserListPage from './UserListPage';
 const IntroPage = () => {
   return (
     <>
-    <MainTemplate>
-      {/* <Header /> */}
-      <Header page="headermenu" />
-    </MainTemplate>
-    <UserListPage />
+      <MainTemplate>
+        {/* <Header /> */}
+        <Header page="headermenu" />
+      </MainTemplate>
+      <UserListPage />
     </>
-    
   );
 };
 

@@ -6,7 +6,6 @@ import { ConnectedRouter } from 'connected-react-router';
 // pages
 import IntroPage from '../pages/IntroPage';
 import MainPage from '../pages/MainPage';
-import UserListPage from '../pages/UserListPage';
 import HashTagPage from '../pages/HashTagPage';
 import ProjectListPage from '../pages/ProjectListPage';
 import ProjectPage from '../pages/ProjectPage';
@@ -27,7 +26,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={IntroPage} />
           <Route exact path="/main" component={MainPage} />
-          <Route exact path="/userlist" component={UserListPage} />
+          {/* <Route exact path="/userlist" component={UserListPage} /> */}
           <Route exact path="/hashtag" component={HashTagPage} />
           <Route exact path="/projectlist" component={ProjectListPage} />
           <Route exact path="/project/:id" component={ProjectPage} />

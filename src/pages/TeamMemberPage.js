@@ -1,39 +1,38 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import MembersData from '../data/MembersData';
 
-
 const env = process.env;
-env.PUBLIC_URL = env.PUBLIC_URL || "";
-
+env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const TeamMemberPage = (props) => {
-
   let [card, setCard] = useState(MembersData);
 
   function MemberCards(props) {
     return (
       <MemberCard>
-        <img alt="" src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`} width="370px" />
-        <p>{props.card.position} <br /> <b>{props.card.name}</b></p>
+        <img
+          alt=""
+          src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`}
+          width="370px"
+        />
+        <p>
+          {props.card.position} <br /> <b>{props.card.name}</b>
+        </p>
       </MemberCard>
-    )
-  };
+    );
+  }
 
   return (
     <TeamSection>
-
       <p>안녕하세요. JS ON 입니다.</p>
 
-      {
-        card.map((membersdata, i)=> {
-          return <MemberCards card={membersdata} />
-        })
-      }
+      {card.map((membersdata, i) => {
+        return <MemberCards card={membersdata} />;
+      })}
     </TeamSection>
-  )
-
+  );
 };
 
 const TeamSection = styled.div`
@@ -43,11 +42,9 @@ const TeamSection = styled.div`
   text-align: center;
 
   // background-color: var(--main);
-
 `;
 
 const MemberCard = styled.div`
-
   justify-content: center;
   width: 280px;
   height: 280px;
@@ -58,7 +55,7 @@ const MemberCard = styled.div`
 
   background-color: var(--main);
   border-radius: 50%;
-  dispaly: flex;
+  display: flex;
   margin-left: 60px;
   margin-bottom: 30px;
 
@@ -83,8 +80,6 @@ const MemberCard = styled.div`
     width: 100%;
     height: 100%;
   }
-
-
 `;
 
 export default TeamMemberPage;

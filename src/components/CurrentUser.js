@@ -6,11 +6,10 @@ const CurrentUser = () => {
     <CurrentUserCard>
       <p>ME</p>
     </CurrentUserCard>
-  )
+  );
 };
 
 const CurrentUserCard = styled.div`
-
   width: 220px;
   height: 220px;
   cursor: pointer;
@@ -35,6 +34,5 @@ const CurrentUserCard = styled.div`
     font-size: 40px;
     font-weight: bold;
   }
-
 `;
 export default CurrentUser;
