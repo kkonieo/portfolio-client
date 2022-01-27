@@ -81,9 +81,8 @@ const UserCard = styled.div`
 
   float: left;
 
-  background-color: #39bbd3;
+  background-color: var(--darkblue);
   border-radius: 50%;
-  // dispaly: flex;
   margin-right: 40px;
   margin-bottom: 50px;
 
