@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import MembersData from '../data/MembersData';
+import { MainTemplate } from '../components/Template';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -25,47 +26,64 @@ const TeamMemberPage = (props) => {
   }
 
   return (
-    <TeamSection>
-      <p>안녕하세요. JS ON 입니다.</p>
+    <TeamMembers>
+      <MainTemplate>
+        <TeamSection>
+          {/* <TeamTitle>Hi! We ard JS ON Members</TeamTitle> */}
 
-      {card.map((membersdata, i) => {
-        return <MemberCards card={membersdata} />;
-      })}
-    </TeamSection>
+          <CardSection>
+            {card.map((membersdata, i) => {
+              return <MemberCards card={membersdata} />;
+            })}
+          </CardSection>
+        </TeamSection>
+      </MainTemplate>
+    </TeamMembers>
   );
 };
 
-const TeamSection = styled.div`
-  margin-top: 80px;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
+const TeamMembers = styled.div`
+  background-color: var(--main);
+`;
 
-  // background-color: var(--main);
+const TeamSection = styled.div`
+  text-align: center;
+  width: 100%;
+  height: 580px;
+  display: flex;
+
+  background-color: var(--main);
+
+  p {
+    color: #ffffff;
+    font-size: 35px;
+  }
+`;
+
+const CardSection = styled.div`
+  margin: auto 0;
+  align-items: center;
+  position: absolute;
 `;
 
 const MemberCard = styled.div`
-  justify-content: center;
   width: 280px;
   height: 280px;
   cursor: pointer;
+  margin-right: 60px;
   overflow: hidden;
 
   float: left;
 
   background-color: var(--main);
   border-radius: 50%;
-  display: flex;
-  margin-left: 60px;
+
+  text-align: center;
   margin-bottom: 30px;
 
-  // text-align: center;
   font-size: 30px;
-  // line-height: 200px;
-  // padding: 130px 0;
 
   color: #ffffff;
-  align-items: center;
   position: relative;
 
   img {
@@ -79,6 +97,11 @@ const MemberCard = styled.div`
 
     width: 100%;
     height: 100%;
+  }
+
+  img:hover {
+    opacity: 0.1;
+    background-color: var(--darkblue);
   }
 `;
 

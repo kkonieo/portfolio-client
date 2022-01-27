@@ -73,7 +73,6 @@ const UserListSection = styled.div`
 `;
 
 const UserCard = styled.div`
-  // justify-content: center;
   width: 220px;
   height: 220px;
   cursor: pointer;
