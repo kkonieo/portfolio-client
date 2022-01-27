@@ -19,6 +19,7 @@ const IntroPage = () => {
               당신의 포트폴리오를
               <br /> 가장 쉽고 직관적이게 <br /> 관리하세요.
             </p>
+            <StartButton>START</StartButton>
           </TitleSection>
         </IntroSection>
       </MainTemplate>
@@ -50,7 +51,25 @@ const TitleSection = styled.div`
   color: var(--main);
 
   p {
-    margin-top: 30%;
+    margin-top: 23%;
+  }
+`;
+
+const StartButton = styled.div`
+  text-align: center;
+  cursor: pointer;
+
+  width: 130px;
+  height: 45px;
+
+  border-radius: 15px;
+  background-color: var(--main);
+
+  color: #ffffff;
+  font-size: 37px;
+
+  &:hover {
+    background-color: var(--darkblue);
   }
 `;
 
