@@ -4,8 +4,9 @@ const GlobalStyle = createGlobalStyle`
     :root{
         --main: #279eea;
         --gray: #808080;
+        --darkblue: #0c7bc1;
     }
-    
+
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
   * {
         font-family: 'Jua', sans-serif;
@@ -21,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-	}
+    }
 
 `;
 

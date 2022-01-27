@@ -27,7 +27,7 @@ const CurrentUserCard = styled.div`
 
   &:hover {
     color: #ffffff;
-    background: #39bbd3;
+    background: var(--darkblue);
   }
 
   p {

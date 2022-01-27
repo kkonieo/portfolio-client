@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const PlusButton = () => {
   return (
-  <UserPlusButton>
-    <p>+</p>
-  </UserPlusButton>);
+    <UserPlusButton>
+      <p>+</p>
+    </UserPlusButton>
+  );
 };
 
 const UserPlusButton = styled.div`
-
   width: 220px;
   height: 220px;
   cursor: pointer;
@@ -24,14 +24,13 @@ const UserPlusButton = styled.div`
 
   &:hover {
     color: #ffffff;
-    background: #39bbd3;
+    background: var(--darkblue);
   }
 
   p {
     font-size: 40px;
     font-weight: bold;
   }
-
 `;
 
 export default PlusButton;
