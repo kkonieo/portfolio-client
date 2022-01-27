@@ -6,10 +6,10 @@ const SearchBox = () => {
     <SearchForm>
       <input type="text" placeholder="이름or닉네임을 입력하세요" autoFocus />
       <SearchButton>
-        <span>검색</span>
+        <p>검색</p>
       </SearchButton>
       <DetailButton>
-        <span>상세검색</span>
+        <p>상세검색</p>
       </DetailButton>
     </SearchForm>
   );
@@ -18,7 +18,6 @@ const SearchBox = () => {
 const SearchForm = styled.div`
   margin-top: 80px;
   right: 7%;
-  justify-content: center;
   position: absolute;
   display: flex;
 
@@ -62,8 +61,8 @@ const SearchButton = styled.div`
   width: 70px;
   height: 30px;
   background-color: #ffffff;
+  line-height: 2px;
 
-  justify-content: center;
   text-align: center;
   color: var(--darkblue);
   cursor: pointer;
@@ -78,6 +77,8 @@ const DetailButton = styled.div`
   position: relative;
   width: 70px;
   height: 30px;
+  line-height: 2px;
+
   background-color: var(--darkblue);
   justify-content: center;
   color: #ffffff;

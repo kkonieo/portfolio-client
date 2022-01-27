@@ -110,6 +110,11 @@ const UserCard = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  img:hover {
+    opacity: 0.1;
+    background-color: var(--darkblue);
+  }
 `;
 
 export default UserListPage;
