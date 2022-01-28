@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//components & elements
+import { Image } from '../elements';
+
 // redux
 import { history } from '../redux/configureStore';
 
@@ -8,7 +11,7 @@ const Project = (props) => {
   return (
     <ProjectBox onClick={() => history.push(`/project/${props.id}`)}>
       <ImageWrapper>
-        <Image src={props.thumbnail} alt="" />
+        <Image M_width size="25" shape="rectangle" src={props.thumbnail} />
       </ImageWrapper>
       <TextWrapper>
         <Text>{props.description}</Text>
@@ -38,16 +41,16 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
-  width: 25rem;
-  background-position: center;
-  background-size: cover;
-  border-radius: 8px;
-  ${({ theme }) => theme.device.mobile} {
-    width: 100%;
-    min-width: 28rem;
-  }
-`;
+// const Image = styled.img`
+//   width: 25rem;
+//   background-position: center;
+//   background-size: cover;
+//   border-radius: 8px;
+//   ${({ theme }) => theme.device.mobile} {
+//     width: 100%;
+//     min-width: 28rem;
+//   }
+// `;
 
 const TextWrapper = styled.div`
   padding: 0.3rem 0 0.5rem 1rem;
