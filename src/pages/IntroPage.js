@@ -62,14 +62,16 @@ const StartButton = styled.div`
   width: 130px;
   height: 45px;
 
-  border-radius: 15px;
-  background-color: var(--main);
+  // border-radius: 15px;
+  // background-color: var(--main);
 
-  color: #ffffff;
+  color: var(--main);
+  border: 3px solid var(--main);
   font-size: 37px;
 
   &:hover {
-    background-color: var(--darkblue);
+    color: #ffffff;
+    background-color: var(--main);
   }
 `;
 
