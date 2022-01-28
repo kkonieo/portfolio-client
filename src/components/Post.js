@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 //components & elements
 import { Image } from '../elements';
-
+import { head_1, sub_1 } from '../shared/textStyle';
 // redux
 import { history } from '../redux/configureStore';
 
@@ -20,7 +20,10 @@ const Post = (props) => {
         />
       </ImageWrapper>
       <TextWrapper>
-        <Text>{props.description}</Text>
+        <PostWrapper>
+          <Title>{props.title}</Title>
+          <Text>{props.description}</Text>
+        </PostWrapper>
         <Date style={{ color: 'var(--gray)' }}>{props.insert_dt}</Date>
       </TextWrapper>
     </PostBox>
@@ -65,12 +68,30 @@ const TextWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Text = styled.p`
-  margin: 0;
-  color: var(--main);
+const PostWrapper = styled.div`
   :hover {
+    color: var(--main);
     text-decoration: underline;
   }
+`;
+
+const Title = styled.p`
+  margin: 0;
+  color: var(--main);
+  ${head_1};
+
+  ${({ theme }) => theme.device.mobile} {
+    padding-bottom: 0.9rem;
+  }
+`;
+
+const Text = styled.p`
+  /* margin: 0; */
+  color: var(--main);
+  ${sub_1}
+  /* :hover {
+    text-decoration: underline;
+  } */
   ${({ theme }) => theme.device.mobile} {
     padding-bottom: 0.9rem;
   }

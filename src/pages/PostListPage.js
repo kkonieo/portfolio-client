@@ -44,8 +44,11 @@ const PostListPage = (props) => {
         </Button>
         {/* ) : null} */}
       </BtnWrapper>
+
       {post_list.map((p, idx) => (
+        // <PostTitle key={p.post_id} {...p}></PostTitle>
         <Post key={p.post_id} {...p}>
+          {p.title}
           {p.description}
         </Post>
       ))}

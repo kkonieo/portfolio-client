@@ -7,20 +7,33 @@ export const logo = css`
 `;
 
 // Header Menu
-export const head_1 = css`
+export const menu_head_1 = css`
   font-size: 1.2rem;
   font-weight: 600;
 `;
 
-// 페이지별 Title - Post, ProjectPage
+// Post, Project SubTitle - PostList, ProjectListPage
+export const head_1 = css`
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: normal;
+`;
+
+// Post, Project Text - PostList, ProjectListPage
+export const sub_1 = css`
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: normal;
+`;
+
+// 페이지별 HeadTitle - Post, ProjectPage
 export const head_2 = css`
   font-size: 1.5rem;
   font-weight: 600;
 `;
 
 // 페이지별 Text - Post, ProjectPage
-
-export const sub_1 = css`
+export const sub_2 = css`
   font-size: 1rem;
   font-weight: 400;
 `;
