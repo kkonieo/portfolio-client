@@ -12,10 +12,17 @@ export const head_1 = css`
   font-weight: 600;
 `;
 
-// 페이지별 Title
+// 페이지별 Title - Post, ProjectPage
 export const head_2 = css`
   font-size: 1.5rem;
   font-weight: 600;
+`;
+
+// 페이지별 Text - Post, ProjectPage
+
+export const sub_1 = css`
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 // 아래는 예시입니다.
