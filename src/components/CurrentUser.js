@@ -18,6 +18,7 @@ const CurrentUserCard = styled.div`
 
   background-color: #ffffff;
   border-radius: 50%;
+  border: 4px solid var(--darkblue);
 
   color: var(--main);
   text-align: center;

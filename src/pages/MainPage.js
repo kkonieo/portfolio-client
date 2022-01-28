@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectCard from '../components/ProjectCard';
 
 // components
 import Header from '../components/Header';
@@ -10,6 +11,7 @@ const MainPage = () => {
       {/* <Header /> */}
       {/* start */}
       <Header page="headermenu" />
+      <ProjectCard />
     </MainTemplate>
   );
 };
