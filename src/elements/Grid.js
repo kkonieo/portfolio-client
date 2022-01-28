@@ -2,10 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Grid = (props) => {
-  const { is_flex, width, margin, padding, bg, children, center, height } =
-    props;
+  const {
+    M_width,
+    is_flex_comment,
+    is_flex,
+    width,
+    margin,
+    padding,
+    bg,
+    children,
+    center,
+    height,
+  } = props;
 
   const styles = {
+    M_width: M_width,
+    is_flex_comment: is_flex_comment,
     is_flex: is_flex,
     width: width,
     height: height,
@@ -39,11 +51,17 @@ const GridBox = styled.div`
   ${(props) => (props.height ? `height: ${props.height};` : '')}
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
+  /* ${(props) => (props.min_width ? `min-width: ${props.bg};` : '')} */
+  ${(props) => (props.center ? `text-align: center;` : '')}
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between; `
       : ''}
-      ${(props) => (props.center ? `text-align: center;` : '')}
+  ${(props) =>
+    props.is_flex_comment
+      ? `display: flex; align-items: center; justify-content: flex-start; `
+      : ''}
+  ${(props) => (props.M_width ? `width:100%; min-width: 28rem;  ` : '')}
 `;
 
 export default Grid;
