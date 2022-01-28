@@ -52,8 +52,6 @@ const TeamSection = styled.div`
   height: 580px;
   display: flex;
 
-  background-color: var(--main);
-
   p {
     color: #ffffff;
     font-size: 35px;
@@ -64,11 +62,12 @@ const CardSection = styled.div`
   margin: auto 0;
   align-items: center;
   position: absolute;
+  margin-left: 90px;
 `;
 
 const MemberCard = styled.div`
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   cursor: pointer;
   margin-right: 60px;
   overflow: hidden;

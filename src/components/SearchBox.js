@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SearchBox = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const searchHandler = (event) => {
+    setSearchTerm(event.currentTarget.value);
+  };
+
   return (
     <SearchForm>
-      <input type="text" placeholder="이름or닉네임을 입력하세요" autoFocus />
+      <input
+        type="text"
+        placeholder="이름or닉네임을 입력하세요"
+        autoFocus
+        onChange={searchHandler}
+        value={searchTerm}
+      />
       <SearchButton>
         <p>검색</p>
       </SearchButton>
