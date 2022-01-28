@@ -17,7 +17,7 @@ const ProjectCard = (props) => {
         <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/image13.png`}
-          width="400px"
+          width="410px"
           height="200px"
         />
         <ProjectSection>
@@ -40,13 +40,24 @@ const ProjectCard = (props) => {
   }
 
   return (
-    <ProjectCardWrapper>
-      {projectNums.map((card, i) => {
-        return <ProjectCards propjectNums={card} />;
-      })}
-    </ProjectCardWrapper>
+    <>
+      <ContentTitle>Project</ContentTitle>
+      <ProjectCardWrapper>
+        {projectNums.map((card, i) => {
+          return <ProjectCards propjectNums={card} />;
+        })}
+      </ProjectCardWrapper>
+    </>
   );
 };
+
+const ContentTitle = styled.div`
+  width: 100%;
+  height: 45px;
+  color: var(--main);
+
+  font-size: 20px;
+`;
 
 const ProjectCardWrapper = styled.div`
   margin: auto;
@@ -54,15 +65,16 @@ const ProjectCardWrapper = styled.div`
   height: 500px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const ProjectCardList = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  margin-right: 25px;
+  // margin-right: 25px;
 
-  width: 400px;
+  width: 410px;
   height: 350px;
   // background-color: var(--main);
 `;
@@ -71,7 +83,7 @@ const ProjectSection = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 410px;
   height: 150px;
   // background-color: var(--darkblue);
 
@@ -89,7 +101,7 @@ const ProjectTitle = styled.div`
 `;
 
 const ProjectContent = styled.div`
-  width: 380px;
+  width: 410px;
   height: 100px;
   font-size: 14px;
 
