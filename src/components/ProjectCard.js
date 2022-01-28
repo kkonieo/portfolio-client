@@ -57,6 +57,8 @@ const ContentTitle = styled.div`
   color: var(--main);
 
   font-size: 20px;
+  span {
+  }
 `;
 
 const ProjectCardWrapper = styled.div`
@@ -96,7 +98,10 @@ const ProjectTitle = styled.div`
   margin-top: 30px;
 
   span {
+    font-size: 18px;
     font-weight: bold;
+    color: var(--main);
+    font-family: nomal;
   }
 `;
 
@@ -106,12 +111,16 @@ const ProjectContent = styled.div`
   font-size: 14px;
 
   span {
-    font-weight: 100;
+    // color: #a2a2a2;
+    font-weight: 300;
     line-height: 20px;
+    font-family: nomal;
   }
 
   p {
     color: #a2a2a2;
+    font-weight: 300;
+    font-family: nomal;
   }
 `;
 
