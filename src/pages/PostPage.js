@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components & elements
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
-import { head_2, sub_1 } from '../shared/textStyle';
-import { Grid, Image } from '../elements';
+import { head_2, sub_2 } from '../shared/textStyle';
+import { Button, Grid, Image } from '../elements';
 
 const PostPage = (props) => {
+  const [submit, setSubmit] = useState(false);
+  const onClick = () => {
+    setSubmit();
+  };
+
   return (
     <PostTemplate>
       <Header page="headermenu" />
@@ -76,11 +81,26 @@ const PostPage = (props) => {
         <CommentInputWrapper>
           <Grid is_flex_comment M_width>
             <Image size="4" />
-            <Text>
+            {/* <Text>
               et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
               voluptatem doloribus vel accusantium quis pariatur molestiae porro
               eius odio et labore et ve
-            </Text>
+            </Text> */}
+            <Input />
+            <BtnWrapper>
+              <Button
+                width="3rem"
+                border="1px solid var(--gray)"
+                bg="transparent"
+                margin="1rem"
+                padding="5px 10px 5px 10px"
+                radius="3px"
+                cursor
+                _onClick={onClick}
+              >
+                등록
+              </Button>
+            </BtnWrapper>
           </Grid>
         </CommentInputWrapper>
       </Grid>
@@ -95,8 +115,14 @@ const Title = styled.h2`
 `;
 
 const Text = styled.p`
-  ${sub_1};
+  ${sub_2};
   color: var(--main);
+`;
+
+const Input = styled.input`
+  ${sub_2};
+  color: var(--main);
+  border: none;
 `;
 
 const CommentWrapper = styled.div`
@@ -107,5 +133,7 @@ const CommentWrapper = styled.div`
 const CommentInputWrapper = styled.div`
   border: 1px solid var(--gray);
 `;
+
+const BtnWrapper = styled.div``;
 
 export default PostPage;
