@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 //components & elements
 import { Image } from '../elements';
-import { head_1, sub_1 } from '../shared/textStyle';
+import { head_1, sub_1, date } from '../shared/textStyle';
 // redux
 import { history } from '../redux/configureStore';
 
@@ -99,6 +99,7 @@ const Text = styled.p`
 
 const Date = styled.p`
   margin: 0;
+  ${date}
 `;
 
 Post.defaultProps = {

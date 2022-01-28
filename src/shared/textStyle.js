@@ -16,13 +16,20 @@ export const menu_head_1 = css`
 export const head_1 = css`
   font-size: 1.2rem;
   font-weight: 600;
-  font-family: normal;
+  /* font-family: normal; */
 `;
 
 // Post, Project Text - PostList, ProjectListPage
 export const sub_1 = css`
   font-size: 1.2rem;
   font-weight: 400;
+  /* font-family: normal; */
+`;
+
+// Post, Project Date - PostList, ProjectListPage
+export const date = css`
+  font-size: 1rem;
+  /* font-weight: 400; */
   font-family: normal;
 `;
 
@@ -37,25 +44,3 @@ export const sub_2 = css`
   font-size: 1rem;
   font-weight: 400;
 `;
-
-// 아래는 예시입니다.
-
-// // 문항 제목
-// export const sub_1 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-//   line-height: 3rem;
-//   letter-spacing: -0.05rem;
-// `;
-
-// // 문항 답변
-// export const sub_2 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-// `;
-
-// // 버튼
-// export const button = css`
-//   font-size: 1rem;
-//   font-weight: 600;
-// `;
