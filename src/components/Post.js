@@ -11,7 +11,13 @@ const Post = (props) => {
   return (
     <PostBox onClick={() => history.push(`/post/${props.id}`)}>
       <ImageWrapper>
-        <Image M_width size="25" shape="rectangle" src={props.thumbnail} />
+        <Image
+          M_width
+          size="25"
+          shape="rectangle"
+          radius="10px"
+          src={props.thumbnail}
+        />
       </ImageWrapper>
       <TextWrapper>
         <Text>{props.description}</Text>
