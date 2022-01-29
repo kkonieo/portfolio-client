@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { history } from '../redux/configureStore';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -13,7 +14,7 @@ const ProjectCard = (props) => {
 
   function ProjectCards(props) {
     return (
-      <ProjectCardList>
+      <ProjectCardList onClick={() => history.push(`/postlist`)}>
         <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/image13.png`}

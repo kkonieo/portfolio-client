@@ -6,7 +6,7 @@ import { history } from '../redux/configureStore';
 
 const Project = (props) => {
   return (
-    <ProjectBox onClick={() => history.push(`/project/${props.id}`)}>
+    <ProjectBox onClick={() => history.push(`/post/1`)}>
       <ImageWrapper>
         <Image src={props.thumbnail} alt="" />
       </ImageWrapper>

@@ -28,6 +28,7 @@ function App() {
           <ScrollToTop />
           <Switch>
             <Route exact path="/" component={IntroPage} />
+            <Route exact path="/main/:id" component={MainPage} />
             <Route exact path="/main" component={MainPage} />
             {/* <Route exact path="/userlist" component={UserListPage} /> */}
             <Route exact path="/hashtag" component={HashTagPage} />
