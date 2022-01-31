@@ -7,35 +7,40 @@ export const logo = css`
 `;
 
 // Header Menu
-export const head_1 = css`
+export const menu_head_1 = css`
   font-size: 1.2rem;
   font-weight: 600;
 `;
 
-// 페이지별 Title
+// Post, Project SubTitle - PostList, ProjectListPage
+export const head_1 = css`
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* font-family: normal; */
+`;
+
+// Post, Project Text - PostList, ProjectListPage
+export const sub_1 = css`
+  font-size: 1.2rem;
+  font-weight: 400;
+  /* font-family: normal; */
+`;
+
+// Post, Project Date - PostList, ProjectListPage
+export const date = css`
+  font-size: 1rem;
+  /* font-weight: 400; */
+  font-family: normal;
+`;
+
+// 페이지별 HeadTitle - Post, ProjectPage
 export const head_2 = css`
   font-size: 1.5rem;
   font-weight: 600;
 `;
 
-// 아래는 예시입니다.
-
-// // 문항 제목
-// export const sub_1 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-//   line-height: 3rem;
-//   letter-spacing: -0.05rem;
-// `;
-
-// // 문항 답변
-// export const sub_2 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-// `;
-
-// // 버튼
-// export const button = css`
-//   font-size: 1rem;
-//   font-weight: 600;
-// `;
+// 페이지별 Text - Post, ProjectPage
+export const sub_2 = css`
+  font-size: 1rem;
+  font-weight: 400;
+`;

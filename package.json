@@ -20,6 +20,7 @@
     "emotion": "^11.0.0",
     "history": "^4.10.1",
     "immer": "^9.0.12",
+    "json-server": "^0.17.0",
     "lodash": "^4.17.21",
     "prismjs": "^1.26.0",
     "react": "^17.0.2",
@@ -32,6 +33,7 @@
     "redux-actions": "^2.6.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
+    "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.0"
   },

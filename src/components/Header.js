@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { logo, head_1 } from '../shared/textStyle';
+import { logo, menu_head_1 } from '../shared/textStyle';
 
 const Header = (props) => {
   const history = useHistory();
@@ -88,7 +88,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  ${head_1}
+  ${menu_head_1}
   cursor: pointer;
   list-style: none;
   color: var(--main);

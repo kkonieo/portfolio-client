@@ -1,6 +1,7 @@
 const colors = {
   main: '#279eea',
   gray: '#808080',
+  white: '#ffffff',
 };
 
 const device = {
