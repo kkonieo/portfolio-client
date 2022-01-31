@@ -96,6 +96,7 @@ const PostPage = (props) => {
           margin="0 0.5rem"
           color="var(--white)"
           bg="var(--main)"
+          cursor="cursor"
         >
           카카오톡 공유
         </Button>
@@ -105,6 +106,7 @@ const PostPage = (props) => {
           margin="0 0.5rem"
           color="var(--white)"
           bg="var(--main)"
+          cursor="cursor"
         >
           링크 복사하기
         </Button>
@@ -114,6 +116,7 @@ const PostPage = (props) => {
           margin="0 0 0 0.5rem"
           color="var(--white)"
           bg="var(--main)"
+          cursor="cursor"
           _onClick={() => history.push('/postlist')}
         >
           뒤로가기
