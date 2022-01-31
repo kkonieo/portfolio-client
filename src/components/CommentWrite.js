@@ -13,10 +13,12 @@ import CommentItem from './CommentItem';
 const CommentWrite = (props) => {
   const dispatch = useDispatch();
   const [comments, setComments] = useState('');
-  const comment_list = useSelector((state) => state.comment_list);
+  const comment_list = useSelector((state) => state.commentlist);
+
   const changeContents = (e) => {
     setComments(e.target.value);
   };
+
   // useEffect(() => {
   //   if (comment_list.length > 0) {
   //     dispatch(commentActions.getCommentAX());
@@ -31,13 +33,19 @@ const CommentWrite = (props) => {
     // }
     console.log('------------댓글 작성------------');
     dispatch(commentActions.addCommentAX(comments));
+    // dispatch(commentActions.writeTextPage(comments));
     setComments('');
   };
 
   return (
     <>
       <CommentWrapper>
-        <CommentItem />
+        {/* {comment_list.map((c) => (
+          <Grid is_flex_comment M_width>
+            <CommentItem key={c.comment_id} {...c} />
+          </Grid>
+        ))} */}
+        <CommentItem key={comment_list} />
         <CommentItem />
         <CommentItem />
       </CommentWrapper>
@@ -59,7 +67,6 @@ const CommentWrite = (props) => {
               padding="5px 10px 5px 10px"
               radius="3px"
               cursor="cursor"
-              // _onClick={write}
               _onClick={write}
             >
               등록
@@ -82,8 +89,6 @@ const Input = styled.input`
   border: none;
   width: 100%;
   height: 5rem;
-  /* border: 2px solid rgba(29, 198, 209, 0.6); */
-  /* border-radius: 125px; */
   padding: 0 0 0 20px;
   font-size: 1.5rem;
   color: var(--gray); // 입력했을때 글자색
@@ -101,5 +106,4 @@ const CommentInputWrapper = styled.div`
 
 const BtnWrapper = styled.div``;
 
-// const Comment = styled.div``;
 export default CommentWrite;
