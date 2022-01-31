@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const PlusButton = () => {
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(8);
+
+  const loadMoreHandler = () => {};
+
   return (
-    <UserPlusButton>
+    <UserPlusButton onClick={loadMoreHandler}>
       <p>+</p>
     </UserPlusButton>
   );

@@ -75,13 +75,24 @@ const ProjectCards = (props) => {
     <>
       <ContentTitle>Project</ContentTitle>
 
-      {page !== 0 && (
-        <FiArrowLeftCircle color="#a2a2a2" size="28px" onClick={onClickBack} />
-      )}
+      <ProjectButton>
+        {page !== 0 && (
+          <FiArrowLeftCircle
+            color="#a2a2a2"
+            size="28px"
+            onClick={onClickBack}
+          />
+        )}
 
-      {page + 1 !== pageMax && (
-        <FiArrowRightCircle color="#a2a2a2" size="28px" onClick={onClickNext} />
-      )}
+        {page + 1 !== pageMax && (
+          <FiArrowRightCircle
+            color="#a2a2a2"
+            size="28px"
+            onClick={onClickNext}
+          />
+        )}
+      </ProjectButton>
+
       <ProjectCardWrapper>
         <AnimationWrapper ref={slideRef}>
           {projectNums.map((card, i) => {
@@ -99,7 +110,7 @@ const AnimationWrapper = styled.div`
   height: 500px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  // justify-content: space-between;
 `;
 
 const ContentTitle = styled.div`
@@ -115,7 +126,7 @@ const ContentTitle = styled.div`
 const ProjectCardWrapper = styled.div`
   margin: auto;
   width: 100%;
-  height: 500px;
+  height: 420px;
   display: flex;
   flex-direction: row;
   // justify-content: space-between;
@@ -174,6 +185,10 @@ const ProjectContent = styled.div`
     font-weight: 300;
     font-family: nomal;
   }
+`;
+
+const ProjectButton = styled.div`
+  float: right;
 `;
 
 export default ProjectCards;

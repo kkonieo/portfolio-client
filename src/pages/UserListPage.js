@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import UserData from '../data/UserData';
 import CurrentUser from '../components/CurrentUser';
 import PlusButton from '../components/PlusButton';
 import SearchBox from '../components/SearchBox';
+import axios from 'axios';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const UserListPage = (props) => {
   let [card, setCard] = useState(UserData);
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(8);
+
+  useEffect(() => {
+    axios.post('api/');
+  }, []);
 
   function UserCards(props) {
     return (
