@@ -36,7 +36,7 @@ const Post = (props) => {
           M_width
           size="25"
           shape="rectangle"
-          radius="10px"
+          // radius="10px"
           src={props.thumbnail}
           cursor="pointer"
         />
@@ -89,10 +89,13 @@ const ImageWrapper = styled.div`
 // `;
 
 const TextWrapper = styled.div`
-  padding: 0.3rem 0 0.5rem 1rem;
+  padding: 0.3rem 1rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${({ theme }) => theme.device.mobile} {
+    padding: 0.7rem 1rem 0.5rem 1rem;
+  }
 `;
 
 const PostWrapper = styled.div`
@@ -107,9 +110,6 @@ const Title = styled.p`
   margin: 0;
   color: var(--main);
   ${head_1};
-  ${({ theme }) => theme.device.mobile} {
-    padding-bottom: 0.9rem;
-  }
 `;
 
 const Text = styled.p`
@@ -130,7 +130,6 @@ const Text = styled.p`
   }
 
   ${({ theme }) => theme.device.mobile} {
-    /* padding-bottom: 0.9rem; */
     margin-bottom: 0;
   }
 `;
@@ -147,14 +146,14 @@ const MoreButton = styled.button`
   max-height: 2rem;
   line-height: 2rem;
   border: none;
-
+  
   background: transparent;
   &.hide {
     display: none;
   }
   :hover {
     cursor: pointer;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 `;
 
