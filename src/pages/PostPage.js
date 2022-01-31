@@ -1,17 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 // components & elements
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
 import { head_2, sub_2 } from '../shared/textStyle';
 import { Button, Grid, Image } from '../elements';
+import Comment from '../components/Comment';
+
+// redux
+import { useSelector, useDispatch } from 'react-redux';
+// import { actionCreators as commentActions } from '../redux/modules/comment';
+import { actionCreators as commentActions } from '../redux/modules/comment';
+import CommentItem from '../components/CommentItem';
+import CommentWrite from '../components/CommentWrite';
 
 const PostPage = (props) => {
-  const [submit, setSubmit] = useState(false);
-  const onClick = () => {
-    setSubmit();
-  };
+  const dispatch = useDispatch();
+  const comment_list = useSelector((state) => state.comment_list);
+  const [comments, setComments] = useState('');
+
+  // // const [contents, setContents] = React.useState('');
+  // const changeContents = (e) => {
+  //   setComments(e.target.value);
+  // };
+
+  useEffect((e) => {
+    dispatch(commentActions.getCommentAX());
+  }, []);
+
+  // // 댓글작성확인
+  // // const onChange = (e) => {
+  // //   setComments(e.target.value);
+  // // };
+  // const addPost = () => {
+  //   console.log('------------댓글 작성------------');
+  //   dispatch(commentActions.AddCommentAX(comments));
+  // };
+
+  // //댓글 작성
+  // const write = (e) => {
+  //   console.log('------------댓글 작성------------');
+  //   dispatch(commentActions.writeTextPage(comments));
+  //   // setComments(e.target.value);
+  // };
+
+  // const dict = useSelector((state) => state.word.word_list);
+  // const [submit, setSubmit] = useState(false);
+  // const handleChange = (e) => {
+  //   // setSubmit(e.target.value);
+  //   console.log(e.target.value);
+  // };
+  // const handleSubmit = (e) => {
+  //   setSubmit(e.target.value);
+  //   console.log(e.target.value);
+  // };
 
   return (
     <PostTemplate>
@@ -36,73 +80,51 @@ const PostPage = (props) => {
 
       <Grid M_width>
         <Title>Contents</Title>
-        <Text>
-          et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-          voluptatem doloribus vel accusantium quis pariatur molestiae porro
-          eius odio et labore et veet iusto sed quo iure voluptatem occaecati
-          omnis eligendi aut ad voluptatem doloribus vel accusantium quis
-          pariatur molestiae porro eius odio et labore et veet iusto sed quo
-          iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus
-          vel accusantium quis pariatur molestiae porro eius odio et labore et
-          veet iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-          voluptatem doloribus vel accusantium quis pariatur molestiae porro
-          eius odio et labore et veet iusto sed quo iure voluptatem occaecati
-          omnis eligendi aut ad voluptatem doloribus vel accusantium quis
-          pariatur molestiae porro eius odio et labore et veet iusto sed quo
-          iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus
-          vel accusantium quis pariatur molestiae porro eius odio et labore et
-          veet iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-          voluptatem doloribus vel accusantium quis pariatur molestiae porro
-          eius odio et labore et ve
-        </Text>
+        <Text>내용</Text>
       </Grid>
 
       <Grid M_width>
         <Title>Comments</Title>
         <CommentWrapper>
-          <Grid is_flex_comment M_width>
+          {/* {comment_list.map((p, idx) => (
+            <p key={p.comment_id} {...p}>
+              <CommentItem>
+                {p.profile_image}
+                {p.content}
+              </CommentItem>
+            </p>
+          ))} */}
+          {/* {comment_list.map((p, idx) => (
+        <CommentItem key={comment_list} />
+          ))} */}
+          <CommentItem key={comment_list} />
+          {/* <CommentList /> */}
+          <CommentWrite />
+          {/* <Grid is_flex_comment M_width>
             <Image size="4" />
-            <Text>
+            <CommentsText>
               et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
               voluptatem doloribus vel accusantium quis pariatur molestiae porro
               eius odio et labore et ve
-            </Text>
-          </Grid>
-          <Grid is_flex_comment M_width>
-            <Image size="4" />
-            <Text>
-              et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-              voluptatem doloribus vel accusantium quis pariatur molestiae porro
-              eius odio et labore et ve
-            </Text>
-          </Grid>
+            </CommentsText>
+          </Grid> */}
+          {/* <Grid is_flex_comment M_width>
+            <Comment>{comment_list}</Comment> */}
+          {/* <Image src={comment_list} size="4" /> */}
+          {/* <Comment comments={comments} /> */}
+          {/* {comments.map((comments, index) => (
+              <div key={index}> {comments}</div>
+            ))} */}
+          {/* <CommentsText>{content}</CommentsText> */}
+          {/* <Image size="4" /> */}
+          {/* {comment_list.map((c, idx) => (
+              <Grid is_flex_comment M_width key={c.comment_id}>
+                <Image src={c.profile_image} size="4" />
+                <Comment>{c.content}</Comment>
+              </Grid>
+            ))} */}
+          {/* </Grid> */}
         </CommentWrapper>
-
-        <CommentInputWrapper>
-          <Grid is_flex_comment M_width>
-            <Image size="4" />
-            {/* <Text>
-              et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-              voluptatem doloribus vel accusantium quis pariatur molestiae porro
-              eius odio et labore et ve
-            </Text> */}
-            <Input />
-            <BtnWrapper>
-              <Button
-                width="3rem"
-                border="1px solid var(--gray)"
-                bg="transparent"
-                margin="1rem"
-                padding="5px 10px 5px 10px"
-                radius="3px"
-                cursor
-                _onClick={onClick}
-              >
-                등록
-              </Button>
-            </BtnWrapper>
-          </Grid>
-        </CommentInputWrapper>
       </Grid>
     </PostTemplate>
   );
@@ -119,21 +141,42 @@ const Text = styled.p`
   color: var(--main);
 `;
 
-const Input = styled.input`
-  ${sub_2};
-  color: var(--main);
-  border: none;
-`;
+// const CommentsText = styled.p`
+//   ${sub_2};
+//   color: var(--main);
+//   padding: 0px 20px 0px 20px;
+// `;
+
+// const Input = styled.input`
+//   ${sub_2};
+//   color: var(--main);
+//   border: none;
+//   width: 100%;
+//   height: 5rem;
+//   /* border: 2px solid rgba(29, 198, 209, 0.6); */
+//   /* border-radius: 125px; */
+//   padding: 0 0 0 20px;
+//   font-size: 1.5rem;
+//   color: var(--gray); // 입력했을때 글자색
+//   :focus {
+//     outline: none;
+//   }
+//   :focus::-webkit-input-placeholder {
+//     color: transparent;
+//   }
+// `;
 
 const CommentWrapper = styled.div`
   border: 1px solid var(--gray);
   margin-bottom: 1rem;
 `;
 
-const CommentInputWrapper = styled.div`
-  border: 1px solid var(--gray);
-`;
+// const CommentInputWrapper = styled.div`
+//   border: 1px solid var(--gray);
+// `;
 
-const BtnWrapper = styled.div``;
+// const BtnWrapper = styled.div``;
+
+// const Comment = styled.div``;
 
 export default PostPage;
