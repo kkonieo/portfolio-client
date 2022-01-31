@@ -7,9 +7,7 @@ import { head_2, sub_2 } from '../shared/textStyle';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import comment, {
-  actionCreators as commentActions,
-} from '../redux/modules/comment';
+import { actionCreators as commentActions } from '../redux/modules/comment';
 import CommentItem from './CommentItem';
 
 const CommentWrite = (props) => {
@@ -33,6 +31,7 @@ const CommentWrite = (props) => {
     // }
     console.log('------------댓글 작성------------');
     dispatch(commentActions.addCommentAX(comments));
+    setComments('');
   };
 
   return (

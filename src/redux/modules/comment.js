@@ -24,10 +24,9 @@ const initialState = {
 // 댓글 추가 API
 const addCommentAX = (comments, name, content, profile_image) => {
   return function (dispatch, getState, { history }) {
-
     api
-      .post(`/addcomment`, {
-        comments: comments,
+      .post(`/comment`, {
+        content: comments,
         name: name,
         // content: content,
         // profile_image: profile_image,
@@ -43,11 +42,10 @@ const addCommentAX = (comments, name, content, profile_image) => {
   };
 };
 
-
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
     api
-      .get(`/Comment`)
+      .get(`/comment`)
       .then((res) => {
         let comment_list = [];
 

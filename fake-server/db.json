@@ -1,5 +1,5 @@
 {
-  "Comment": [
+  "comment": [
     {
       "id": 1,
       "name": "frog",
@@ -61,7 +61,7 @@
       "content": "0voluptate iusto quis nobis reprehenderit ipsum amet nulla\nquia quas dolores velit et non\naut quia necessitatibus\nnostrum quaerat nulla et accusamus nisi facilis"
     }
   ],
-  "Post": [
+  "post": [
     {
       "id": 1,
       "title": "이것의 제목은 알파벳입니다.",
@@ -171,6 +171,14 @@
         "name": "Cheese",
         "profile": "https://images.unsplash.com/photo-1643133277936-9f93d8792522?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
       }
+    }
+  ],
+  "addcomment": [
+    {
+      "id": 1,
+      "name": "frog",
+      "profile_image": "https://mblogthumb-phinf.pstatic.net/MjAxOTA0MTFfMyAg/MDAxNTU0OTY0NDExODM3.yq8kEVXlmOBw6q-5jyZceq2rxtUAfmCn00KjOfjf6CEg.K3qeB83x7EnikNTcr7XyDiB9Li9VOHcXV6t_6JUo7iog.PNG.goproblem/2gsjgna1uruvUuS7ndh9YqVwYGPLVszbFLwwpAYXZ1rkyz7vKAbhJvHdPRzCvhGfPWQdhkcqKLhnajnHFpGdgkDq3R1XmTFaFxUfKbVyyA3iDi1Fzv.png?type=w2",
+      "comments": "5harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
     }
   ]
 }
