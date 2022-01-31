@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+//components & elements
 import { Button, Grid, Image } from '../elements';
 import { head_2, sub_2 } from '../shared/textStyle';
+
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-// import { actionCreators as commentActions } from '../redux/modules/comment';
 import { actionCreators as commentActions } from '../redux/modules/comment';
- 
+
 const CommentWrite = () => {
-  // const dispatch = useDispatch();
-  // const comment_list = useSelector((state) => state.comment_list);
   const [comments, setComments] = useState('');
   const changeContents = (e) => {
     setComments(e.target.value);
   };
-  // useEffect(() => {
-  //   dispatch(commentActions.getCommentAX(comments));
-  // }, []);
-  // const addComment = () => {
-  //   console.log('------------댓글 작성------------');
-  //   dispatch(commentActions.AddCommentAX(comments));
-  // };
+
   return (
     <CommentInputWrapper>
       <Grid is_flex_comment M_width>
@@ -31,7 +24,6 @@ const CommentWrite = () => {
           value={comments}
           onChange={changeContents}
           multiLine
-
           // onChange={onChange}
           // value={comments}
           // type="text"

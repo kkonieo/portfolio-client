@@ -20,7 +20,6 @@ const initialState = {
   list: [],
 };
 
-// 댓글 쓴 내용 화면에 기록
 // const writeTextPage = (value) => {
 //   return function (dispatch, getState, { history }) {
 //     dispatch(writeText(value));
@@ -50,7 +49,6 @@ const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
     axios
       .get(`http://localhost:3001/Comment`)
-      // .get(`${CommentData}`)
       .then((res) => {
         let comment_list = [];
 

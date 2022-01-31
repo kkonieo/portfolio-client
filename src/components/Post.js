@@ -5,23 +5,11 @@ import axios from 'axios';
 //components & elements
 import { Image } from '../elements';
 import { head_1, sub_1, date } from '../shared/textStyle';
-// import { PostData } from '../../SampleData';
 
 // redux
 import { history } from '../redux/configureStore';
 
 const Post = (props) => {
-  // const [getData, setGetData] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`${PostData}`)
-  //     .then((res) => {
-  //       setGetData(res.data.contents);
-  //     })
-  //     .catch((err) => {
-  //       // console.log(err);
-  //     });
-  // }, []);
   return (
     <PostBox onClick={() => history.push(`/post/${props.post_id}`)}>
       <ImageWrapper>

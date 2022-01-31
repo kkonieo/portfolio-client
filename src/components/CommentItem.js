@@ -4,10 +4,10 @@ import styled from 'styled-components';
 //components & elements
 import { Grid, Image } from '../elements';
 import { sub_2 } from '../shared/textStyle';
-import { CommentData } from '../data/SampleData';
+// import { CommentData } from '../data/SampleData';
 
 // redux
-import { history } from '../redux/configureStore';
+// import { history } from '../redux/configureStore';
 
 export const CommentItem = (props) => {
   return (

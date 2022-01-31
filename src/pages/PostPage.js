@@ -82,48 +82,11 @@ const PostPage = (props) => {
         <Title>Contents</Title>
         <Text>내용</Text>
       </Grid>
-
       <Grid M_width>
         <Title>Comments</Title>
         <CommentWrapper>
-          {/* {comment_list.map((p, idx) => (
-            <p key={p.comment_id} {...p}>
-              <CommentItem>
-                {p.profile_image}
-                {p.content}
-              </CommentItem>
-            </p>
-          ))} */}
-          {/* {comment_list.map((p, idx) => (
-        <CommentItem key={comment_list} />
-          ))} */}
           <CommentItem key={comment_list} />
-          {/* <CommentList /> */}
           <CommentWrite />
-          {/* <Grid is_flex_comment M_width>
-            <Image size="4" />
-            <CommentsText>
-              et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
-              voluptatem doloribus vel accusantium quis pariatur molestiae porro
-              eius odio et labore et ve
-            </CommentsText>
-          </Grid> */}
-          {/* <Grid is_flex_comment M_width>
-            <Comment>{comment_list}</Comment> */}
-          {/* <Image src={comment_list} size="4" /> */}
-          {/* <Comment comments={comments} /> */}
-          {/* {comments.map((comments, index) => (
-              <div key={index}> {comments}</div>
-            ))} */}
-          {/* <CommentsText>{content}</CommentsText> */}
-          {/* <Image size="4" /> */}
-          {/* {comment_list.map((c, idx) => (
-              <Grid is_flex_comment M_width key={c.comment_id}>
-                <Image src={c.profile_image} size="4" />
-                <Comment>{c.content}</Comment>
-              </Grid>
-            ))} */}
-          {/* </Grid> */}
         </CommentWrapper>
       </Grid>
     </PostTemplate>

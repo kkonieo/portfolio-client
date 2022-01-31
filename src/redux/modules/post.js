@@ -11,7 +11,6 @@ const SET_POST = 'SET_POST';
 
 // Action Creator
 const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
-
 // const addPost = createAction(ADD_POST, (comment_list) => ({ comment_list }));
 // const editPost = createAction(EDIT_POST, (post_id, post) => ({
 //   post_id,
@@ -82,10 +81,6 @@ const getPostAX = () => {
           let post = {
             // ...user_info,
             post_id: _post.id,
-            // title: _post.title,
-            // description: _post.description,
-            // thumbnail: _post.thumbnail,
-
             title: _post.title,
             description: _post.description,
             thumbnail: _post.thumbnail,
@@ -113,7 +108,6 @@ export default handleActions(
     //   produce(state, (draft) => {
     //     draft.list.unshift(action.payload.comment_list);
     //   }),
-
   },
   initialState,
 );
