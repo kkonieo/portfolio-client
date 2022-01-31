@@ -90,7 +90,7 @@ const PostPage = (props) => {
         <CommentWrite />
         {/* </CommentWrapper> */}
       </Grid>
-      <Grid M_width width="50%" is_flex_button>
+      <Grid M_width width="50%" is_flex_button margin="1.4rem 0 1.4rem 0">
         <Button
           width="7rem"
           height="2.4rem"
