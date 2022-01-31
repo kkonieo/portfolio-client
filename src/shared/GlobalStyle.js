@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
     :root{
         --main: #279eea;
         --gray: #808080;
+        --white: #ffffff;
     }
     
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
