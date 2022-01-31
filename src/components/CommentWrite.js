@@ -4,7 +4,6 @@ import styled from 'styled-components';
 //components & elements
 import { Button, Grid, Image } from '../elements';
 import { head_2, sub_2 } from '../shared/textStyle';
-import CommentList from './CommentList';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';

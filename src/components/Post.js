@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 //components & elements
 import { Image } from '../elements';
@@ -8,9 +9,10 @@ import { head_1, sub_1, date } from '../shared/textStyle';
 import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
-import { history } from '../redux/configureStore';
+// import { history } from '../redux/configureStore';
 
 const Post = (props) => {
+  const history = useHistory();
   const contentRef = React.useRef(null);
   const [isShowReadMore, setIsShowReadMore] = useState(false);
   const observeCallback = (entries) => {
@@ -25,7 +27,7 @@ const Post = (props) => {
   useResizeObserver({ callback: observeCallback, element: contentRef });
   const onClick = (e) => {
     contentRef.current.classList.add('show');
-    setIsShowReadMore(false);
+    setIsShowReadMore(true);
   };
   return (
     <PostBox onClick={() => history.push(`/post/${props.post_id}`)}>
