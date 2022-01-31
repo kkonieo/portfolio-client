@@ -22,9 +22,20 @@ import Button from '@mui/material/Button';
 import SaveAsRoundedIcon from '@mui/icons-material/SaveAsRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import WarningIcon from '@mui/icons-material/Warning';
 
 const EditorPage = () => {
   const editorRef = useRef();
+  const [title, setTitle] = useState('');
+  const [hashtag, setHashtag] = useState('');
+  const [hashArr, setHashArr] = useState([]);
+  const [data, setData] = useState('');
+  const [dialog, setDialog] = useState(false);
 
   useEffect(() => {
     if (editorRef.current) {
@@ -51,11 +62,6 @@ const EditorPage = () => {
     return () => {};
   }, [editorRef]);
 
-  const [title, setTitle] = useState('');
-  const [hashtag, setHashtag] = useState('');
-  const [hashArr, setHashArr] = useState([]);
-  const [data, setData] = useState('');
-
   const onChangeAction = (e) => {
     if (e.target.name === 'titleInput') {
       setTitle(e.target.value);
@@ -67,38 +73,22 @@ const EditorPage = () => {
 
   const tagKeyUp = useCallback(
     (e) => {
-      const HashWrapOuter = document.querySelector('.HashWrapOuter');
-      const HashWrapInner = document.createElement('div');
-      HashWrapInner.className = 'HashWrapInner';
-
-      HashWrapInner.addEventListener('click', () => {
-        HashWrapOuter?.removeChild(HashWrapInner);
-        console.log(HashWrapInner.innerHTML);
-        console.log(
-          hashArr.filter((hashtag) => hashtag !== HashWrapInner.innerHTML),
-        );
-        setHashArr(
-          hashArr.filter((hashtag) => hashtag !== HashWrapInner.innerHTML),
-        );
-      });
-
       if (e.keyCode === 13 && e.target.value.trim() !== '') {
-        console.log('Enter Key 입력됨!', e.target.value);
-        HashWrapInner.innerHTML = e.target.value;
-        HashWrapOuter?.appendChild(HashWrapInner);
-        setHashArr((hashArr) => [...hashArr, hashtag]);
+        if (!hashArr.includes(hashtag)) {
+          setHashArr((hashArr) => [...hashArr, hashtag]);
+        }
         setHashtag('');
       }
     },
     [hashtag, hashArr],
   );
 
-  const backButton = () => {
-    const editorInstance = editorRef.current.getInstance();
-    const getContent_html = editorInstance.getHTML();
-    const getContent_md = editorInstance.getMarkdown();
+  const tagRemove = (tagName) => {
+    setHashArr(hashArr.filter((hashtag) => hashtag !== tagName));
+  };
 
-    alert('저장하지 않은 데이터는 날라간다.');
+  const handleClose = () => {
+    setDialog(false);
   };
 
   const saveButton = () => {
@@ -106,8 +96,16 @@ const EditorPage = () => {
     const getContent_html = editorInstance.getHTML();
     const getContent_md = editorInstance.getMarkdown();
 
-    alert('제목 입력');
-    alert('내용 입력');
+    if (title === '') {
+      alert('제목입력');
+      return;
+    }
+
+    if (getContent_md === '') {
+      alert('본문입력');
+    }
+    setData(getContent_html);
+    // 내용전송 함수
   };
 
   const submitButton = () => {
@@ -116,8 +114,6 @@ const EditorPage = () => {
     const getContent_md = editorInstance.getMarkdown();
     setData(getContent_html);
 
-    console.log(hashtag);
-    console.log(hashArr);
     // 저장시 제목, 태그(?), 내용(data) 서버전송 , 화면에서 조회(출력) 시 Viewer의 initialValue를 data 로 출력하도록 하자
     // 수정 기능을 대비해서 markdown 데이터도 저장 해야함 !
   };
@@ -131,6 +127,7 @@ const EditorPage = () => {
           width: '100%',
           height: '50px',
           fontSize: '30px',
+          outline: 'none',
         }}
         placeholder="제목을 입력하세요."
         name="titleInput"
@@ -138,7 +135,12 @@ const EditorPage = () => {
         onChange={onChangeAction}
       />
       <HashDivrap className="HashWrap">
-        <div className="HashWrapOuter"></div>
+        {hashArr.map((tag) => (
+          <div className="HashWrapInner" onClick={() => tagRemove(tag)}>
+            {tag}
+          </div>
+        ))}
+
         <input
           className="HashInput"
           type="text"
@@ -148,7 +150,7 @@ const EditorPage = () => {
             height: '40px',
             fontSize: '25px',
           }}
-          placeholder="태그를 입력하세요."
+          placeholder="태그를 입력하세요. (입력 후 엔터 !)"
           name="tagInput"
           value={hashtag}
           onChange={onChangeAction}
@@ -170,22 +172,54 @@ const EditorPage = () => {
         ref={editorRef}
       />
       <br />
-      <Button onClick={backButton} variant="outlined" color="primary">
+      <Button
+        onClick={() => {
+          setDialog(true);
+        }}
+        variant="outlined"
+        color="primary"
+      >
         <ArrowBackRoundedIcon />
-        &nbsp; 뒤로가기
+        &nbsp; <div>뒤로가기</div>
       </Button>
       {`  `}
       <div style={{ display: 'inline', float: 'right' }}>
         <Button onClick={saveButton} variant="outlined" color="secondary">
           <SaveAsRoundedIcon />
-          &nbsp; 임시저장
+          &nbsp; <div>임시저장</div>
         </Button>
         {`  `}
         <Button onClick={submitButton} variant="outlined" color="success">
           <EmailRoundedIcon />
-          &nbsp; 등록하기
+          &nbsp; <div>등록하기</div>
         </Button>
       </div>
+
+      <Dialog
+        open={dialog}
+        onClose={() => {
+          setDialog(false);
+        }}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          <div style={{ fontSize: '20px', color: 'red' }}>저장 안내</div>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <div>저장하지 않은 내용은 삭제됩니다. 뒤로가시겠습니까 ?</div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>
+            <div>뒤로가기</div>
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            <div>취소하기</div>
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       {/* <Viewer initialValue={저장된 값} /> */}
     </div>
@@ -193,14 +227,12 @@ const EditorPage = () => {
 };
 
 const HashDivrap = styled.div`
-  margin-top: 24px;
   color: rgb(52, 58, 64);
   font-size: 1.125rem;
   display: flex;
   flex-wrap: wrap;
   letter-spacing: -0.6px;
   color: #444241;
-  border-bottom: 1.6px solid gray;
   padding: 2px 2px 8px 2px;
 
   .HashWrapOuter {
@@ -210,23 +242,23 @@ const HashDivrap = styled.div`
 
   .HashWrapInner {
     margin-top: 5px;
-    background: #ffeee7;
+    background: #d1ddff;
     border-radius: 56px;
     padding: 8px 12px;
-    color: #ff6e35;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 1.4rem;
-    line-height: 20px;
+    font-size: 1.1rem;
+    line-height: 10px;
     margin-right: 5px;
     cursor: pointer;
   }
 
   .HashInput {
-    width: auto;
-    margin: 10px;
+    width: 400px;
+    margin-top: 10px;
     display: inline-flex;
     outline: none;
     cursor: text;
