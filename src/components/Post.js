@@ -5,11 +5,28 @@ import axios from 'axios';
 //components & elements
 import { Image } from '../elements';
 import { head_1, sub_1, date } from '../shared/textStyle';
+import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
 import { history } from '../redux/configureStore';
 
 const Post = (props) => {
+  const contentRef = React.useRef(null);
+  const [isShowReadMore, setIsShowReadMore] = useState(false);
+  const observeCallback = (entries) => {
+    for (let entry of entries) {
+      if (entry.target.scrollHeight > entry.contentRect.height) {
+        setIsShowReadMore(true);
+      } else {
+        setIsShowReadMore(false);
+      }
+    }
+  };
+  useResizeObserver({ callback: observeCallback, element: contentRef });
+  const onClick = (e) => {
+    contentRef.current.classList.add('show');
+    setIsShowReadMore(false);
+  };
   return (
     <PostBox onClick={() => history.push(`/post/${props.post_id}`)}>
       <ImageWrapper>
@@ -24,7 +41,12 @@ const Post = (props) => {
       <TextWrapper>
         <PostWrapper>
           <Title>{props.title}</Title>
-          <Text>{props.description}</Text>
+          <Text ref={contentRef}>{props.description}</Text>
+          <ButtonWrapper>
+            {isShowReadMore && (
+              <MoreButton onClick={onClick}>...더보기</MoreButton>
+            )}
+          </ButtonWrapper>
         </PostWrapper>
         <Date style={{ color: 'var(--gray)' }}>{props.createdDate}</Date>
       </TextWrapper>
@@ -81,26 +103,58 @@ const Title = styled.p`
   margin: 0;
   color: var(--main);
   ${head_1};
-
   ${({ theme }) => theme.device.mobile} {
     padding-bottom: 0.9rem;
   }
 `;
 
 const Text = styled.p`
-  /* margin: 0; */
   color: var(--main);
   ${sub_1}
-  /* :hover {
-    text-decoration: underline;
-  } */
+
+  position: relative;
+  display: -webkit-box;
+  max-height: 6rem;
+  line-height: 2rem;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  &.show {
+    display: block;
+    max-height: none;
+    overflow: auto;
+    -webkit-line-clamp: unset;
+  }
+
   ${({ theme }) => theme.device.mobile} {
-    padding-bottom: 0.9rem;
+    /* padding-bottom: 0.9rem; */
+    margin-bottom: 0;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const MoreButton = styled.button`
+  color: var(--main);
+  ${sub_1}
+
+  max-height: 2rem;
+  line-height: 2rem;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  &.hide {
+    display: none;
+  }
+  :hover {
+    text-decoration: underline;
   }
 `;
 
 const Date = styled.p`
-  margin: 0;
+  margin: 0.5rem 0 0 0;
   ${date}
 `;
 
