@@ -50,6 +50,7 @@ const PostListPage = (props) => {
         <Post key={p.post_id} {...p}>
           {p.title}
           {p.description}
+          {p.createdDate}
         </Post>
       ))}
     </PostTemplate>
