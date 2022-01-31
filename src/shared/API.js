@@ -1,7 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: ``
+  baseURL: process.env.REACT_APP_API_HOST,
+  // headers: { 'Content-Type': 'application/json' },
 });
 
 export default api;

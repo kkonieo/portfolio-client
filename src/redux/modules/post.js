@@ -1,7 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
 import axios from 'axios';
-import { PostData } from '../../data/SampleData';
+
+import api from '../../shared/API';
 
 // Action
 const SET_POST = 'SET_POST';
@@ -71,8 +72,8 @@ const initialPost = {
 
 const getPostAX = () => {
   return function (dispatch, getState, { history }) {
-    axios
-      .get(`http://localhost:3001/Post`)
+    api
+      .get(`/Post`)
       // .get(`${PostData}`)
       .then((res) => {
         let post_list = [];

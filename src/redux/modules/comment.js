@@ -1,10 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
 import axios from 'axios';
-import { CommentData } from '../../data/SampleData';
 
 import api from '../../shared/API';
-import { findLastKey } from 'lodash';
 
 // Action
 const SET_COMMENT = 'SET_COMMENT';
@@ -47,8 +45,8 @@ const initialState = {
 
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
-    axios
-      .get(`http://localhost:3001/Comment`)
+    api
+      .get(`/Comment`)
       .then((res) => {
         let comment_list = [];
 
