@@ -1,62 +1,68 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
 import axios from 'axios';
+import { PostData } from '../../data/SampleData';
 
 // Action
 const SET_POST = 'SET_POST';
-const ADD_POST = 'ADD_POST';
+// const ADD_POST = 'ADD_POST';
 // const EDIT_POST = "EDIT_POST";
 // const LOADING = "LOADING";
 
 // Action Creator
 const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
-const addPost = createAction(ADD_POST, (post) => ({ post }));
+
+// const addPost = createAction(ADD_POST, (comment_list) => ({ comment_list }));
 // const editPost = createAction(EDIT_POST, (post_id, post) => ({
 //   post_id,
 //   post,
 // }));
 // const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 
-// InitialState // reducer가 사용할 intialState
+// InitialState
 const initialState = {
   list: [],
-  // is_loading: false,
+};
+
+const initialPost = {
+  post_list: [
+    {
+      id: 1,
+      title: '이것의 제목은 알파벳입니다.',
+      description:
+        '문자 체계의 유형으로서, 알파벳은 아부기다나 아브자드와 함께 음소 문자에 속한다. 다만 서양에서는, 이러한 3가지를 알파벳이라고 부르는 경우도 있다.',
+      thumbnail:
+        'https://images.unsplash.com/photo-1643533453176-29fe50049959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80',
+      createdDate: '2022-01-25 22:00:00',
+      user: {
+        name: 'Chicken',
+        profile:
+          'https://images.unsplash.com/photo-1643133277936-9f93d8792522?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+      },
+    },
+  ],
 };
 
 // middleware
-// const addPostAX = (post) => {
+// const addPostAX = (comment_list) => {
 //   return function (dispatch, getState, { history }) {
-//     const user = getState().user.user;
-//     const user_info = {
-//       user_id: 1,
-//       user_email: "user_email",
-//       user_nickname: "user_nickname",
-//     };
-
 //     let form = new FormData();
-//     form.append("title", post.title);
-//     form.append("file", post.image);
-//     form.append('user_id', user.user_id);
-
-//     const headers = {
-//       "Content-Type": "multipart/form-data",
-//     };
+//     form.append('comment', comment_list.comment);
 
 //     axios
-//       .post(`http://api/photos`, form, { headers: headers })
+//       .post(``)
 
 //       .then(function (res) {
 //         console.log(res);
-//         const post = {
-//           ...user_info,
-//           post_id: res.data.id,
-//           title: res.data.title,
+//         const comment = {
+//           comment_id: res.data.id,
+//           image_url: res.data.img,
 //           // image_url: `${axiosInfo.config}/image/${res.data.fname}`,
 //           // user_id: res.data.user_id,
 //         };
-//         dispatch(addPost(post));
-//         window.alert("게시글 작성 완료");
-//         window.location.replace("/");
+//         dispatch(addPost(comment));
+//         window.alert('게시글 작성 완료');
+//         // window.location.replace('/');
 //       })
 //       .catch(function (error) {
 //         console.log(error);
@@ -66,32 +72,26 @@ const initialState = {
 
 const getPostAX = () => {
   return function (dispatch, getState, { history }) {
-    // const user = getState().user.user;
-    // const user_info = {
-    //   user_id: 1,
-    //   user_nickname: 'user_nickname',
-    //   user_profile: 'user_profile',
-    // };
-
     axios
-      .get('https://jsonplaceholder.typicode.com/posts')
+      .get(`http://localhost:3001/Post`)
+      // .get(`${PostData}`)
       .then((res) => {
         let post_list = [];
-
+        // console.log(res);
         res.data.forEach((_post) => {
           let post = {
-            post_id: _post.id,
             // ...user_info,
+            post_id: _post.id,
+            // title: _post.title,
+            // description: _post.description,
+            // thumbnail: _post.thumbnail,
+
             title: _post.title,
-            description: _post.body,
-            thumbnail: _post.thumbnailUrl,
-            insert_dt: _post.created_at,
-            // contents: _post.title,
-            // images: _post.thumbnailUrl,
-            // url: _post.url,
+            description: _post.description,
+            thumbnail: _post.thumbnail,
+            createdDate: _post.createdDate,
           };
           post_list.push(post);
-          // console.log(post);
         });
         dispatch(setPost(post_list));
       })
@@ -109,19 +109,22 @@ export default handleActions(
         draft.list.push(...action.payload.post_list);
       }),
 
-    [ADD_POST]: (state, action) =>
-      produce(state, (draft) => {
-        draft.list.unshift(action.payload.post);
-      }),
+    // [ADD_POST]: (state, action) =>
+    //   produce(state, (draft) => {
+    //     draft.list.unshift(action.payload.comment_list);
+    //   }),
+
   },
   initialState,
 );
 
 const actionCreators = {
   setPost,
-  addPost,
+  // setComment,
+  // addPost,
+  // addPostAX,
   getPostAX,
-  // getProjectAX,
+  // getCommentAX,
 };
 
 export { actionCreators };
