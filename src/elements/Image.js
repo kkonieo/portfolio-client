@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import React from 'react';
 
 const Image = (props) => {
-  const { radius, M_width, shape, src, size } = props;
+  const { cursor, radius, M_width, shape, src, size } = props;
 
   const styles = {
+    cursor: cursor,
     radius: radius,
     M_width: M_width,
     src: src,
@@ -49,6 +50,7 @@ const ImageDefault = styled.div`
 const AspectOutter = styled.div`
   width: 100%;
   min-width: 25rem;
+  cursor: pointer;
   ${(props) => (props.M_width ? `width:100%; min-width: 28rem;  ` : '')}
 `;
 

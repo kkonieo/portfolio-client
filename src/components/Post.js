@@ -36,6 +36,7 @@ const Post = (props) => {
           shape="rectangle"
           radius="10px"
           src={props.thumbnail}
+          cursor="pointer"
         />
       </ImageWrapper>
       <TextWrapper>
@@ -57,7 +58,7 @@ const Post = (props) => {
 const PostBox = styled.section`
   width: 100%;
   display: flex;
-  cursor: pointer;
+  /* cursor: pointer; */
   justify-content: space-between;
   border: 1px solid pink;
   margin: 0 auto;
@@ -96,6 +97,7 @@ const PostWrapper = styled.div`
   :hover {
     color: var(--main);
     text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -143,12 +145,13 @@ const MoreButton = styled.button`
   max-height: 2rem;
   line-height: 2rem;
   border: none;
-  cursor: pointer;
+
   background: transparent;
   &.hide {
     display: none;
   }
   :hover {
+    cursor: pointer;
     text-decoration: underline;
   }
 `;
