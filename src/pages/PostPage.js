@@ -84,10 +84,11 @@ const PostPage = (props) => {
       </Grid>
       <Grid M_width>
         <Title>Comments</Title>
-        <CommentWrapper>
-          <CommentItem key={comment_list} />
-          <CommentWrite />
-        </CommentWrapper>
+        {/* <CommentWrapper> */}
+        {/* <CommentItem key={comment_list} /> */}
+        {/* <CommentList /> */}
+        <CommentWrite />
+        {/* </CommentWrapper> */}
       </Grid>
       <Grid M_width width="50%" is_flex_button>
         <Button

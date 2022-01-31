@@ -73,7 +73,7 @@ const initialPost = {
 const getPostAX = () => {
   return function (dispatch, getState, { history }) {
     api
-      .get(`/Post`)
+      .get(`/post`)
       // .get(`${PostData}`)
       .then((res) => {
         let post_list = [];

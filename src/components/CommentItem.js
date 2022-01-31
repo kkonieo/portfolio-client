@@ -10,6 +10,8 @@ import { sub_2 } from '../shared/textStyle';
 // import { history } from '../redux/configureStore';
 
 export const CommentItem = (props) => {
+  // const { content, profile_image, name, comment_id } = props;
+
   return (
     <Grid is_flex_comment M_width>
       <Image src={props.profile_image} size="4" />

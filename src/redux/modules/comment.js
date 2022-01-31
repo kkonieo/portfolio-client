@@ -12,36 +12,37 @@ const ADD_COMMENT = 'ADD_COMMENT';
 const setComment = createAction(SET_COMMENT, (comment_list) => ({
   comment_list,
 }));
+const addComment = createAction(ADD_COMMENT, (comments) => ({
+  comments,
+}));
 
 // initialState
 const initialState = {
   list: [],
 };
 
-// const writeTextPage = (value) => {
-//   return function (dispatch, getState, { history }) {
-//     dispatch(writeText(value));
-//   };
-// };
-
 // 댓글 추가 API
-// const addReviewAPI = (comments, username, id, star) => {
-//   return function (dispatch, getState, { history }) {
-//     api
-//       .post(`/comment`, {
-//         comments: comments,
-//         username: username,
-//       })
-//       .then((response) => {
-//         dispatch(writeTextPage(response.data.comments));
-//         dispatch(addReview(response.data));
-//         window.location.reload();
-//       })
-//       .catch((error) => {
-//         console.log('댓글 작성 실패', error);
-//       });
-//   };
-// };
+const addCommentAX = (comments, name, content, profile_image) => {
+  return function (dispatch, getState, { history }) {
+
+    api
+      .post(`/addcomment`, {
+        comments: comments,
+        name: name,
+        // content: content,
+        // profile_image: profile_image,
+      })
+      .then((response) => {
+        // dispatch(writeTextPage(response.data.comments));
+        dispatch(addComment(response.data.comments));
+        // window.location.reload();
+      })
+      .catch((error) => {
+        console.log('댓글 작성 실패', error);
+      });
+  };
+};
+
 
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
@@ -72,12 +73,12 @@ export default handleActions(
   {
     [SET_COMMENT]: (state, action) =>
       produce(state, (draft) => {
-        draft.list.push(...action.payload.comment_list);
+        draft.list.push(...action.payload.commentlist);
       }),
-    // [ADD_COMMENT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.comment.unshift(action.payload.comments);
-    //   }),
+    [ADD_COMMENT]: (state, action) =>
+      produce(state, (draft) => {
+        draft.comment.push(action.payload.comment);
+      }),
     // [GET_COMMENT]: (state, action) =>
     //   produce(state, (draft) => {
     //     draft.comment = action.payload.comment;
@@ -98,6 +99,7 @@ export default handleActions(
 const actionCreators = {
   setComment,
   getCommentAX,
+  addCommentAX,
 };
 
 export { actionCreators };

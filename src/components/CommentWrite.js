@@ -4,57 +4,79 @@ import styled from 'styled-components';
 //components & elements
 import { Button, Grid, Image } from '../elements';
 import { head_2, sub_2 } from '../shared/textStyle';
+import CommentList from './CommentList';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import { actionCreators as commentActions } from '../redux/modules/comment';
+import comment, {
+  actionCreators as commentActions,
+} from '../redux/modules/comment';
+import CommentItem from './CommentItem';
 
-const CommentWrite = () => {
+const CommentWrite = (props) => {
+  const dispatch = useDispatch();
   const [comments, setComments] = useState('');
+  const comment_list = useSelector((state) => state.comment_list);
   const changeContents = (e) => {
     setComments(e.target.value);
   };
+  // useEffect(() => {
+  //   if (comment_list.length > 0) {
+  //     dispatch(commentActions.getCommentAX());
+  //   }
+  // }, []);
+
+  const write = (e) => {
+    e.preventDefault();
+    // if (!is_login) {
+    //   window.alert("로그인 후 작성 가능합니다.");
+    //   return;
+    // }
+    console.log('------------댓글 작성------------');
+    dispatch(commentActions.addCommentAX(comments));
+  };
 
   return (
-    <CommentInputWrapper>
-      <Grid is_flex_comment M_width>
-        <Image size="4" />
-        <Input
-          placeholder="와 ~ 댓 글 을 작 성 하 자"
-          value={comments}
-          onChange={changeContents}
-          multiLine
-          // onChange={onChange}
-          // value={comments}
-          // type="text"
-          // value={comments}
-          // onChange={(e) => setComments(e.target.value)}
-        />
-        <BtnWrapper>
-          <Button
-            width="4rem"
-            border="1px solid var(--gray)"
-            bg="transparent"
-            margin="1rem"
-            padding="5px 10px 5px 10px"
-            radius="3px"
-            cursor="cursor"
-            // _onClick={write}
-            // _onClick={addComment}
-          >
-            등록
-          </Button>
-          {/* <Button
-        cursor="cursor"
-        // _onClick={addPost}
-      >
-        등록
-      </Button> */}
-        </BtnWrapper>
-      </Grid>
-    </CommentInputWrapper>
+    <>
+      <CommentWrapper>
+        <CommentItem />
+        <CommentItem />
+        <CommentItem />
+      </CommentWrapper>
+      <CommentInputWrapper>
+        <Grid is_flex_comment M_width>
+          <Image size="4" />
+          <Input
+            placeholder="와 ~ 댓 글 을 작 성 하 자"
+            value={comments}
+            onChange={changeContents}
+            multiLine
+          />
+          <BtnWrapper>
+            <Button
+              width="4rem"
+              border="1px solid var(--gray)"
+              bg="transparent"
+              margin="1rem"
+              padding="5px 10px 5px 10px"
+              radius="3px"
+              cursor="cursor"
+              // _onClick={write}
+              _onClick={write}
+            >
+              등록
+            </Button>
+          </BtnWrapper>
+        </Grid>
+      </CommentInputWrapper>
+    </>
   );
 };
+
+const CommentWrapper = styled.div`
+  border: 1px solid var(--gray);
+  margin-bottom: 1rem;
+`;
 
 const Input = styled.input`
   ${sub_2};
