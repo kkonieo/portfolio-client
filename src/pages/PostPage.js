@@ -6,8 +6,7 @@ import axios from 'axios';
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
 import { head_2, sub_2 } from '../shared/textStyle';
-import { Button, Grid, Image } from '../elements';
-import Comment from '../components/Comment';
+import { Button, Grid } from '../elements';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +16,7 @@ import CommentItem from '../components/CommentItem';
 import CommentWrite from '../components/CommentWrite';
 
 const PostPage = (props) => {
+  const { history } = props;
   const dispatch = useDispatch();
   const comment_list = useSelector((state) => state.comment_list);
   const [comments, setComments] = useState('');
@@ -88,6 +88,36 @@ const PostPage = (props) => {
           <CommentItem key={comment_list} />
           <CommentWrite />
         </CommentWrapper>
+      </Grid>
+      <Grid M_width width="50%" is_flex_button>
+        <Button
+          width="7rem"
+          height="2.4rem"
+          margin="0 0.5rem"
+          color="var(--white)"
+          bg="var(--main)"
+        >
+          카카오톡 공유
+        </Button>
+        <Button
+          width="7rem"
+          height="2.4rem"
+          margin="0 0.5rem"
+          color="var(--white)"
+          bg="var(--main)"
+        >
+          링크 복사하기
+        </Button>
+        <Button
+          width="7rem"
+          height="2.4rem"
+          margin="0 0 0 0.5rem"
+          color="var(--white)"
+          bg="var(--main)"
+          _onClick={() => history.push('/postlist')}
+        >
+          뒤로가기
+        </Button>
       </Grid>
     </PostTemplate>
   );
