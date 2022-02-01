@@ -18,6 +18,7 @@ export const CommentItem = (props) => {
 
 const CommentsText = styled.p`
   ${sub_2};
+  font-family: normal;
   color: var(--main);
   padding: 0px 20px 0px 20px;
 `;

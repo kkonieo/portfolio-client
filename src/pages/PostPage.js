@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 // components & elements
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
-import { head_2, sub_2 } from '../shared/textStyle';
+import { head_2, body_2 } from '../shared/textStyle';
 import { Button, Grid } from '../elements';
 
 // redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { actionCreators as commentActions } from '../redux/modules/comment';
-import CommentItem from '../components/CommentItem';
 import CommentWrite from '../components/CommentWrite';
 
 const PostPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
-  const comment_list = useSelector((state) => state.comment_list);
-  const [comments, setComments] = useState('');
 
   useEffect((e) => {
     dispatch(commentActions.getCommentAX());
   }, []);
-
-  // //댓글 작성
-  // const write = (e) => {
-  //   console.log('------------댓글 작성------------');
-  //   dispatch(commentActions.writeTextPage(comments));
-  //   // setComments(e.target.value);
-  // };
 
   return (
     <PostTemplate>
@@ -58,13 +48,11 @@ const PostPage = (props) => {
       <Grid M_width>
         <Title>Comments</Title>
         <CommentWrite />
-        {/* <CommentWrapper> */}
-        {/* <CommentList /> */}
-        {/* <CommentItem key={comment_list} /> */}
-        {/* </CommentWrapper> */}
       </Grid>
       <Grid M_width width="50%" is_flex_button margin="1.4rem 0 1.4rem 0">
         <Button
+          hoverToMain
+          commonSize
           width="7rem"
           height="2.4rem"
           margin="0 0.5rem"
@@ -75,6 +63,8 @@ const PostPage = (props) => {
           카카오톡 공유
         </Button>
         <Button
+          hoverToMain
+          commonSize
           width="7rem"
           height="2.4rem"
           margin="0 0.5rem"
@@ -85,6 +75,8 @@ const PostPage = (props) => {
           링크 복사하기
         </Button>
         <Button
+          hoverToMain
+          commonSize
           width="7rem"
           height="2.4rem"
           margin="0 0 0 0.5rem"
@@ -107,8 +99,10 @@ const Title = styled.h2`
 `;
 
 const Text = styled.p`
-  ${sub_2};
+  ${body_2};
   color: var(--main);
+  font-family: normal;
+  margin: 0;
 `;
 
 export default PostPage;

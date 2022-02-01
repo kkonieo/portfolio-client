@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 //components & elements
 import { Button, Grid, Image } from '../elements';
-import { head_2, sub_2 } from '../shared/textStyle';
+import { body_2 } from '../shared/textStyle';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,11 +19,6 @@ const CommentWrite = (props) => {
   const changeContents = (e) => {
     setComments(e.target.value);
   };
-  // useEffect(() => {
-  //   if (comment_list.length > 0) {
-  //     dispatch(commentActions.getCommentAX());
-  //   }
-  // }, []);
 
   const write = (e) => {
     e.preventDefault();
@@ -41,9 +36,6 @@ const CommentWrite = (props) => {
             <CommentItem key={c.comment_id} {...c} />
           </Grid>
         ))}
-        {/* <CommentItem />
-        <CommentItem />
-        <CommentItem /> */}
       </CommentWrapper>
       <CommentInputWrapper>
         <Grid is_flex_comment M_width>
@@ -56,6 +48,7 @@ const CommentWrite = (props) => {
           />
           <BtnWrapper>
             <Button
+              commonSize
               width="4rem"
               border="1px solid var(--gray)"
               bg="transparent"
@@ -76,12 +69,14 @@ const CommentWrite = (props) => {
 
 const CommentWrapper = styled.div`
   border: 1px solid var(--gray);
+  border-radius: 3px;
   margin-bottom: 1rem;
 `;
 
 const Input = styled.input`
-  ${sub_2};
+  ${body_2};
   color: var(--main);
+  /* font-family: normal; */
   border: none;
   width: 100%;
   height: 5rem;
@@ -98,6 +93,7 @@ const Input = styled.input`
 
 const CommentInputWrapper = styled.div`
   border: 1px solid var(--gray);
+  border-radius: 3px;
 `;
 
 const BtnWrapper = styled.div``;

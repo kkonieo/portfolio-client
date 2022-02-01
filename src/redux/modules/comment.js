@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
-import axios from 'axios';
 
+// API
 import api from '../../shared/API';
 
 // Action
@@ -91,8 +91,8 @@ export default handleActions(
 const actionCreators = {
   setComment,
   getCommentAX,
-  addCommentAX,
   addComment,
+  addCommentAX,
 };
 
 export { actionCreators };
