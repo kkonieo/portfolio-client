@@ -10,14 +10,20 @@ const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const UserListPage = (props) => {
-  let [card, setCard] = useState(UserData);
+  let [card, setCard] = useState(UserData); //처음 뜨는 카드
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(8);
-  const [seachList, setSecachList] = useState();
+  const [limit, setLimit] = useState(8); //+버튼 누르면 뜨는 카드
+  const [seachList, setSecachList] = useState(); //검색시 나타나는 카드
+
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios.post('api/');
   }, []);
+
+  const updateSearchTerm = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+  };
 
   function UserCards(props) {
     return (
@@ -37,7 +43,7 @@ const UserListPage = (props) => {
   return (
     <UserWrapper>
       <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
-      <SearchBox />
+      <SearchBox refreshFunction={updateSearchTerm} />
 
       <UserListSection>
         <CurrentUser />
