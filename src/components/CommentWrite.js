@@ -68,7 +68,7 @@ const CommentWrite = (props) => {
 };
 
 const CommentWrapper = styled.div`
-  border: 1px solid var(--gray);
+  border: 2px solid var(--lightgray);
   border-radius: 3px;
   margin-bottom: 1rem;
 `;
@@ -92,7 +92,7 @@ const Input = styled.input`
 `;
 
 const CommentInputWrapper = styled.div`
-  border: 1px solid var(--gray);
+  border: 2px solid var(--lightgray);
   border-radius: 3px;
 `;
 
