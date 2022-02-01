@@ -27,15 +27,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import WarningIcon from '@mui/icons-material/Warning';
+import Grid from '@mui/material/Grid';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const EditorPage = () => {
+  const test = 'oo';
+
   const editorRef = useRef();
   const [title, setTitle] = useState('');
   const [hashtag, setHashtag] = useState('');
   const [hashArr, setHashArr] = useState([]);
   const [data, setData] = useState('');
   const [dialog, setDialog] = useState(false);
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
     if (editorRef.current) {
@@ -118,6 +122,14 @@ const EditorPage = () => {
     // 수정 기능을 대비해서 markdown 데이터도 저장 해야함 !
   };
 
+  const loginInputStyle = {
+    width: '100%',
+    display: 'inline',
+    height: '40px',
+    fontSize: '20px',
+    marginBottom: '10px',
+  };
+
   return (
     <div style={{ width: '100%', padding: '20px' }}>
       <input
@@ -144,12 +156,6 @@ const EditorPage = () => {
         <input
           className="HashInput"
           type="text"
-          style={{
-            border: 'none',
-            display: 'inline',
-            height: '40px',
-            fontSize: '25px',
-          }}
           placeholder="태그를 입력하세요. (입력 후 엔터 !)"
           name="tagInput"
           value={hashtag}
@@ -182,6 +188,106 @@ const EditorPage = () => {
         <ArrowBackRoundedIcon />
         &nbsp; <div>뒤로가기</div>
       </Button>
+      {`      `}
+      <Button
+        onClick={() => {
+          setLogin(true);
+        }}
+        variant="outlined"
+        color="success"
+      >
+        LOGIN
+      </Button>
+      <Dialog
+        open={login}
+        onClose={() => {
+          setLogin(false);
+        }}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          <div style={{ fontSize: '30px', textAlign: 'center' }}>로그인</div>
+          <hr></hr>
+        </DialogTitle>
+        <DialogContent>
+          <LoginDiv>
+            <input
+              type="text"
+              style={loginInputStyle}
+              placeholder="👤 아이디를 입력해 주세요."
+            />
+            <input
+              type="password"
+              style={loginInputStyle}
+              placeholder="🔑 비밀번호를 입력해 주세요."
+            />
+          </LoginDiv>
+          <Button
+            variant="contained"
+            style={{
+              width: '100%',
+              backgroundColor: '#279eea',
+              marginBottom: '10px',
+            }}
+          >
+            <span>로그인</span>
+          </Button>
+          <div
+            style={{ marginTop: '5px', fontSize: '20px', textAlign: 'center' }}
+          >
+            다른 아이디로 로그인하기
+          </div>
+          <hr></hr>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <Button
+                variant="contained"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'black',
+                  marginBottom: '10px',
+                }}
+              >
+                <GitHubIcon />
+                <span style={{ marginLeft: '5px' }}>Github</span>
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                variant="contained"
+                style={{
+                  width: '100%',
+                  backgroundColor: '#FAE100',
+                  marginBottom: '10px',
+                }}
+              >
+                <img alt="" src="/Image/kakao.png" width="20px" />
+                <span style={{ marginLeft: '5px', color: '#3C1E1E' }}>
+                  kakao
+                </span>
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                variant="outlined"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'white',
+                  marginBottom: '10px',
+                }}
+                color="success"
+              >
+                <img alt="" src="/Image/naver.png" width="20px" />
+                <span style={{ marginLeft: '5px', color: '#1EC800' }}>
+                  naver
+                </span>
+              </Button>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
+
       {`  `}
       <div style={{ display: 'inline', float: 'right' }}>
         <Button onClick={saveButton} variant="outlined" color="secondary">
@@ -242,16 +348,16 @@ const HashDivrap = styled.div`
 
   .HashWrapInner {
     margin-top: 5px;
-    background: #d1ddff;
+    background: #279eea;
     border-radius: 56px;
     padding: 8px 12px;
-    color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 1.1rem;
-    line-height: 10px;
+    line-height: 5px;
     margin-right: 5px;
     cursor: pointer;
   }
@@ -266,7 +372,16 @@ const HashDivrap = styled.div`
     margin-bottom: 0.75rem;
     min-width: 8rem;
     border: none;
+    height: 40px;
+    font-size: 25px;
   }
+`;
+const LoginDiv = styled.div`
+  width: 400px;
+  text-align: center;
+  align: center;
+
+  .
 `;
 
 export default EditorPage;
