@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root{
         --main: #279eea;
-        --gray: #808080;
+        --gray: #a2a2a2;
         --darkblue: #0c7bc1;
         --white: #ffffff;
     }
@@ -12,8 +12,6 @@ const GlobalStyle = createGlobalStyle`
   * {
         font-family: 'Jua', sans-serif;
         box-sizing: border-box;
-        /* font-family: 'Cedarville Cursive', cursive;
-        letter-spacing: -0.015em; */
     }
 
     html {

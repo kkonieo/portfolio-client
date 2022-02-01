@@ -16,14 +16,18 @@ export const menu_head_1 = css`
 export const head_1 = css`
   font-size: 1.2rem;
   font-weight: 600;
-  /* font-family: normal; */
 `;
 
 // Post, Project Text - PostList, ProjectListPage
+export const body_1 = css`
+  font-size: 1.1rem;
+  font-weight: 500;
+`;
+
+// morebutton - PostList, ProjectListPage
 export const sub_1 = css`
-  font-size: 1.2rem;
-  font-weight: 400;
-  /* font-family: normal; */
+  font-size: 1rem;
+  font-weight: 500;
 `;
 
 // Post, Project Date - PostList, ProjectListPage
@@ -33,14 +37,27 @@ export const date = css`
   font-family: normal;
 `;
 
-// 페이지별 HeadTitle - Post, ProjectPage
+// 페이지별 HeadTitle - PostPage, ProjectPage
 export const head_2 = css`
   font-size: 1.5rem;
   font-weight: 600;
 `;
 
-// 페이지별 Text - Post, ProjectPage
-export const sub_2 = css`
+// 페이지별 Text - PostPage, ProjectPage
+export const body_2 = css`
   font-size: 1rem;
   font-weight: 400;
+`;
+
+// comments - PostPage
+export const sub_2 = css`
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: normal;
+`;
+
+// button
+export const button = css`
+  font-size: 1rem;
+  font-weight: 500;
 `;
