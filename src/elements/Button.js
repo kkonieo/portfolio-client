@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { button } from '../shared/textStyle';
 
 const Button = (props) => {
   const {
+    hoverToMain,
+    commonSize,
     _onClick,
     children,
     margin,
@@ -18,6 +21,8 @@ const Button = (props) => {
   } = props;
 
   const styles = {
+    hoverToMain: hoverToMain,
+    commonSize: commonSize,
     margin: margin,
     width: width,
     height: height,
@@ -40,6 +45,8 @@ const Button = (props) => {
 };
 
 Button.defaultProps = {
+  hoverToMain: '',
+  commonSize: false,
   children: null,
   _onClick: () => {},
   margin: false,
@@ -57,6 +64,7 @@ Button.defaultProps = {
 const ElButton = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  ${(props) => (props.commonSize ? `${button}: ${button}` : '')};
   ${(props) => (props.size ? `font-size: ${props.size}` : '')};
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
   ${(props) => (props.color ? `color: ${props.color};` : '')};
@@ -67,6 +75,16 @@ const ElButton = styled.button`
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
   ${(props) => (props.cursor ? `cursor: pointer;` : '')};
   ${(props) => (props.border ? `border: ${props.border}` : '')};
+  ${(props) =>
+    props.hoverToMain
+      ? `&:hover {
+      background-color: white;
+      border: 0.1rem solid var(--main);
+      color: var(--main);
+    }`
+      : ''}/* :active {
+    opacity: 0.7;
+  } */
 `;
 
 export default Button;

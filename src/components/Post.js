@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 //components & elements
 import { Image } from '../elements';
-import { head_1, sub_1, date } from '../shared/textStyle';
+import { head_1, body_1, sub_1, date } from '../shared/textStyle';
 import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
@@ -77,17 +76,6 @@ const ImageWrapper = styled.div`
   }
 `;
 
-// const Image = styled.img`
-//   width: 25rem;
-//   background-position: center;
-//   background-size: cover;
-//   border-radius: 8px;
-//   ${({ theme }) => theme.device.mobile} {
-//     width: 100%;
-//     min-width: 28rem;
-//   }
-// `;
-
 const TextWrapper = styled.div`
   padding: 0.3rem 1rem 0.5rem 1rem;
   display: flex;
@@ -107,14 +95,15 @@ const PostWrapper = styled.div`
 `;
 
 const Title = styled.p`
-  margin: 0;
-  color: var(--main);
   ${head_1};
+  color: var(--main);
+  margin: 0;
 `;
 
 const Text = styled.p`
+  ${body_1}
   color: var(--main);
-  ${sub_1}
+  font-family: normal;
 
   position: relative;
   display: -webkit-box;
@@ -128,7 +117,6 @@ const Text = styled.p`
     overflow: auto;
     -webkit-line-clamp: unset;
   }
-
   ${({ theme }) => theme.device.mobile} {
     margin-bottom: 0;
   }
@@ -140,13 +128,14 @@ const ButtonWrapper = styled.div`
 `;
 
 const MoreButton = styled.button`
-  color: var(--main);
   ${sub_1}
+  color: var(--main);
+  font-family: normal;
 
   max-height: 2rem;
   line-height: 2rem;
   border: none;
-  
+
   background: transparent;
   &.hide {
     display: none;
@@ -158,8 +147,8 @@ const MoreButton = styled.button`
 `;
 
 const Date = styled.p`
-  margin: 0.5rem 0 0 0;
   ${date}
+  margin: 0.5rem 0 0 0;
 `;
 
 Post.defaultProps = {
