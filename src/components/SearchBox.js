@@ -16,9 +16,9 @@ const SearchBox = () => {
         onChange={searchHandler}
         value={searchTerm}
       />
-      <SearchButton>
+      {/* <SearchButton>
         <p>검색</p>
-      </SearchButton>
+      </SearchButton> */}
       <DetailButton>
         <p>상세검색</p>
       </DetailButton>
@@ -37,7 +37,7 @@ const SearchForm = styled.div`
     position: relative;
     display: block;
 
-    width: 300px;
+    width: 200px;
     height: 30px;
     font-size; 25px;
     color: #ffffff;

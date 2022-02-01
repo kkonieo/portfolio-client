@@ -13,6 +13,7 @@ const UserListPage = (props) => {
   let [card, setCard] = useState(UserData);
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(8);
+  const [seachList, setSecachList] = useState();
 
   useEffect(() => {
     axios.post('api/');
