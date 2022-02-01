@@ -5,30 +5,22 @@ import axios from 'axios';
 import api from '../../shared/API';
 
 // Action
-const WRITE_TEXT = 'review/WRITE_TEXT';
 const SET_COMMENT = 'SET_COMMENT';
 const ADD_COMMENT = 'ADD_COMMENT';
 
 // ActionCreator
-// const writeText = createAction(WRITE_TEXT, (text) => ({ text }));
 const setComment = createAction(SET_COMMENT, (comment_list) => ({
   comment_list,
 }));
-const addComment = createAction(ADD_COMMENT, (comments) => ({
-  comments,
+const addComment = createAction(ADD_COMMENT, (comment) => ({
+  comment,
 }));
 
 // initialState
 const initialState = {
-  comments: [],
-  text: null,
+  list: [],
+  comment: [],
 };
-
-// const writeTextPage = (value) => {
-//   return function (dispatch, getState, { history }) {
-//     dispatch(writeText(value));
-//   };
-// };
 
 const addCommentAX = (comments, name, content, profile_image) => {
   return function (dispatch, getState, { history }) {
@@ -40,8 +32,9 @@ const addCommentAX = (comments, name, content, profile_image) => {
         // profile_image: profile_image,
       })
       .then((response) => {
-        // dispatch(writeTextPage(response.data.comments));
-        dispatch(addComment(response.data.comments));
+        console.log('댓글 작성 성공');
+        console.log(response.data);
+        dispatch(addComment(response.data.content));
         // window.location.reload();
       })
       .catch((error) => {
@@ -52,12 +45,6 @@ const addCommentAX = (comments, name, content, profile_image) => {
 
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
-    // const user = getState().user.user;
-    // const user_info = {
-    //   user_id: 1,
-    //   user_email: "user_email",
-    //   user_nickname: "user_nickname",
-    // };
     api
       .get(`/comment`)
       .then((res) => {
@@ -73,6 +60,7 @@ const getCommentAX = () => {
           };
           comment_list.push(comment);
         });
+        console.log('2222');
         dispatch(setComment(comment_list));
         // dispatch(setComment(comment_list.content));
       })
@@ -85,40 +73,26 @@ const getCommentAX = () => {
 // Reducer
 export default handleActions(
   {
-    // [WRITE_TEXT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.text = action.payload.text;
-    //   }),
     [SET_COMMENT]: (state, action) =>
       produce(state, (draft) => {
-        draft.list.push(...action.payload.commentlist);
+        draft.list = [];
+        draft.list.push(...action.payload.comment_list);
       }),
     [ADD_COMMENT]: (state, action) =>
       produce(state, (draft) => {
-        draft.comment.unshift(action.payload.comments);
+        console.log(action.payload);
+        draft.comment.unshift(action.payload.comment);
       }),
-    // [GET_COMMENT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.comment = action.payload.comment;
-    //   }),
-    // [EDIT_COMMENT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.comments = action.payload.comments;
-    //   }),
-    // [DELETE_COMMENT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.comment = action.payload.comment;
-    //   }),
   },
   initialState,
 );
 
 // ActionCreator export
 const actionCreators = {
-  // writeTextPage,
   setComment,
   getCommentAX,
   addCommentAX,
+  addComment,
 };
 
 export { actionCreators };

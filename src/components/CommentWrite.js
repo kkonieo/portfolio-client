@@ -13,12 +13,12 @@ import CommentItem from './CommentItem';
 const CommentWrite = (props) => {
   const dispatch = useDispatch();
   const [comments, setComments] = useState('');
-  const comment_list = useSelector((state) => state.commentlist);
-
+  const comment_list = useSelector((state) => state.comment.list);
+  // 1
+  console.log(comment_list);
   const changeContents = (e) => {
     setComments(e.target.value);
   };
-
   // useEffect(() => {
   //   if (comment_list.length > 0) {
   //     dispatch(commentActions.getCommentAX());
@@ -27,27 +27,23 @@ const CommentWrite = (props) => {
 
   const write = (e) => {
     e.preventDefault();
-    // if (!is_login) {
-    //   window.alert("로그인 후 작성 가능합니다.");
-    //   return;
-    // }
     console.log('------------댓글 작성------------');
     dispatch(commentActions.addCommentAX(comments));
-    // dispatch(commentActions.writeTextPage(comments));
     setComments('');
+    dispatch(commentActions.getCommentAX());
   };
 
   return (
     <>
       <CommentWrapper>
-        {/* {comment_list.map((c) => (
+        {comment_list.map((c) => (
           <Grid is_flex_comment M_width>
             <CommentItem key={c.comment_id} {...c} />
           </Grid>
-        ))} */}
-        <CommentItem key={comment_list} />
+        ))}
+        {/* <CommentItem />
         <CommentItem />
-        <CommentItem />
+        <CommentItem /> */}
       </CommentWrapper>
       <CommentInputWrapper>
         <Grid is_flex_comment M_width>

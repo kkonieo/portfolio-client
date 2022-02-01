@@ -15,7 +15,10 @@ import { actionCreators as postActions } from '../redux/modules/post';
 const PostListPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
-  const post_list = useSelector((state) => state.post.list);
+  // const post_list = useSelector((state) => state.post.list);
+  const post_list = useSelector((state) =>{ 
+    console.log(state);
+    return state.post.list;});
   // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
