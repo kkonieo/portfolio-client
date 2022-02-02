@@ -41,7 +41,7 @@ const Container = styled.header`
   z-index: 20;
   width: 100%;
   height: 80px;
-  background-color:transparent;
+  background-color: transparent;
   /* border: 1px solid black; */
 `;
 
@@ -93,6 +93,9 @@ const Item = styled.li`
   list-style: none;
   color: var(--main);
   margin: 0.3rem 2rem;
+  :hover {
+    color: var(--lightgray);
+  }
   /* padding: 0.3rem 2rem; */
   /* border:1px solid green; */
 `;

@@ -88,9 +88,17 @@ const TextWrapper = styled.div`
 
 const PostWrapper = styled.div`
   :hover {
-    color: var(--main);
+    color: var(--gray);
     text-decoration: underline;
     cursor: pointer;
+  }
+  :hover :first-child {
+    color: var(--main);
+    text-decoration: underline;
+  }
+  :hover :last-child {
+    color: var(--gray);
+    /* text-decoration: underline; */
   }
 `;
 
@@ -102,7 +110,7 @@ const Title = styled.p`
 
 const Text = styled.p`
   ${body_1}
-  color: var(--main);
+  color: var(--gray);
   font-family: normal;
 
   position: relative;
@@ -117,6 +125,7 @@ const Text = styled.p`
     overflow: auto;
     -webkit-line-clamp: unset;
   }
+
   ${({ theme }) => theme.device.mobile} {
     margin-bottom: 0;
   }
@@ -129,7 +138,7 @@ const ButtonWrapper = styled.div`
 
 const MoreButton = styled.button`
   ${sub_1}
-  color: var(--main);
+  color: var(--gray);
   font-family: normal;
 
   max-height: 2rem;
