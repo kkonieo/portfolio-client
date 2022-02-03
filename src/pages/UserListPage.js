@@ -28,14 +28,14 @@ const UserListPage = (props) => {
   //   });
   // }, []);
 
-  // const updateSearchTerm = (newSearchTerm) => {
-  //   setSearchTerm(newSearchTerm);
-  // };
+  const updateSearchTerm = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+  };
 
   return (
     <UserWrapper>
       <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
-      {/* <SearchBox refreshFunction={updateSearchTerm} /> */}
+      <SearchBox refreshFunction={updateSearchTerm} />
 
       <UserListSection>
         <CurrentUser />
@@ -50,48 +50,48 @@ const UserListPage = (props) => {
   );
 };
 
-const UserCard = styled.div`
-  width: 220px;
-  height: 220px;
-  cursor: pointer;
-  overflow: hidden;
+// const UserCard = styled.div`
+//   width: 220px;
+//   height: 220px;
+//   cursor: pointer;
+//   overflow: hidden;
 
-  float: left;
+//   float: left;
 
-  background-color: var(--darkblue);
-  border-radius: 50%;
-  margin-right: 40px;
-  margin-bottom: 50px;
+//   background-color: var(--darkblue);
+//   border-radius: 50%;
+//   margin-right: 40px;
+//   margin-bottom: 50px;
 
-  // text-align: center;
+//   // text-align: center;
 
-  color: #ffffff;
-  align-items: center;
-  position: relative;
+//   color: #ffffff;
+//   align-items: center;
+//   position: relative;
 
-  p {
-    font-size: 25px;
-    margin-top: 75px;
-  }
+//   p {
+//     font-size: 25px;
+//     margin-top: 75px;
+//   }
 
-  img {
-    object-fit: cover;
-    background-size: contain;
+//   img {
+//     object-fit: cover;
+//     background-size: contain;
 
-    position: absolute;
+//     position: absolute;
 
-    top: 0px;
-    left: 0px;
+//     top: 0px;
+//     left: 0px;
 
-    width: 100%;
-    height: 100%;
-  }
+//     width: 100%;
+//     height: 100%;
+//   }
 
-  img:hover {
-    opacity: 0.1;
-    background-color: var(--darkblue);
-  }
-`;
+//   img:hover {
+//     opacity: 0.1;
+//     background-color: var(--darkblue);
+//   }
+// `;
 
 const UserWrapper = styled.div`
   margin: auto;
