@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+
+//state 헷갈려서 지금 잠시 멈춤
 
 const PlusButton = () => {
-  const loadMoreHandler = () => {};
+  const loadMoreHandler = () => {
+    axios.get('api/user').then((res) => {
+      console.log();
+    });
+  };
 
   return (
     <UserPlusButton onClick={loadMoreHandler}>

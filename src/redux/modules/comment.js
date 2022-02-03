@@ -24,7 +24,6 @@ const initialState = {
 // 댓글 추가 API
 const addCommentAX = (comments, name, content, profile_image) => {
   return function (dispatch, getState, { history }) {
-
     api
       .post(`/addcomment`, {
         comments: comments,
@@ -42,7 +41,6 @@ const addCommentAX = (comments, name, content, profile_image) => {
       });
   };
 };
-
 
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {

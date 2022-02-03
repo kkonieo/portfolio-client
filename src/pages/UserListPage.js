@@ -5,6 +5,8 @@ import CurrentUser from '../components/CurrentUser';
 import PlusButton from '../components/PlusButton';
 import SearchBox from '../components/SearchBox';
 import axios from 'axios';
+// import { router } from 'json-server';
+import UserCards from '../components/UserCards';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -17,33 +19,23 @@ const UserListPage = (props) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    axios.post('api/');
-  }, []);
+  // useEffect(() => {
+  //   axios.get('api/userlist').then((res) => {
+  //     if (res.data.success) {
+  //     } else {
+  //       alert('유저를 불러보는데 실패 했숨,,');
+  //     }
+  //   });
+  // }, []);
 
-  const updateSearchTerm = (newSearchTerm) => {
-    setSearchTerm(newSearchTerm);
-  };
-
-  function UserCards(props) {
-    return (
-      <UserCard>
-        <img
-          alt=""
-          src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`}
-          width="500px"
-        />
-        <p>
-          {props.card.position} <br /> <b>{props.card.name}</b>
-        </p>
-      </UserCard>
-    );
-  }
+  // const updateSearchTerm = (newSearchTerm) => {
+  //   setSearchTerm(newSearchTerm);
+  // };
 
   return (
     <UserWrapper>
       <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
-      <SearchBox refreshFunction={updateSearchTerm} />
+      {/* <SearchBox refreshFunction={updateSearchTerm} /> */}
 
       <UserListSection>
         <CurrentUser />
@@ -57,34 +49,6 @@ const UserListPage = (props) => {
     </UserWrapper>
   );
 };
-
-const UserWrapper = styled.div`
-  margin: auto;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  text-align: center;
-
-  background-color: var(--main);
-  position: relative;
-`;
-
-const UserListTitle = styled.div`
-  position: absolute;
-  color: #ffffff;
-  font-size: 35px;
-
-  margin-top: 80px;
-  left: 6%;
-`;
-
-const UserListSection = styled.div`
-  justify-content: center;
-  position: absolute;
-
-  margin-top: 230px;
-  left: 6%;
-`;
 
 const UserCard = styled.div`
   width: 220px;
@@ -127,6 +91,34 @@ const UserCard = styled.div`
     opacity: 0.1;
     background-color: var(--darkblue);
   }
+`;
+
+const UserWrapper = styled.div`
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  text-align: center;
+
+  background-color: var(--main);
+  position: relative;
+`;
+
+const UserListTitle = styled.div`
+  position: absolute;
+  color: #ffffff;
+  font-size: 35px;
+
+  margin-top: 80px;
+  left: 6%;
+`;
+
+const UserListSection = styled.div`
+  justify-content: center;
+  position: absolute;
+
+  margin-top: 230px;
+  left: 6%;
 `;
 
 export default UserListPage;
