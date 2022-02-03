@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
   const {
+    display,
+    justifyContent,
+    alignItems,
     M_width,
     is_flex_button,
     is_flex_comment,
@@ -17,6 +20,9 @@ const Grid = (props) => {
   } = props;
 
   const styles = {
+    display: display,
+    justifyContent: justifyContent,
+    alignItems: alignItems,
     M_width: M_width,
     is_flex_button: is_flex_button,
     is_flex_comment: is_flex_comment,
@@ -49,6 +55,10 @@ Grid.defaultProps = {
 const GridBox = styled.div`
   width: ${(props) => props.width};
   box-sizing: border-box;
+  ${(props) => (props.display ? `display: ${props.display};` : '')}
+  ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
+  ${(props) =>
+    props.justifyContent ? `justify-content: ${props.justifyContent};` : ''}
   ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
   ${(props) => (props.height ? `height: ${props.height};` : '')}
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')}

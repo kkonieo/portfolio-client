@@ -32,7 +32,12 @@ const CommentWrite = (props) => {
     <>
       <CommentWrapper>
         {comment_list.map((c) => (
-          <Grid is_flex_comment M_width>
+          <Grid
+            M_width
+            display="flex"
+            align-items="flex-start"
+            justify-content="flex-start"
+          >
             <CommentItem key={c.comment_id} {...c} />
           </Grid>
         ))}
