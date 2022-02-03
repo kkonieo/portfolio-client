@@ -32,6 +32,17 @@ const UserListPage = (props) => {
     setSearchTerm(newSearchTerm);
   };
 
+  const userLoading = () => {
+    axios
+      .get('api/uselist')
+      .then((res) => {
+        console.log(res.data); //성공할 경우
+      })
+      .catch(() => {
+        console.log('하..실패해쑴..');
+      }); //실패할 경우
+  };
+
   return (
     <UserWrapper>
       <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
@@ -44,7 +55,7 @@ const UserListPage = (props) => {
           return <UserCards card={membersdata} />;
         })}
 
-        <PlusButton />
+        <PlusButton onClick={userLoading} />
       </UserListSection>
     </UserWrapper>
   );
