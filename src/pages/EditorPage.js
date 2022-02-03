@@ -128,6 +128,7 @@ const EditorPage = () => {
     height: '40px',
     fontSize: '20px',
     marginBottom: '10px',
+    paddingLeft: '10px',
   };
 
   return (
@@ -188,6 +189,7 @@ const EditorPage = () => {
         <ArrowBackRoundedIcon />
         &nbsp; <div>뒤로가기</div>
       </Button>
+
       {`      `}
       <Button
         onClick={() => {
@@ -212,14 +214,9 @@ const EditorPage = () => {
         </DialogTitle>
         <DialogContent>
           <LoginDiv>
-            <input
-              type="text"
-              style={loginInputStyle}
-              placeholder="👤 아이디를 입력해 주세요."
-            />
-            <input
+            <LoginInput type="text" placeholder="👤 아이디를 입력해 주세요." />
+            <LoginInput
               type="password"
-              style={loginInputStyle}
               placeholder="🔑 비밀번호를 입력해 주세요."
             />
           </LoginDiv>
@@ -380,8 +377,15 @@ const LoginDiv = styled.div`
   width: 400px;
   text-align: center;
   align: center;
+`;
 
-  .
+const LoginInput = styled.input`
+  width: 100%;
+  display: inline;
+  height: 40px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-left: 10px;
 `;
 
 export default EditorPage;
