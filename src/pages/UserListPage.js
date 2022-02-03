@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import UserData from '../data/UserData';
+// import UserData from '../data/UserData';
 import CurrentUser from '../components/CurrentUser';
 import PlusButton from '../components/PlusButton';
 import SearchBox from '../components/SearchBox';
@@ -12,7 +12,7 @@ const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const UserListPage = (props) => {
-  let [card, setCard] = useState(UserData); //처음 뜨는 카드
+  // let [card, setCard] = useState(UserData); //처음 뜨는 카드
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(8); //+버튼 누르면 뜨는 카드
   const [seachList, setSecachList] = useState(); //검색시 나타나는 카드

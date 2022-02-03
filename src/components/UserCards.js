@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import UserData from '../data/UserData';
 
 export const UserCards = (props) => {
+  let [card, setCard] = useState(UserData); //처음 뜨는 카드
+
   return (
     <UserCard>
       <img
