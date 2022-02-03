@@ -51,9 +51,10 @@ const UserListPage = (props) => {
       <UserListSection>
         <CurrentUser />
 
-        {card.map((membersdata, i) => {
+        {/* {card.map((membersdata, i) => {
           return <UserCards card={membersdata} />;
-        })}
+        })} */}
+        <UserCards />
 
         <PlusButton onClick={userLoading} />
       </UserListSection>

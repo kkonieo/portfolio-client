@@ -5,17 +5,27 @@ import UserData from '../data/UserData';
 export const UserCards = (props) => {
   let [card, setCard] = useState(UserData); //처음 뜨는 카드
 
+  function UserCardsList(props) {
+    return (
+      <UserCard>
+        <img
+          alt=""
+          src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`}
+          width="500px"
+        />
+        <p>
+          {props.card.position} <br /> <b>{props.card.name}</b>
+        </p>
+      </UserCard>
+    );
+  }
+
   return (
-    <UserCard>
-      <img
-        alt=""
-        src={process.env.PUBLIC_URL + `/Image/image${props.card.id}.png`}
-        width="500px"
-      />
-      <p>
-        {props.card.position} <br /> <b>{props.card.name}</b>
-      </p>
-    </UserCard>
+    <>
+      {card.map((membersdata, i) => {
+        return <UserCardsList card={membersdata} />;
+      })}
+    </>
   );
 };
 
