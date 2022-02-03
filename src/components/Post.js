@@ -87,10 +87,10 @@ const TextWrapper = styled.div`
 `;
 
 const PostWrapper = styled.div`
-  :hover {
+  cursor: pointer;
+  /* :hover {
     color: var(--gray);
     text-decoration: underline;
-    cursor: pointer;
   }
   :hover :first-child {
     color: var(--main);
@@ -98,8 +98,7 @@ const PostWrapper = styled.div`
   }
   :hover :last-child {
     color: var(--gray);
-    /* text-decoration: underline; */
-  }
+  } */
 `;
 
 const Title = styled.p`
