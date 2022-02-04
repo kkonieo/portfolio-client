@@ -4,6 +4,7 @@ import styled from 'styled-components';
 //components & elements
 import { Button, Grid, Image } from '../elements';
 import { body_2 } from '../shared/textStyle';
+import ClearIcon from '@mui/icons-material/Clear';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,10 +13,16 @@ import CommentItem from './CommentItem';
 
 const CommentWrite = (props) => {
   const dispatch = useDispatch();
+  // const id = props.match.params.id;
   const [comments, setComments] = useState('');
   const comment_list = useSelector((state) => state.comment.list);
+  // const comment_idx = comment_list.findIndex((c) => c.id === id);
+  // const checkWrittenUser = useSelector(
+  //   (store) => store.review.user_comment_info,
+  // );
+
   // 1
-  console.log(comment_list);
+  // console.log(comment_list);
   const changeContents = (e) => {
     setComments(e.target.value);
   };
@@ -23,10 +30,27 @@ const CommentWrite = (props) => {
   const write = (e) => {
     e.preventDefault();
     console.log('------------댓글 작성------------');
-    dispatch(commentActions.addCommentAX(comments));
+    dispatch(commentActions.addCommentAX(comment_list));
     setComments('');
     dispatch(commentActions.getCommentAX());
   };
+  // console.log('check', comments);
+
+  // // //댓글 삭제
+  // // console.log('check', comment_list.id);
+  // const clearComment = (e) => {
+  //   // e.preventDefault();
+  //   dispatch(
+  //     commentActions.deleteCommentAX(comment_list),
+  //     // commentActions.deleteCommentAX({
+  //     //   id: comment_list.id,
+  //     // }),
+  //   );
+  //   dispatch(commentActions.getCommentAX());
+
+  //   setComments('');
+  //   // setIsEdit(false);
+  // };
 
   return (
     <>
@@ -39,6 +63,16 @@ const CommentWrite = (props) => {
             justify-content="flex-start"
           >
             <CommentItem key={c.comment_id} {...c} />
+            <div
+              style={{
+                color: 'var(--lightgray)',
+                cursor: 'pointer',
+                margin: '20px 10px 0 0',
+              }}
+              // onClick={clearComment}
+            >
+              <ClearIcon />
+            </div>
           </Grid>
         ))}
       </CommentWrapper>

@@ -61,7 +61,7 @@ const PostBox = styled.section`
   display: flex;
   /* cursor: pointer; */
   justify-content: space-between;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   margin: 0 auto;
   margin-bottom: 2rem;
   ${({ theme }) => theme.device.mobile} {

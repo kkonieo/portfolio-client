@@ -4,27 +4,15 @@ import styled from 'styled-components';
 //components & elements
 import { Grid, Image } from '../elements';
 import { sub_2 } from '../shared/textStyle';
-import ClearIcon from '@mui/icons-material/Clear';
 
 export const CommentItem = (props) => {
   const { content, profile_image } = props;
 
   return (
-    <>
-      <Grid is_flex_comment>
-        <Image src={profile_image} size="4" />
-        <CommentsText>{content}</CommentsText>
-      </Grid>
-      <div
-        style={{
-          color: 'var(--lightgray)',
-          cursor: 'pointer',
-          margin: '20px 10px 0 0',
-        }}
-      >
-        <ClearIcon />
-      </div>
-    </>
+    <Grid is_flex_comment>
+      <Image src={profile_image} size="4" />
+      <CommentsText>{content}</CommentsText>
+    </Grid>
   );
 };
 
