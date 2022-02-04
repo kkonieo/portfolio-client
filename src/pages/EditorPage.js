@@ -18,6 +18,9 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
 
+// components
+import LoginModal from '../components/LoginModal';
+
 import Button from '@mui/material/Button';
 import SaveAsRoundedIcon from '@mui/icons-material/SaveAsRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
@@ -200,90 +203,8 @@ const EditorPage = () => {
       >
         LOGIN
       </Button>
-      <Dialog
-        open={login}
-        onClose={() => {
-          setLogin(false);
-        }}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          <div style={{ fontSize: '30px', textAlign: 'center' }}>로그인</div>
-          <hr></hr>
-        </DialogTitle>
-        <DialogContent>
-          <LoginDiv>
-            <LoginInput type="text" placeholder="👤 아이디를 입력해 주세요." />
-            <LoginInput
-              type="password"
-              placeholder="🔑 비밀번호를 입력해 주세요."
-            />
-          </LoginDiv>
-          <Button
-            variant="contained"
-            style={{
-              width: '100%',
-              backgroundColor: '#279eea',
-              marginBottom: '10px',
-            }}
-          >
-            <span>로그인</span>
-          </Button>
-          <div
-            style={{ marginTop: '5px', fontSize: '20px', textAlign: 'center' }}
-          >
-            다른 아이디로 로그인하기
-          </div>
-          <hr></hr>
-          <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Button
-                variant="contained"
-                style={{
-                  width: '100%',
-                  backgroundColor: 'black',
-                  marginBottom: '10px',
-                }}
-              >
-                <GitHubIcon />
-                <span style={{ marginLeft: '5px' }}>Github</span>
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                variant="contained"
-                style={{
-                  width: '100%',
-                  backgroundColor: '#FAE100',
-                  marginBottom: '10px',
-                }}
-              >
-                <img alt="" src="/Image/kakao.png" width="20px" />
-                <span style={{ marginLeft: '5px', color: '#3C1E1E' }}>
-                  kakao
-                </span>
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                variant="outlined"
-                style={{
-                  width: '100%',
-                  backgroundColor: 'white',
-                  marginBottom: '10px',
-                }}
-                color="success"
-              >
-                <img alt="" src="/Image/naver.png" width="20px" />
-                <span style={{ marginLeft: '5px', color: '#1EC800' }}>
-                  naver
-                </span>
-              </Button>
-            </Grid>
-          </Grid>
-        </DialogContent>
-      </Dialog>
+
+      <LoginModal open={login} />
 
       {`  `}
       <div style={{ display: 'inline', float: 'right' }}>
