@@ -8,20 +8,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Button from '@mui/material/Button';
 
 const LoginModal = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    if (props.open) {
-      console.log('IN!');
-      setIsOpen(true);
-    }
-  }, [props.open]);
+  const { show, open, close } = props;
   return (
-    <Dialog
-      open={isOpen}
-      onClose={() => {
-        setIsOpen(false);
-      }}
-    >
+    <Dialog open={show} onClose={close}>
       <DialogTitle id="alert-dialog-title">
         <div style={{ fontSize: '30px', textAlign: 'center' }}>로그인</div>
         <hr></hr>

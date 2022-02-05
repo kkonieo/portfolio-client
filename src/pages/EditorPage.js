@@ -21,6 +21,9 @@ import { Viewer } from '@toast-ui/react-editor';
 // components
 import LoginModal from '../components/LoginModal';
 
+// hook
+import useModal from '../utils/useModal';
+
 import Button from '@mui/material/Button';
 import SaveAsRoundedIcon from '@mui/icons-material/SaveAsRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
@@ -34,8 +37,6 @@ import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 const EditorPage = () => {
-  const test = 'oo';
-
   const editorRef = useRef();
   const [title, setTitle] = useState('');
   const [hashtag, setHashtag] = useState('');
@@ -43,6 +44,8 @@ const EditorPage = () => {
   const [data, setData] = useState('');
   const [dialog, setDialog] = useState(false);
   const [login, setLogin] = useState(false);
+
+  const { showModal, openModal, closeModal } = useModal();
 
   useEffect(() => {
     if (editorRef.current) {
@@ -194,17 +197,13 @@ const EditorPage = () => {
       </Button>
 
       {`      `}
-      <Button
-        onClick={() => {
-          setLogin(true);
-        }}
-        variant="outlined"
-        color="success"
-      >
+      <Button onClick={openModal} variant="outlined" color="success">
         LOGIN
       </Button>
 
-      <LoginModal open={login} />
+      {showModal && (
+        <LoginModal show={showModal} open={openModal} close={closeModal} />
+      )}
 
       {`  `}
       <div style={{ display: 'inline', float: 'right' }}>
