@@ -1,10 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CurrentUser = () => {
+const CurrentUser = ({ isLoggedIN }) => {
   return (
-    <CurrentUserCard>
-      <p>ME</p>
+    <CurrentUserCard
+      isLoggedIN
+      onClick={() => {
+        if (isLoggedIN) {
+          //
+        } else {
+          //
+        }
+      }}
+    >
+      <p>{isLoggedIN ? 'ME' : '나의 정보 등록하기'}</p>
     </CurrentUserCard>
   );
 };
@@ -32,7 +41,7 @@ const CurrentUserCard = styled.div`
   }
 
   p {
-    font-size: 40px;
+    font-size: ${(props) => (props.isLoggedIN ? '25px' : '40px')};
     font-weight: bold;
   }
 `;

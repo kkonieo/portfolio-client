@@ -7,41 +7,50 @@ import SearchBox from '../components/SearchBox';
 import axios from 'axios';
 // import { router } from 'json-server';
 import UserCards from '../components/UserCards';
+import UserData from '../data/UserData';
+import { result } from 'lodash';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const UserListPage = (props) => {
-  // let [card, setCard] = useState(UserData); //처음 뜨는 카드
+  let [card, setCard] = useState(UserData); //처음 뜨는 카드
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(8); //+버튼 누르면 뜨는 카드
   const [seachList, setSecachList] = useState(); //검색시 나타나는 카드
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  // useEffect(() => {
-  //   axios.get('api/userlist').then((res) => {
-  //     if (res.data.success) {
-  //     } else {
-  //       alert('유저를 불러보는데 실패 했숨,,');
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get('api/userlist')
+      .then((res) => {
+        setCard(res.data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const updateSearchTerm = (newSearchTerm) => {
     setSearchTerm(newSearchTerm);
   };
 
-  const userLoading = () => {
-    axios
-      .get('api/uselist')
-      .then((res) => {
-        console.log(res.data); //성공할 경우
-      })
-      .catch(() => {
-        console.log('하..실패해쑴..');
-      }); //실패할 경우
-  };
+  // const userLoading = () => {
+  //   axios
+  //     .get('api/uselist')
+  //     .then((res) => {
+  //       console.log(res.data.users); //성공할 경우
+  //       setCard([...card, ...result.data]);
+  //     })
+  //     .catch(() => {
+  //       console.log('하..실패해쑴..');
+  //     }); //실패할 경우
+  // }; //Backend랑 연결
+
+  function UserLoading(props) {
+    useEffect(() => {});
+  }
 
   return (
     <UserWrapper>
@@ -56,7 +65,7 @@ const UserListPage = (props) => {
         })} */}
         <UserCards />
 
-        <PlusButton onClick={userLoading} />
+        <PlusButton onClick={UserLoading} />
       </UserListSection>
     </UserWrapper>
   );
