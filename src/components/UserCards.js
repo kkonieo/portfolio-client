@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import UserData from '../data/UserData';
 
-export const UserCards = (props) => {
+// type PositionType = 'front-end' | 'back-end';
+// interface CardType {
+//   id: number;
+//   position: PositionType;
+//   name: string;
+// }
+// interface IProps {
+//   card: CardType;
+// }
+
+export const UserCards = ({ card, searchTerm }) => {
   // let [card, setCard] = useState(UserData); //처음 뜨는 카드
 
   function UserCardsList(props) {
@@ -20,9 +30,19 @@ export const UserCards = (props) => {
     );
   }
 
+  const filteredCard = card.filter((membersdata) => {
+    if (
+      membersdata.name.toUpperCase() === searchTerm.toUpperCase() ||
+      searchTerm === ''
+    ) {
+      return true;
+    }
+    return false;
+  });
+
   return (
     <>
-      {props.card.map((membersdata, i) => {
+      {filteredCard.map((membersdata, i) => {
         return <UserCardsList card={membersdata} />;
       })}
     </>

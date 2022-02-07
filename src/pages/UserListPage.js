@@ -8,6 +8,7 @@ import axios from 'axios';
 // import { router } from 'json-server';
 import UserCards from '../components/UserCards';
 import UserData from '../data/UserData';
+
 import { result } from 'lodash';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -37,10 +38,8 @@ const UserListPage = (props) => {
   // }, []);
 
   const concatCard = () => {
-    console.log('hhihihi');
     const temp = card.concat(UserData);
     setCard(temp);
-    console.log(card);
     // axios.get('api/userlist/${number}').then((res) => {
     //   const temp = card.concat(res.data.users);
     //   setCard(temp);
@@ -71,7 +70,7 @@ const UserListPage = (props) => {
     <UserWrapper>
       <FlexRowBox>
         <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
-        <SearchBox refreshFunction={updateSearchTerm} />
+        <SearchBox searchTerm={searchTerm} updateSearch={setSearchTerm} />
       </FlexRowBox>
 
       <UserListSection>
@@ -80,7 +79,7 @@ const UserListPage = (props) => {
         {/* {card.map((membersdata, i) => {
           return <UserCards card={membersdata} />;
         })} */}
-        <UserCards card={card} />
+        <UserCards card={card} searchTerm={searchTerm} />
 
         <PlusButton onClick={concatCard} />
       </UserListSection>
@@ -156,6 +155,7 @@ const UserListTitle = styled.div`
 
 const UserListSection = styled.div`
   margin-top: 130px;
+  margin-left: 85px;
   left: 6%;
 `;
 

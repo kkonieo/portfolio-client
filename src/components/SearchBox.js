@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const SearchBox = (props) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBox = ({ searchTerm, updateSearch }) => {
   const searchHandler = (event) => {
-    setSearchTerm(event.currentTarget.value);
-    props.refreshFunction(event.currentTarget.value);
+    updateSearch(event.currentTarget.value);
+    // props.refreshFunction(event.currentTarget.value);
   };
 
   return (
