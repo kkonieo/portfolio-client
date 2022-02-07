@@ -9,28 +9,43 @@ import axios from 'axios';
 import UserCards from '../components/UserCards';
 import UserData from '../data/UserData';
 import { result } from 'lodash';
+import { useSelector, useDispatch } from 'react-redux';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 const UserListPage = (props) => {
-  let [card, setCard] = useState(UserData); //처음 뜨는 카드
+  const [card, setCard] = useState(UserData); //처음 뜨는 카드
+  const [additionalCard, setAdditionalCard] = useState();
+
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(8); //+버튼 누르면 뜨는 카드
   const [seachList, setSecachList] = useState(); //검색시 나타나는 카드
 
   const [searchTerm, setSearchTerm] = useState('');
+  // const isLoggedIN = useSelector();
+  const isLoggedIN = true;
 
-  useEffect(() => {
-    axios
-      .get('api/userlist')
-      .then((res) => {
-        setCard(res.data.users);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('api/userlist')
+  //     .then((res) => {
+  //       setCard(res.data.users);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  const concatCard = () => {
+    console.log('hhihihi');
+    const temp = card.concat(UserData);
+    setCard(temp);
+    console.log(card);
+    // axios.get('api/userlist/${number}').then((res) => {
+    //   const temp = card.concat(res.data.users);
+    //   setCard(temp);
+    // })
+  };
 
   const updateSearchTerm = (newSearchTerm) => {
     setSearchTerm(newSearchTerm);
@@ -58,14 +73,14 @@ const UserListPage = (props) => {
       <SearchBox refreshFunction={updateSearchTerm} />
 
       <UserListSection>
-        <CurrentUser />
+        <CurrentUser isLoggedIN />
 
         {/* {card.map((membersdata, i) => {
           return <UserCards card={membersdata} />;
         })} */}
-        <UserCards />
+        <UserCards card={card} />
 
-        <PlusButton onClick={UserLoading} />
+        <PlusButton onClick={concatCard} />
       </UserListSection>
     </UserWrapper>
   );

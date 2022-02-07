@@ -4,15 +4,15 @@ import axios from 'axios';
 
 //state 헷갈려서 지금 잠시 멈춤
 
-const PlusButton = () => {
-  const loadMoreHandler = () => {
-    axios.get('api/user').then((res) => {
-      console.log();
-    });
-  };
+const PlusButton = ({ onClick }) => {
+  // const loadMoreHandler = () => {
+  //   // axios.get('api/user').then((res) => {
+  //   //   console.log();
+  //   // });
+  // };
 
   return (
-    <UserPlusButton onClick={loadMoreHandler}>
+    <UserPlusButton onClick={onClick}>
       <p>+</p>
     </UserPlusButton>
   );

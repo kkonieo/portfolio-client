@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import UserData from '../data/UserData';
 
 export const UserCards = (props) => {
-  let [card, setCard] = useState(UserData); //처음 뜨는 카드
+  // let [card, setCard] = useState(UserData); //처음 뜨는 카드
 
   function UserCardsList(props) {
     return (
@@ -22,7 +22,7 @@ export const UserCards = (props) => {
 
   return (
     <>
-      {card.map((membersdata, i) => {
+      {props.card.map((membersdata, i) => {
         return <UserCardsList card={membersdata} />;
       })}
     </>
