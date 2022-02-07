@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 
 const LoginModal = (props) => {
   const { show, open, close } = props;
+  console.log(process.env.REACT_APP_GITHUB_CLIENT_ID);
   return (
     <Dialog open={show} onClose={close}>
       <DialogTitle id="alert-dialog-title">
@@ -23,6 +24,13 @@ const LoginModal = (props) => {
             backgroundColor: 'black',
             marginBottom: '10px',
           }}
+          onClick={() =>
+            window.open(
+              `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&scope=repo:status read:repo_hook user:email&redirect_uri=http://localhost:3000/callback`,
+              'Github 로그인',
+              'width=450,height=800,location=no,status=no,scrollbars=yes',
+            )
+          }
         >
           <GitHubIcon />
           <span style={{ marginLeft: '5px' }}>Github 아이디로 로그인하기</span>
