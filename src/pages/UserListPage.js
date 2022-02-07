@@ -69,8 +69,10 @@ const UserListPage = (props) => {
 
   return (
     <UserWrapper>
-      <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
-      <SearchBox refreshFunction={updateSearchTerm} />
+      <FlexRowBox>
+        <UserListTitle>JS ON과 함께하는 사람들</UserListTitle>
+        <SearchBox refreshFunction={updateSearchTerm} />
+      </FlexRowBox>
 
       <UserListSection>
         <CurrentUser isLoggedIN />
@@ -129,31 +131,31 @@ const UserListPage = (props) => {
 //   }
 // `;
 
-const UserWrapper = styled.div`
-  margin: auto;
-  width: 100%;
-  height: 100vh;
+const FlexRowBox = styled.div`
   display: flex;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 80px;
+  margin-right: 80px;
+`;
 
+const UserWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
   background-color: var(--main);
-  position: relative;
 `;
 
 const UserListTitle = styled.div`
-  position: absolute;
   color: #ffffff;
   font-size: 35px;
 
   margin-top: 80px;
-  left: 6%;
 `;
 
 const UserListSection = styled.div`
-  justify-content: center;
-  position: absolute;
-
-  margin-top: 230px;
+  margin-top: 130px;
   left: 6%;
 `;
 

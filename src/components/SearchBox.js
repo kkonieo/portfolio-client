@@ -29,10 +29,7 @@ const SearchBox = (props) => {
 
 const SearchForm = styled.div`
   margin-top: 80px;
-  right: 7%;
-  position: absolute;
   display: flex;
-
   input {
 
     position: relative;
