@@ -32,7 +32,7 @@ export const UserCards = ({ card, searchTerm }) => {
 
   const filteredCard = card.filter((membersdata) => {
     if (
-      membersdata.name.toUpperCase() === searchTerm.toUpperCase() ||
+      membersdata.name.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1 ||
       searchTerm === ''
     ) {
       return true;
