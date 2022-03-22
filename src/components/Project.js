@@ -27,7 +27,7 @@ const Project = (props) => {
     setIsShowReadMore(true);
   };
   return (
-    <ProjectBox onClick={() => history.push(`/post/${props.post_id}`)}>
+    <ProjectBox onClick={() => history.push(`/project/${props.id}`)}>
       <ImageWrapper>
         <Image
           M_width
@@ -86,6 +86,7 @@ const ImageWrapper = styled.div`
 //     min-width: 28rem;
 //   }
 // `;
+
 const ProjectWrapper = styled.div`
   cursor: pointer;
   /* :hover {
@@ -102,16 +103,20 @@ const ProjectWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  padding: 0.3rem 0 0.5rem 1rem;
+  padding: 0.3rem 1rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${({ theme }) => theme.device.mobile} {
+    padding: 0.7rem 1rem 0.5rem 1rem;
+  }
 `;
 
 const Title = styled.p`
   ${head_1};
   color: var(--main);
   margin: 0;
+  font-family: normal;
 `;
 
 const Text = styled.p`
@@ -160,7 +165,8 @@ const MoreButton = styled.button`
   }
 `;
 const Date = styled.p`
-  margin: 0;
+  ${date}
+  margin: 0.5rem 0 0 0;
 `;
 
 Project.defaultProps = {

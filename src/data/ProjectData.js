@@ -1,9 +1,26 @@
+export const project = {
+  id: 1,
+  title: 'JS ON Portfolio Platform',
+  skills:
+    '#JS #React #Python #Django #Portfolio #JSON #프론트엔드 #프로젝트 #힘든프로젝트였다 #개발자로그 ',
+  description:
+    '이번 프로젝트는 모두가 간단하고 편리하고 직관적인 포트폴리오를 관리할 수 있는 고민해보고 작업하게 된 프로젝트입니다. 여기다가 이제 포트폴리오에 관련된 스토리를 이렇다 저렇다 간략하게 설명하는 글이 올라가겠죠??????',
+  mainimage:
+    'https://images.unsplash.com/photo-1643533453176-29fe50049959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80',
+  LiveDemogif: 'https://i.gifer.com/7ZQ7.gif',
+  role: '이것도 저것도 내가 다 했다.',
+  learned: '이것도 저것도 다 해본 결과, 내가 최고인 것을 알게 되었다.',
+  difficulty:
+    '이것도 저것도 내가 다해서 어려움 같은 것은 없었다. 나는 천재임이 분명하다.',
+  createdDate: '2022-01-25 22:00:00',
+};
+
 export const project_list = [
   {
     id: 1,
-    title: '이것의 제목은 알파벳입니다.',
+    title: 'JS ON Portfolio Platform',
     description:
-      '문자 체계의 유형으로서, 알파벳은 아부기다나 아브자드와 함께 음소 문자에 속한다. 다만 서양에서는, 이러한 3가지를 알파벳이라고 부르는 경우도 있다. 한국어에서 알파벳은, 세계에서 가장 널리 통용되고 있는 대표적인 알파벳인 라틴 문자를 가리킨다.알파벳은 자음과 모음으로 이루어진 문자를 의미하므로 한글도 알파벳의 일종이며 서양에서는 Korean alphabet이라고 한다. 알파벳에서는 원칙적으로 음성 언어의 음소 중 중 자음과 모음을 모두 서로 다른 자모(字母)로 표기한다. 반면 아브자드에서는 자음만을 표기해, 모음은 대부분 표기하지 않는다. 아부기다에서는 자음의 자모를 쓰면 특정 모음을 수반한 음절을 나타내, 그 이외의 모음이 수반한 음절을 나타내는 경우 등은 보조적인 기호를 부가하는 것으로 표기한다.알파벳의 대부분은 셈어를 위한 문자로 중동에서 탄생한 아브자드로부터 발전해 왔다고 생각되고 있다. 한편, 아부기다는 일찍이 음절문자와 알파벳의 중간 단계라고 생각하던 적도 있었지만, 오늘날은 알파벳과는 별도로 아브자드로부터 발전해 온 것이라고 생각되고 있다.',
+      '이번 프로젝트는 모두가 간단하고 편리하고 직관적인 포트폴리오를 관리할 수 있는 고민해보고 작업하게 된 프로젝트입니다. 여기다가 이제 포트폴리오에 관련된 스토리를 이렇다 저렇다 간략하게 설명하는 글이 올라가겠죠??????',
     thumbnail:
       'https://images.unsplash.com/photo-1643533453176-29fe50049959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80',
     startDate: '2022-01-25 22:00:00',
