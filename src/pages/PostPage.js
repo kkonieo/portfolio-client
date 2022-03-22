@@ -45,11 +45,12 @@ const PostPage = (props) => {
         <Title>Contents</Title>
         <Text>내용</Text>
       </Grid>
+
       <Grid M_width>
         <Title>Comments</Title>
         <CommentWrite />
       </Grid>
-      <Grid M_width width="50%" is_flex_button margin="1.4rem 0 1.4rem 0">
+      <Grid M_width width="50%" is_flex_end margin="1.4rem 0 1.4rem 0">
         <Button
           hoverToMain
           commonSize

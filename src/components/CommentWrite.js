@@ -77,7 +77,7 @@ const CommentWrite = (props) => {
         ))}
       </CommentWrapper>
       <CommentInputWrapper>
-        <Grid is_flex_comment M_width>
+        <Grid is_flex_start M_width>
           <Image size="4" />
           <Input
             placeholder="와 ~ 댓 글 을 작 성 하 자"

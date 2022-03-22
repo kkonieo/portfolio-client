@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
   const {
+    is_flex,
+    is_flex_start,
+    is_flex_center,
+    is_flex_end,
+    flexDirection,
     display,
     justifyContent,
     alignItems,
-    M_width,
-    is_flex_button,
-    is_flex_comment,
-    is_flex,
     width,
     margin,
     padding,
@@ -17,22 +18,25 @@ const Grid = (props) => {
     children,
     center,
     height,
+    M_width,
   } = props;
 
   const styles = {
+    is_flex: is_flex,
+    is_flex_start: is_flex_start,
+    is_flex_center: is_flex_center,
+    is_flex_end: is_flex_end,
     display: display,
     justifyContent: justifyContent,
     alignItems: alignItems,
-    M_width: M_width,
-    is_flex_button: is_flex_button,
-    is_flex_comment: is_flex_comment,
-    is_flex: is_flex,
+    flexDirection: flexDirection,
     width: width,
     height: height,
     margin: margin,
     padding: padding,
     bg: bg,
     center: center,
+    M_width: M_width,
   };
   return (
     <React.Fragment>
@@ -59,6 +63,8 @@ const GridBox = styled.div`
   ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
   ${(props) =>
     props.justifyContent ? `justify-content: ${props.justifyContent};` : ''}
+  ${(props) =>
+    props.flexDirection ? `flex-direction: ${props.flexDirection};` : ''}
   ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
   ${(props) => (props.height ? `height: ${props.height};` : '')}
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
@@ -69,11 +75,15 @@ const GridBox = styled.div`
       ? `display: flex; align-items: center; justify-content: space-between;`
       : ''}
   ${(props) =>
-    props.is_flex_comment
+    props.is_flex_start
       ? `display: flex; align-items: center; justify-content: flex-start;`
       : ''}
+    ${(props) =>
+    props.is_flex_center
+      ? `display: flex; align-items: center; justify-content: center;`
+      : ''}
   ${(props) =>
-    props.is_flex_button
+    props.is_flex_end
       ? `display: flex; align-items: center; justify-content: flex-end;`
       : ''}
   ${(props) => (props.M_width ? `width: 100%; min-width: 28rem;` : '')}

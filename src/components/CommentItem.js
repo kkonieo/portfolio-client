@@ -9,7 +9,7 @@ export const CommentItem = (props) => {
   const { content, profile_image } = props;
 
   return (
-    <Grid is_flex_comment>
+    <Grid is_flex_start>
       <Image src={profile_image} size="4" />
       <CommentsText>{content}</CommentsText>
     </Grid>
