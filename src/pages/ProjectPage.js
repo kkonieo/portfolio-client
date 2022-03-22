@@ -13,21 +13,23 @@ import { useDispatch } from 'react-redux';
 import { history } from '../redux/configureStore';
 
 const ProjectPage = () => {
+  const dispatch = useDispatch();
+
   return (
     <PostTemplate>
       <Header page="headermenu" />
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>Project</Title>
         <Text>{project.title}</Text>
       </Grid>
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>스킬</Title>
         <Text>{project.skills}</Text>
       </Grid>
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>내용</Title>
         <Text>{project.description}</Text>
       </Grid>
@@ -52,17 +54,17 @@ const ProjectPage = () => {
         />
       </ImageWrapper>
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>내가 맡은 역할</Title>
         <Text>{project.role}</Text>
       </Grid>
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>배운 점</Title>
         <Text>{project.learned}</Text>
       </Grid>
 
-      <Grid M_width padding="0 0 3rem 0">
+      <Grid M_width padding="0 0 2rem 0">
         <Title>어려웠던 점 / 해결 방법</Title>
         <Text>{project.difficulty}</Text>
       </Grid>
@@ -129,7 +131,7 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   /* object-fit: cover; */
   /* background-size: cover; */
   ${({ theme }) => theme.device.mobile} {
