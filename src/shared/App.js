@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalStyle from '../shared/GlobalStyle';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import GlobalStyle from './GlobalStyle';
+import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import ScrollToTop from '../utils/ScrollToTop';
 
@@ -24,22 +24,20 @@ function App() {
     <React.Fragment>
       <ConnectedRouter history={history}>
         <GlobalStyle />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Switch>
-            <Route exact path="/" component={IntroPage} />
-            <Route exact path="/main/:id" component={MainPage} />
-            <Route exact path="/main" component={MainPage} />
-            {/* <Route exact path="/userlist" component={UserListPage} /> */}
-            <Route exact path="/hashtag" component={HashTagPage} />
-            <Route exact path="/projectlist" component={ProjectListPage} />
-            <Route exact path="/project/:id" component={ProjectPage} />
-            <Route exact path="/postlist" component={PostListPage} />
-            <Route exact path="/post/:id" component={PostPage} />
-            <Route exact path="/editor" component={EditorPage} />
-            <Route exact path="/team" component={TeamMemberPage} />
-          </Switch>
-        </BrowserRouter>
+        <ScrollToTop />
+        <Switch>
+          <Route exact path="/" component={IntroPage} />
+          <Route exact path="/main/:id" component={MainPage} />
+          <Route exact path="/main" component={MainPage} />
+          {/* <Route exact path="/userlist" component={UserListPage} /> */}
+          <Route exact path="/hashtag" component={HashTagPage} />
+          <Route exact path="/projectlist" component={ProjectListPage} />
+          <Route exact path="/project/:id" component={ProjectPage} />
+          <Route exact path="/postlist" component={PostListPage} />
+          <Route exact path="/post/:id" component={PostPage} />
+          <Route exact path="/editor" component={EditorPage} />
+          <Route exact path="/team" component={TeamMemberPage} />
+        </Switch>
       </ConnectedRouter>
     </React.Fragment>
   );

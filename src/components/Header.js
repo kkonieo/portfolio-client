@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 // components
 import { logo, menu_head_1 } from '../shared/textStyle';
 
-const Header = (props) => {
-  const history = useHistory();
+// redux
+import { history } from '../redux/configureStore';
 
+const Header = (props) => {
   return (
     <Container>
       <InsideBox>
