@@ -7,6 +7,7 @@ import { PostTemplate } from '../components/Template';
 import { head_2 } from '../shared/textStyle';
 import Post from '../components/Post';
 import { Button } from '../elements';
+import { post_list } from '../data/PostData';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,11 +16,11 @@ import { actionCreators as postActions } from '../redux/modules/post';
 const PostListPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
+  // const post_list = useSelector((state) => {
+  //   console.log(state);
+  //   return state.post.list;
+  // });
   // const post_list = useSelector((state) => state.post.list);
-  const post_list = useSelector((state) => {
-    console.log(state);
-    return state.post.list;
-  });
   // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
