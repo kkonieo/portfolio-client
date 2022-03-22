@@ -1,27 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 //components & elements
 import { Image } from '../elements';
+import { head_1, body_1, sub_1, date } from '../shared/textStyle';
+import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
 import { history } from '../redux/configureStore';
 
 const Project = (props) => {
+  const contentRef = React.useRef(null);
+  const [isShowReadMore, setIsShowReadMore] = useState(false);
+  const observeCallback = (entries) => {
+    for (let entry of entries) {
+      if (entry.target.scrollHeight > entry.contentRect.height) {
+        setIsShowReadMore(true);
+      } else {
+        setIsShowReadMore(false);
+      }
+    }
+  };
+  useResizeObserver({ callback: observeCallback, element: contentRef });
+  const onClick = (e) => {
+    contentRef.current.classList.add('show');
+    setIsShowReadMore(true);
+  };
   return (
-    <ProjectBox onClick={() => history.push(`/project/${props.id}`)}>
+    <ProjectBox onClick={() => history.push(`/post/${props.post_id}`)}>
       <ImageWrapper>
         <Image
           M_width
           size="25"
           shape="rectangle"
-          radius="10px"
+          // radius="10px"
           src={props.thumbnail}
+          cursor="pointer"
         />
       </ImageWrapper>
       <TextWrapper>
-        <Text>{props.description}</Text>
-        <Date style={{ color: 'var(--gray)' }}>{props.insert_dt}</Date>
+        <ProjectWrapper>
+          <Title>{props.title}</Title>
+          <Text ref={contentRef}>{props.description}</Text>
+          <ButtonWrapper>
+            {isShowReadMore && (
+              <MoreButton onClick={onClick}>...더보기</MoreButton>
+            )}
+          </ButtonWrapper>
+        </ProjectWrapper>
+        <Date style={{ color: 'var(--gray)', fontFamily: 'normal' }}>
+          {props.startDate}&nbsp;-&nbsp;{props.endDate}
+        </Date>
       </TextWrapper>
     </ProjectBox>
   );
@@ -57,6 +86,20 @@ const ImageWrapper = styled.div`
 //     min-width: 28rem;
 //   }
 // `;
+const ProjectWrapper = styled.div`
+  cursor: pointer;
+  /* :hover {
+    color: var(--gray);
+    text-decoration: underline;
+  }
+  :hover :first-child {
+    color: var(--main);
+    text-decoration: underline;
+  }
+  :hover :last-child {
+    color: var(--gray);
+  } */
+`;
 
 const TextWrapper = styled.div`
   padding: 0.3rem 0 0.5rem 1rem;
@@ -65,17 +108,57 @@ const TextWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Text = styled.p`
-  margin: 0;
+const Title = styled.p`
+  ${head_1};
   color: var(--main);
-  :hover {
-    text-decoration: underline;
-  }
-  ${({ theme }) => theme.device.mobile} {
-    padding-bottom: 0.9rem;
-  }
+  margin: 0;
 `;
 
+const Text = styled.p`
+  ${body_1}
+  color: var(--gray);
+  font-family: normal;
+
+  position: relative;
+  display: -webkit-box;
+  max-height: 6rem;
+  line-height: 2rem;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  &.show {
+    display: block;
+    max-height: none;
+    overflow: auto;
+    -webkit-line-clamp: unset;
+  }
+
+  ${({ theme }) => theme.device.mobile} {
+    margin-bottom: 0;
+  }
+`;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const MoreButton = styled.button`
+  ${sub_1}
+  color: var(--gray);
+  font-family: normal;
+
+  max-height: 2rem;
+  line-height: 2rem;
+  border: none;
+
+  background: transparent;
+  &.hide {
+    display: none;
+  }
+  :hover {
+    cursor: pointer;
+    /* text-decoration: underline; */
+  }
+`;
 const Date = styled.p`
   margin: 0;
 `;
