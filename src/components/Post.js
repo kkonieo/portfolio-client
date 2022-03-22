@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 //components & elements
 import { Image } from '../elements';
@@ -8,10 +7,9 @@ import { head_1, body_1, sub_1, date } from '../shared/textStyle';
 import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
-// import { history } from '../redux/configureStore';
+import { history } from '../redux/configureStore';
 
 const Post = (props) => {
-  const history = useHistory();
   const contentRef = React.useRef(null);
   const [isShowReadMore, setIsShowReadMore] = useState(false);
   const observeCallback = (entries) => {
@@ -105,6 +103,7 @@ const Title = styled.p`
   ${head_1};
   color: var(--main);
   margin: 0;
+  font-family: normal;
 `;
 
 const Text = styled.p`
