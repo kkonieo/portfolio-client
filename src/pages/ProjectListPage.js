@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import { PostTemplate } from '../components/Template';
 import { head_2 } from '../shared/textStyle';
-import Post from '../components/Post';
+// import Post from '../components/Post';
+import Project from '../components/Project';
 import { Button } from '../elements';
-
+import { project_list } from '../data/ProjectData';
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../redux/modules/post';
@@ -15,11 +16,11 @@ import { actionCreators as postActions } from '../redux/modules/post';
 const ProjectListPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
-  const post_list = useSelector((state) => state.post.list);
+  // const post_list = useSelector((state) => state.post.list);
   // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
-    if (post_list.length === 0) {
+    if (project_list.length === 0) {
       dispatch(postActions.getPostAX());
     }
   }, []);
@@ -44,10 +45,10 @@ const ProjectListPage = (props) => {
         </Button>
         {/* ) : null} */}
       </BtnWrapper>
-      {post_list.map((p, idx) => (
-        <Post key={p.post_id} {...p}>
+      {project_list.map((p, idx) => (
+        <Project key={p.id} {...p}>
           {p.description}
-        </Post>
+        </Project>
       ))}
     </PostTemplate>
   );

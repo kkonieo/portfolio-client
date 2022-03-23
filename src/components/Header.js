@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 // components
 import { logo, menu_head_1 } from '../shared/textStyle';
 
-const Header = (props) => {
-  const history = useHistory();
+// redux
+import { history } from '../redux/configureStore';
 
+const Header = (props) => {
   return (
     <Container>
       <InsideBox>
@@ -93,6 +93,9 @@ const Item = styled.li`
   list-style: none;
   color: var(--main);
   margin: 0.3rem 2rem;
+  :hover {
+    color: var(--lightgray);
+  }
   /* padding: 0.3rem 2rem; */
   /* border:1px solid green; */
 `;

@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
 //components & elements
 import { Image } from '../elements';
-import { head_1, sub_1, date } from '../shared/textStyle';
+import { head_1, body_1, sub_1, date } from '../shared/textStyle';
 import useResizeObserver from '../components/UseResizeObserver';
 
 // redux
-// import { history } from '../redux/configureStore';
+import { history } from '../redux/configureStore';
 
 const Post = (props) => {
-  const history = useHistory();
   const contentRef = React.useRef(null);
   const [isShowReadMore, setIsShowReadMore] = useState(false);
   const observeCallback = (entries) => {
@@ -36,7 +33,7 @@ const Post = (props) => {
           M_width
           size="25"
           shape="rectangle"
-          radius="10px"
+          // radius="10px"
           src={props.thumbnail}
           cursor="pointer"
         />
@@ -62,7 +59,7 @@ const PostBox = styled.section`
   display: flex;
   /* cursor: pointer; */
   justify-content: space-between;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   margin: 0 auto;
   margin-bottom: 2rem;
   ${({ theme }) => theme.device.mobile} {
@@ -77,44 +74,42 @@ const ImageWrapper = styled.div`
   }
 `;
 
-// const Image = styled.img`
-//   width: 25rem;
-//   background-position: center;
-//   background-size: cover;
-//   border-radius: 8px;
-//   ${({ theme }) => theme.device.mobile} {
-//     width: 100%;
-//     min-width: 28rem;
-//   }
-// `;
-
 const TextWrapper = styled.div`
-  padding: 0.3rem 0 0.5rem 1rem;
+  padding: 0.3rem 1rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${({ theme }) => theme.device.mobile} {
+    padding: 0.7rem 1rem 0.5rem 1rem;
+  }
 `;
 
 const PostWrapper = styled.div`
-  :hover {
+  cursor: pointer;
+  /* :hover {
+    color: var(--gray);
+    text-decoration: underline;
+  }
+  :hover :first-child {
     color: var(--main);
     text-decoration: underline;
-    cursor: pointer;
   }
+  :hover :last-child {
+    color: var(--gray);
+  } */
 `;
 
 const Title = styled.p`
-  margin: 0;
-  color: var(--main);
   ${head_1};
-  ${({ theme }) => theme.device.mobile} {
-    padding-bottom: 0.9rem;
-  }
+  color: var(--main);
+  margin: 0;
+  font-family: normal;
 `;
 
 const Text = styled.p`
-  color: var(--main);
-  ${sub_1}
+  ${body_1}
+  color: var(--gray);
+  font-family: normal;
 
   position: relative;
   display: -webkit-box;
@@ -130,7 +125,6 @@ const Text = styled.p`
   }
 
   ${({ theme }) => theme.device.mobile} {
-    /* padding-bottom: 0.9rem; */
     margin-bottom: 0;
   }
 `;
@@ -141,8 +135,9 @@ const ButtonWrapper = styled.div`
 `;
 
 const MoreButton = styled.button`
-  color: var(--main);
   ${sub_1}
+  color: var(--gray);
+  font-family: normal;
 
   max-height: 2rem;
   line-height: 2rem;
@@ -154,13 +149,13 @@ const MoreButton = styled.button`
   }
   :hover {
     cursor: pointer;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 `;
 
 const Date = styled.p`
-  margin: 0.5rem 0 0 0;
   ${date}
+  margin: 0.5rem 0 0 0;
 `;
 
 Post.defaultProps = {

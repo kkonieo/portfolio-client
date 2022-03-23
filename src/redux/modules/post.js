@@ -89,6 +89,7 @@ const getPostAX = () => {
           };
           post_list.push(post);
         });
+
         dispatch(setPost(post_list));
       })
       .catch((e) => {
@@ -103,6 +104,7 @@ export default handleActions(
     [SET_POST]: (state, action) =>
       produce(state, (draft) => {
         draft.list.push(...action.payload.post_list);
+        console.log('post handleActions');
       }),
 
     // [ADD_POST]: (state, action) =>

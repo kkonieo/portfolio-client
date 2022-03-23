@@ -28,7 +28,7 @@ const MainForm = styled.main`
   padding: 80px 80px 0 80px;
   min-height: calc(120vh - 100px);
   max-width: 1440px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 const PostForm = styled.main`
@@ -37,5 +37,5 @@ const PostForm = styled.main`
   padding: 80px 80px 0 80px;
   min-height: calc(120vh - 100px);
   max-width: 1440px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;

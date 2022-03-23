@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 //components & elements
 import { Grid, Image } from '../elements';
 import { sub_2 } from '../shared/textStyle';
-// import { CommentData } from '../data/SampleData';
-
-// redux
-// import { history } from '../redux/configureStore';
 
 export const CommentItem = (props) => {
-  // const { content, profile_image, name, comment_id } = props;
+  const { content, profile_image } = props;
 
   return (
-    <Grid is_flex_comment M_width>
-      <Image src={props.profile_image} size="4" />
-      <CommentsText>{props.content}</CommentsText>
+    <Grid is_flex_start>
+      <Image src={profile_image} size="4" />
+      <CommentsText>{content}</CommentsText>
     </Grid>
   );
 };
 
 const CommentsText = styled.p`
   ${sub_2};
+  font-family: normal;
   color: var(--main);
   padding: 0px 20px 0px 20px;
 `;
