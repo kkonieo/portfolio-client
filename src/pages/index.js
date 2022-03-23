@@ -1,20 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import EditorPage from './Editor/EditorPage';
+import IntroPage from './Intro/IntroPage';
+import CallBackPage from './Login/CallBackPage';
+import MainPage from './Main/MainPage';
+import PostPage from './Post/PostPage';
+import PostListPage from './PostList/PostListPage';
+import ProjectPage from './Project/ProjectPage';
+import ProjectListPage from './ProjectList/ProjectListPage';
+import TeamMemberPage from './Team/TeamMemberPage';
+import UserListPage from './UserList/UserListPage';
 
-// redux
-import { Provider } from 'react-redux';
-import store from './common/redux/configureStore';
-
-// theme
-import { ThemeProvider } from 'styled-components';
-import theme from './common/styles/theme';
-
-ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </Provider>,
-  document.getElementById('root'),
-);
+export {
+  EditorPage,
+  IntroPage,
+  CallBackPage,
+  MainPage,
+  PostPage,
+  PostListPage,
+  ProjectPage,
+  ProjectListPage,
+  TeamMemberPage,
+  UserListPage,
+};

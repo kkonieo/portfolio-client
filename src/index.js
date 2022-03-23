@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './shared/App';
-// import { ConnectedRouter } from 'connected-react-router';
+import App from './App';
 
 // redux
 import { Provider } from 'react-redux';
-import store from './redux/configureStore';
-// import { history } from './redux/configureStore';
+import store from './common/redux/configureStore';
 
 // theme
 import { ThemeProvider } from 'styled-components';
-import theme from './shared/theme';
+import theme from './common/styles/theme';
 
 ReactDOM.render(
   <Provider store={store}>
