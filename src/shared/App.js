@@ -14,6 +14,7 @@ import PostListPage from '../pages/PostListPage';
 import PostPage from '../pages/PostPage';
 import EditorPage from '../pages/EditorPage';
 import TeamMemberPage from '../pages/TeamMemberPage';
+import CallBackPage from '../pages/CallBackPage';
 
 // redux
 import { history } from '../redux/configureStore';

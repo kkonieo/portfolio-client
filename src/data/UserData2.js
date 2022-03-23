@@ -1,4 +1,4 @@
-export const UserData = [
+export const UserData2 = [
   {
     id: 0,
     position: 'front-end',
@@ -47,17 +47,17 @@ export const UserData = [
     name: 'BottleWater',
   },
 
-  // {
-  //   id: 8,
-  //   position: 'back-end',
-  //   name: 'BottleWater',
-  // },
+  {
+    id: 8,
+    position: 'back-end',
+    name: 'BottleWater',
+  },
 
-  // {
-  //   id: 9,
-  //   position: 'back-end',
-  //   name: 'BottleWater',
-  // },
+  {
+    id: 9,
+    position: 'back-end',
+    name: 'BottleWater',
+  },
 
   // {
   //   id: 10,
@@ -77,5 +77,3 @@ export const UserData = [
   //   name: 'BottleWater'
   // },
 ];
-
-export default UserData;

@@ -18,6 +18,12 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
 
+// components
+import LoginModal from '../components/LoginModal';
+
+// hook
+import useModal from '../utils/useModal';
+
 import Button from '@mui/material/Button';
 import SaveAsRoundedIcon from '@mui/icons-material/SaveAsRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
@@ -27,7 +33,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import WarningIcon from '@mui/icons-material/Warning';
+import Grid from '@mui/material/Grid';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const EditorPage = () => {
   const editorRef = useRef();
@@ -36,6 +43,9 @@ const EditorPage = () => {
   const [hashArr, setHashArr] = useState([]);
   const [data, setData] = useState('');
   const [dialog, setDialog] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const { showModal, openModal, closeModal } = useModal();
 
   useEffect(() => {
     if (editorRef.current) {
@@ -118,6 +128,15 @@ const EditorPage = () => {
     // 수정 기능을 대비해서 markdown 데이터도 저장 해야함 !
   };
 
+  const loginInputStyle = {
+    width: '100%',
+    display: 'inline',
+    height: '40px',
+    fontSize: '20px',
+    marginBottom: '10px',
+    paddingLeft: '10px',
+  };
+
   return (
     <div style={{ width: '100%', padding: '20px' }}>
       <input
@@ -144,12 +163,6 @@ const EditorPage = () => {
         <input
           className="HashInput"
           type="text"
-          style={{
-            border: 'none',
-            display: 'inline',
-            height: '40px',
-            fontSize: '25px',
-          }}
           placeholder="태그를 입력하세요. (입력 후 엔터 !)"
           name="tagInput"
           value={hashtag}
@@ -182,6 +195,16 @@ const EditorPage = () => {
         <ArrowBackRoundedIcon />
         &nbsp; <div>뒤로가기</div>
       </Button>
+
+      {`      `}
+      <Button onClick={openModal} variant="outlined" color="success">
+        LOGIN
+      </Button>
+
+      {showModal && (
+        <LoginModal show={showModal} open={openModal} close={closeModal} />
+      )}
+
       {`  `}
       <div style={{ display: 'inline', float: 'right' }}>
         <Button onClick={saveButton} variant="outlined" color="secondary">
@@ -242,16 +265,16 @@ const HashDivrap = styled.div`
 
   .HashWrapInner {
     margin-top: 5px;
-    background: #d1ddff;
+    background: #279eea;
     border-radius: 56px;
     padding: 8px 12px;
-    color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 1.1rem;
-    line-height: 10px;
+    line-height: 5px;
     margin-right: 5px;
     cursor: pointer;
   }
@@ -266,7 +289,23 @@ const HashDivrap = styled.div`
     margin-bottom: 0.75rem;
     min-width: 8rem;
     border: none;
+    height: 40px;
+    font-size: 25px;
   }
+`;
+const LoginDiv = styled.div`
+  width: 400px;
+  text-align: center;
+  align: center;
+`;
+
+const LoginInput = styled.input`
+  width: 100%;
+  display: inline;
+  height: 40px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-left: 10px;
 `;
 
 export default EditorPage;

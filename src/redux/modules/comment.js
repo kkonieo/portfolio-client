@@ -26,6 +26,29 @@ const initialState = {
   comment: [],
 };
 
+
+// 댓글 추가 API
+const addCommentAX = (comments, name, content, profile_image) => {
+  return function (dispatch, getState, { history }) {
+    api
+      .post(`/addcomment`, {
+        comments: comments,
+        name: name,
+        // content: content,
+        // profile_image: profile_image,
+      })
+      .then((response) => {
+        // dispatch(writeTextPage(response.data.comments));
+        dispatch(addComment(response.data.comments));
+        // window.location.reload();
+      })
+      .catch((error) => {
+        console.log('댓글 작성 실패', error);
+      });
+  };
+};
+
+
 const getCommentAX = () => {
   return function (dispatch, getState, { history }) {
     api

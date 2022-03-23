@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const SearchBox = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBox = ({ searchTerm, updateSearch }) => {
   const searchHandler = (event) => {
-    setSearchTerm(event.currentTarget.value);
+    updateSearch(event.currentTarget.value);
+    // props.refreshFunction(event.currentTarget.value);
   };
 
   return (
@@ -16,9 +16,9 @@ const SearchBox = () => {
         onChange={searchHandler}
         value={searchTerm}
       />
-      <SearchButton>
+      {/* <SearchButton>
         <p>검색</p>
-      </SearchButton>
+      </SearchButton> */}
       <DetailButton>
         <p>상세검색</p>
       </DetailButton>
@@ -28,16 +28,13 @@ const SearchBox = () => {
 
 const SearchForm = styled.div`
   margin-top: 80px;
-  right: 7%;
-  position: absolute;
   display: flex;
-
   input {
 
     position: relative;
     display: block;
 
-    width: 300px;
+    width: 200px;
     height: 30px;
     font-size; 25px;
     color: #ffffff;
