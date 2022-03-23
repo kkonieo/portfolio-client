@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
-const PlusButton = () => {
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(8);
+//state 헷갈려서 지금 잠시 멈춤
 
-  const loadMoreHandler = () => {};
+const PlusButton = ({ onClick }) => {
+  // const loadMoreHandler = () => {
+  //   // axios.get('api/user').then((res) => {
+  //   //   console.log();
+  //   // });
+  // };
 
   return (
-    <UserPlusButton onClick={loadMoreHandler}>
+    <UserPlusButton onClick={onClick}>
       <p>+</p>
     </UserPlusButton>
   );
