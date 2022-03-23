@@ -14,6 +14,7 @@ import PostListPage from '../pages/PostListPage';
 import PostPage from '../pages/PostPage';
 import EditorPage from '../pages/EditorPage';
 import TeamMemberPage from '../pages/TeamMemberPage';
+import CallBackPage from '../pages/CallBackPage';
 
 // redux
 import { history } from '../redux/configureStore';
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/post/:id" component={PostPage} />
             <Route exact path="/editor" component={EditorPage} />
             <Route exact path="/team" component={TeamMemberPage} />
+            <Route exact path="/callback" component={CallBackPage} />
           </Switch>
         </BrowserRouter>
       </ConnectedRouter>
