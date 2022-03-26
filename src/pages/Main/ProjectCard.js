@@ -120,8 +120,6 @@ const ContentTitle = styled.div`
   color: var(--main);
 
   font-size: 20px;
-  span {
-  }
 `;
 
 const ProjectCardWrapper = styled.div`
