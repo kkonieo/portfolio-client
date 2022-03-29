@@ -4,20 +4,25 @@ import styled from 'styled-components';
 // components & elements
 import { Header, PostTemplate, Post, Button } from '../../common/components';
 import { head_2 } from '../../common/styles/textStyle';
-import { post_list } from '../../common/data/PostData';
+// import { post_list } from '../../common/data/PostData';
 
 // redux
 import { history } from '../../common/redux/configureStore';
 import { useSelector, useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
 
-const PostListPage = () => {
+const PostListPage = (props) => {
   const dispatch = useDispatch();
   // const post_list = useSelector((state) => {
   //   console.log(state);
   //   return state.post.list;
   // });
   // const post_list = useSelector((state) => state.post.list);
+  // const isLogin = useSelector((state) => state.user.isLogin);
+  const post_list = useSelector((state) => {
+    console.log(state);
+    return state.post.list;
+  });
   // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {

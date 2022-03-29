@@ -30,9 +30,10 @@ const CommentWrite = (props) => {
   const write = (e) => {
     e.preventDefault();
     console.log('------------댓글 작성------------');
-    dispatch(commentActions.addCommentAX(comment_list));
+    // dispatch(commentActions.addCommentAX(comment_list));
+    dispatch(commentActions.addCommentAX(comments));
     setComments('');
-    dispatch(commentActions.getCommentAX());
+    dispatch(commentActions.getCommentAX(comment_list));
   };
   // console.log('check', comments);
 

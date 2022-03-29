@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // components & elements
@@ -8,12 +8,14 @@ import { post } from '../../common/data/PostData';
 import CommentWrite from './CommentWrite';
 
 // redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as commentActions } from '../../common/redux/modules/comment';
 import { history } from '../../common/redux/configureStore';
 
 const PostPage = () => {
   const dispatch = useDispatch();
+  const comment_list = useSelector((state) => state.comment.list);
+  const [comments, setComments] = useState('');
 
   useEffect((e) => {
     dispatch(commentActions.getCommentAX());
@@ -40,6 +42,7 @@ const PostPage = () => {
 
       <Grid M_width padding="0 0 2rem 0">
         <Title>Comments</Title>
+
         <CommentWrite />
       </Grid>
 

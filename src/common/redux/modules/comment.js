@@ -23,7 +23,7 @@ const addComment = createAction(ADD_COMMENT, (comment) => ({
 // initialState
 const initialState = {
   list: [],
-  comment: [],
+  // comment: [],
 };
 
 const getCommentAX = () => {
@@ -31,20 +31,20 @@ const getCommentAX = () => {
     api
       .get(`/comment`)
       .then((res) => {
-        let comment_list = [];
+        // let comment_list = [];
 
-        res.data.forEach((_comment) => {
-          let comment = {
-            // ...user_info,
-            comment_id: _comment.id,
-            name: _comment.name,
-            profile_image: _comment.profile_image,
-            content: _comment.content,
-          };
-          comment_list.push(comment);
-        });
+        // res.data.forEach((_comment) => {
+        //   let comment = {
+        //     // ...user_info,
+        //     comment_id: _comment.id,
+        //     name: _comment.name,
+        //     profile_image: _comment.profile_image,
+        //     content: _comment.content,
+        //   };
+        //   comment_list.push(comment);
+        // });
         console.log('2222');
-        dispatch(setComment(comment_list));
+        dispatch(setComment(res.data));
         // dispatch(setComment(comment_list.content));
       })
       .catch((e) => {
@@ -53,19 +53,21 @@ const getCommentAX = () => {
   };
 };
 
-const addCommentAX = (comments, name, content, profile_image) => {
+const addCommentAX = (comments, name, profile_image) => {
   return function (dispatch, getState, { history }) {
     api
       .post(`/comment`, {
         content: comments,
         name: name,
+        profile_image: profile_image,
+        // name: name,
         // content: content,
         // profile_image: profile_image,
       })
-      .then((response) => {
+      .then((res) => {
         console.log('댓글 작성 성공');
-        console.log(response.data);
-        dispatch(addComment(response.data.content));
+        console.log(res.data);
+        dispatch(addComment(res.data.content));
         // window.location.reload();
       })
       .catch((error) => {
