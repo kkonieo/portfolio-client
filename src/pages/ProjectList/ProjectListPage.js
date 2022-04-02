@@ -4,21 +4,21 @@ import styled from 'styled-components';
 // components & elements
 import { Button, Header, PostTemplate, Project } from '../../common/components';
 import { head_2 } from '../../common/styles/textStyle';
-import { project_list } from '../../common/data/ProjectData';
+// import { project_list } from '../../common/data/ProjectData';
 
 // redux
 import { history } from '../../common/redux/configureStore';
 import { useSelector, useDispatch } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/post';
+import { actionCreators as projectActions } from '../../common/redux/modules/project';
 
 const ProjectListPage = () => {
   const dispatch = useDispatch();
-  // const post_list = useSelector((state) => state.post.list);
+  const project_list = useSelector((state) => state.project.project_list);
   // const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
     if (project_list.length === 0) {
-      dispatch(postActions.getPostAX());
+      dispatch(projectActions.getProjectListAX());
     }
   }, []);
 
@@ -43,7 +43,7 @@ const ProjectListPage = () => {
         {/* ) : null} */}
       </BtnWrapper>
       {project_list.map((p, idx) => (
-        <Project key={p.id} {...p}>
+        <Project key={p.project_id} {...p}>
           {p.description}
         </Project>
       ))}

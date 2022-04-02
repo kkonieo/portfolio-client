@@ -8,8 +8,9 @@ import storage from 'redux-persist/lib/storage';
 
 // // reducer
 // import User from './modules/user';
-import Post from './modules/post';
+// import Post from './modules/post';
 import Comment from './modules/comment';
+import Project from './modules/project';
 
 // 브라우저 히스토리를 만듭니다.
 export const history = createBrowserHistory(); // connected-react-router에 필요
@@ -18,14 +19,15 @@ export const history = createBrowserHistory(); // connected-react-router에 필�
 const rootReducer = combineReducers({
   // user: User,
   comment: Comment,
-  post: Post,
+  // post: Post,
+  project: Project,
   router: connectRouter(history),
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['comment', 'post'],
+  whitelist: ['comment', 'project'],
 };
 
 const enhancedReducer = persistReducer(persistConfig, rootReducer);
