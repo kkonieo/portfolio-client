@@ -7,7 +7,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 // // reducer
-// import User from './modules/user';
+import User from './modules/user';
 // import Post from './modules/post';
 import Comment from './modules/comment';
 import Project from './modules/project';
@@ -17,7 +17,7 @@ export const history = createBrowserHistory(); // connected-react-router에 필�
 
 // 가져온 리듀서를 루트 리듀서로 묶어줍니다.
 const rootReducer = combineReducers({
-  // user: User,
+  user: User,
   comment: Comment,
   // post: Post,
   project: Project,
