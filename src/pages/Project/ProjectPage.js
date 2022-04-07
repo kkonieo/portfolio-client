@@ -18,11 +18,17 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { actionCreators as commentActions } from '../../common/redux/modules/comment';
 import { actionCreators as projectActions } from '../../common/redux/modules/project';
 import { history } from '../../common/redux/configureStore';
+// import ProjectContent from './ProjectContent';
 
 const ProjectPage = (props) => {
   const dispatch = useDispatch();
+  // const { id } = match.params; // URL 파라미터 조회하기
+
+  // const project_id = props.match.params.id;
+  // console.log('asdfasdf', project_id);
   // const project_list = useSelector((state) => state.project.project_list);
-  const project_page = useSelector((state) => state.project.project_page[0]);
+  const project_page = useSelector((state) => state.project?.project_page);
+  // console.log('project_page', projectPage);
 
   // const comment_list = useSelector((state) => state.comment.list);
   // const [comments, setComments] = useState('');
@@ -34,6 +40,7 @@ const ProjectPage = (props) => {
   useEffect(() => {
     if (project_page.length === 0) {
       dispatch(projectActions.getProjectPageAX());
+      return;
     }
   }, []);
 
@@ -43,25 +50,24 @@ const ProjectPage = (props) => {
   // }, []);
 
   // if (project_page.length === 0) {
+
   return (
     <PostTemplate>
       <Header page="headermenu" />
 
+      {/* <ProjectContent project_page={project_page} /> */}
       <Grid M_width padding="0 0 2rem 0">
         <Title>Project</Title>
         <Text>{project_page.title}</Text>
       </Grid>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>스킬</Title>
         <Text>{project_page.skills}</Text>
       </Grid>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>내용</Title>
         <Text>{project_page.description}</Text>
       </Grid>
-
       <ImageWrapper>
         <Image
           M_width
@@ -71,7 +77,6 @@ const ProjectPage = (props) => {
           cursor="pointer"
         />
       </ImageWrapper>
-
       <ImageWrapper>
         <Image
           M_width
@@ -81,22 +86,18 @@ const ProjectPage = (props) => {
           cursor="pointer"
         />
       </ImageWrapper>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>내가 맡은 역할</Title>
         <Text>{project_page.role}</Text>
       </Grid>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>배운 점</Title>
         <Text>{project_page.takeaway}</Text>
       </Grid>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>어려웠던 점 / 해결 방법</Title>
         <Text>{project_page.difficulty}</Text>
       </Grid>
-
       <Grid M_width padding="0 0 2rem 0">
         <Title>Comments</Title>
         {/* <CommentWrite /> */}

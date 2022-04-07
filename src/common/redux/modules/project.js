@@ -51,26 +51,31 @@ const initialState = {
 // };
 
 // middleware
-const getProjectListAX = () => {
+const getProjectListAX = (project_id) => {
   return function (dispatch, getState, { history }) {
     api
       .get(`/projects`)
+      // .get(`/projects${project_id}`)
       // .get(`${PostData}`)
       .then((res) => {
         const project_list = [];
         // console.log(res);
-        res.data.forEach((_project) => {
-          const project = {
-            // ...user_info,
-            project_id: _project.project_id,
-            title: _project.title,
-            description: _project.content,
-            thumbnail: _project.images,
-            started_at: _project.started_at,
-            ended_at: _project.ended_at,
-          };
-          project_list.push(project);
-        });
+        if (res.data.length !== 0) {
+          res.data.forEach((_project) => {
+            const project = {
+              // ...user_info,
+              project_id: _project.project_id,
+              title: _project.title,
+              description: _project.content,
+              thumbnail: _project.images,
+              started_at: _project.started_at,
+              ended_at: _project.ended_at,
+            };
+            project_list.push(project);
+          });
+        } else {
+          // response가 비어있을 때
+        }
         dispatch(setProjectList(project_list));
       })
       .catch((e) => {
@@ -87,37 +92,40 @@ const getProjectPageAX = () => {
       // .get(`/projects/${project_id}`)
       .then((res) => {
         const project_page = [];
-
-        res.data.forEach((_project) => {
-          const project = {
-            // post: _project.post,
-            // ...user_info,
-            // project_id: _project.post.project_id,
-            title: _project.post.title,
-            description: _project.post.content,
-            mainimage: _project.post.images,
-            livedemo: _project.post.gif,
-            started_at: _project.post.started_at,
-            ended_at: _project.post.ended_at,
-            skills: _project.post.skills,
-            role: _project.post.role,
-            takeaway: _project.post.takeaway,
-            difficulty: _project.post.difficulty,
-            // title: res.data.post.title,
-            // description: res.data.post.content,
-            // mainimage: res.data.post.images,
-            // livedemo: res.data.post.gif,
-            // started_at: res.data.post.started_at,
-            // ended_at: res.data.post.ended_at,
-            // skills: res.data.post.skills,
-            // role: res.data.post.role,
-            // takeaway: res.data.post.takeaway,
-            // difficulty: res.data.post.difficulty,
-          };
-          project_page.push(project);
-        });
-        // dispatch(setProjectPage(res.data.user_project)); 
-        dispatch(setProjectPage(project_page));
+        if (res.data.length !== 0) {
+          res.data.forEach((_project) => {
+            const project = {
+              // post: _project.post,
+              // ...user_info,
+              project_id: _project.post.project_id,
+              title: _project.post.title,
+              description: _project.post.content,
+              mainimage: _project.post.images,
+              livedemo: _project.post.gif,
+              started_at: _project.post.started_at,
+              ended_at: _project.post.ended_at,
+              skills: _project.post.skills,
+              role: _project.post.role,
+              takeaway: _project.post.takeaway,
+              difficulty: _project.post.difficulty,
+              // title: res.data.post.title,
+              // description: res.data.post.content,
+              // mainimage: res.data.post.images,
+              // livedemo: res.data.post.gif,
+              // started_at: res.data.post.started_at,
+              // ended_at: res.data.post.ended_at,
+              // skills: res.data.post.skills,
+              // role: res.data.post.role,
+              // takeaway: res.data.post.takeaway,
+              // difficulty: res.data.post.difficulty,
+            };
+            project_page.push(project);
+          });
+        } else {
+          // response가 비어있을 때
+        }
+        // dispatch(setProjectPage(res.data.user_project));
+        dispatch(setProjectPage(project_page[0]));
       })
       // .then((res) => {
       //   dispatch(setProjectPage(res.data));
