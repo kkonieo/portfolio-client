@@ -2,12 +2,27 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // components
-import { logo, menu_head_1 } from '../../common/styles/textStyle';
+import { logo, menu_head_1 } from '../styles/textStyle';
+import { Modal, Grid, Button } from './';
+import { KAKAO_AUTH_URL } from '../utils/OAuth';
 
 // redux
 import { history } from '../redux/configureStore';
+import { useSelector, useDispatch } from 'react-redux';
+import { actionCreators as userActions } from '../../common/redux/modules/user';
 
 const Header = (props) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.user);
+  const is_login = useSelector((state) => state.user.is_login);
+  
+  useEffect(() => {
+    if (!is_login) {
+      dispatch(userActions.loginCheck('/'));
+    }
+  }, [is_login]);
+
   return (
     <>
       <Container>
@@ -18,20 +33,65 @@ const Header = (props) => {
             </LogoBox>
           </LeftSide>
           <RightSide>
-            {props.page === 'headermenu' ? (
+          {props.page === 'headermenu' ? (
               <Nav>
                 <List>
                   <Item onClick={() => history.push('/projectlist')}>
                     Project
                   </Item>
                   <Item onClick={() => history.push('/main')}>MyPage</Item>
-                  <Item onClick={() => alert('로그인 준비 중')}>LogIn</Item>
+                  {!is_login && props ? (
+                    <>
+                      <Item
+                        onClick={() => {
+                          setModalOpen(true);
+                        }}
+                      >
+                        Log In
+                      </Item>
+                    </>
+                  ) : (
+                    <>
+                      <Item
+                        onClick={() => {
+                          dispatch(userActions.logOut());
+                        }}
+                      >
+                        {userInfo?.username}님
+                      </Item>
+                    </>
+                  )}
                 </List>
               </Nav>
             ) : null}
           </RightSide>
         </InsideBox>
       </Container>
+      {modalOpen && (
+        <Modal width="31rem" height="31rem" setOpenModal={setModalOpen}>
+          <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
+            JS ON으로 <br />
+            포트폴리오 준비 끝
+          </Grid>
+
+          <Wrapper>
+            <Button
+              width="25rem"
+              padding="0.5rem"
+              bg="#FEE500"
+              color="var(--white)"
+              radius="5px"
+              cursor
+              onClick={() => {
+                window.location.href = KAKAO_AUTH_URL;
+                // dispatch(userActions.loginCheck());
+              }}
+            >
+              <h1>카카오톡으로 시작하기</h1>
+            </Button>
+          </Wrapper>
+        </Modal>
+      )}
     </>
   );
 };
@@ -95,11 +155,19 @@ const Item = styled.li`
   list-style: none;
   color: var(--main);
   margin: 0.3rem 2rem;
+  white-space: nowrap;
   :hover {
     color: var(--lightgray);
   }
   /* padding: 0.3rem 2rem; */
   /* border:1px solid green; */
+`;
+
+const Wrapper = styled.div`
+  ${({ theme }) => theme.device.mobile} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default Header;
