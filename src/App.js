@@ -14,8 +14,8 @@ import {
   UserListPage,
   TeamMemberPage,
   CallBackPage,
-  PostListPage,
-  PostPage,
+  // PostListPage,
+  // PostPage,
 } from './pages';
 
 // redux
@@ -38,8 +38,8 @@ function App() {
           <Route exact path="/userlist" component={UserListPage} />
           <Route exact path="/team" component={TeamMemberPage} />
           <Route exact path="/callback" component={CallBackPage} />
-          <Route exact path="/postlist" component={PostListPage} />
-          <Route exact path="/post/:id" component={PostPage} />
+          {/* <Route exact path="/postlist" component={PostListPage} />
+          <Route exact path="/post/:id" component={PostPage} /> */}
         </Switch>
       </ConnectedRouter>
     </React.Fragment>

@@ -27,7 +27,7 @@ const Project = (props) => {
     setIsShowReadMore(true);
   };
   return (
-    <ProjectBox onClick={() => history.push(`/project/${props.id}`)}>
+    <ProjectBox onClick={() => history.push(`/project/${props.project_id}`)}>
       <ImageWrapper>
         <Image
           M_width
@@ -49,7 +49,7 @@ const Project = (props) => {
           </ButtonWrapper>
         </ProjectWrapper>
         <Date style={{ color: 'var(--gray)', fontFamily: 'normal' }}>
-          {props.startDate}&nbsp;-&nbsp;{props.endDate}
+          {props.started_at}&nbsp;-&nbsp;{props.ended_at}
         </Date>
       </TextWrapper>
     </ProjectBox>

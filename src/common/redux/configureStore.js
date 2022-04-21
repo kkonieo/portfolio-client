@@ -3,21 +3,34 @@ import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { connectRouter } from 'connected-react-router';
 
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 // // reducer
-// import User from './modules/user';
-import Post from './modules/post';
+import User from './modules/user';
+// import Post from './modules/post';
 import Comment from './modules/comment';
+import Project from './modules/project';
 
 // 브라우저 히스토리를 만듭니다.
 export const history = createBrowserHistory(); // connected-react-router에 필요
 
 // 가져온 리듀서를 루트 리듀서로 묶어줍니다.
 const rootReducer = combineReducers({
-  // user: User,
+  user: User,
   comment: Comment,
-  post: Post,
+  // post: Post,
+  project: Project,
   router: connectRouter(history),
 });
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['comment', 'project'],
+};
+
+const enhancedReducer = persistReducer(persistConfig, rootReducer);
 
 // 사용할 미들웨어를 여기에 넣어줍니다.
 // thunk에는 history를 넣어줄거예요. (중간 다리 역할을 하는 미들웨어에서도 페이지 이동을 할 수 있게 하려고!)
@@ -41,6 +54,6 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-let store = (initialStore) => createStore(rootReducer, enhancer);
+let store = (initialStore) => createStore(enhancedReducer, enhancer);
 
 export default store();
